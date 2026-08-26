@@ -1,0 +1,21 @@
+{
+  "pr_auc": 0.999962,
+  "roc_auc": 0.999999,
+  "precision_at_100": 1.0,
+  "recall_at_100": 0.357143,
+  "precision_at_threshold": 0.982456,
+  "recall_at_threshold": 1.0,
+  "f1_at_threshold": 0.99115,
+  "brier_score": 0.00027,
+  "false_positives_per_1000": 0.420875,
+  "confusion_matrix": [
+    [
+      11595,
+      5
+    ],
+    [
+      0,
+      280
+    ]
+  ]
+}

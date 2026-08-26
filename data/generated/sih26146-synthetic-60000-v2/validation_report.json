@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "event_count": 60000,
+  "anomaly_count": 2000,
+  "benign_count": 58000,
+  "seed": 2026,
+  "events_sha256": "0ada9cf18cc56cf16ebea0d88038b40c5ef2fef998d16b03a2c4ee0ecccb4963",
+  "labels_sha256": "5e78160f6ad0f532155e630bff30d72039f6a836e470bab9fc7aff2a181a7fbc",
+  "scenario_counts": {
+    "FAN_IN": 250,
+    "FAN_OUT": 250,
+    "IP_ROTATION": 250,
+    "MIXER_LIKE_CLUSTER": 250,
+    "PEEL_CHAIN": 250,
+    "PORT_SHIFT": 250,
+    "RAPID_HOP": 250,
+    "STRUCTURING": 250
+  }
+}

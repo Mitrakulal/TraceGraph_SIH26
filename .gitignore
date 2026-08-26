@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+artifacts/runs/*
+!artifacts/runs/.gitkeep
+!artifacts/runs/sih26146-cpu-demo-2026-v1/
+!artifacts/runs/sih26146-cpu-demo-2026-v1/**
+data/generated/*
+!data/generated/.gitkeep
+!data/generated/sih26146-synthetic-60000-v2/
+!data/generated/sih26146-synthetic-60000-v2/**

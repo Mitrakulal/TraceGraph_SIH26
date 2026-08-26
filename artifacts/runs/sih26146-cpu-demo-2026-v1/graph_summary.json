@@ -1,0 +1,35 @@
+{
+  "node_count": 11999,
+  "edge_count": 58989,
+  "strongly_connected_components": 180,
+  "feature_columns": [
+    "amount_log",
+    "fee_rate",
+    "latency_log",
+    "peer_count_hint",
+    "src_port_norm",
+    "inter_event_seconds",
+    "recent_count_10m",
+    "wallet_out_count",
+    "wallet_unique_destinations",
+    "wallet_unique_ips",
+    "ip_rotation_rate",
+    "fan_out_ratio",
+    "target_unique_senders",
+    "source_out_degree",
+    "target_in_degree",
+    "degree_ratio",
+    "graph_reach_proxy",
+    "script_type_code"
+  ],
+  "split_counts": {
+    "train": 36200,
+    "validation": 11920,
+    "test": 11880
+  },
+  "split_label_counts": {
+    "test": 280,
+    "train": 1400,
+    "validation": 320
+  }
+}

@@ -1,0 +1,4935 @@
+[
+  {
+    "alert_id": "alt_00001_syn_evt_00000000e966_000000001c33e224",
+    "queue_rank": 1,
+    "event_id": "syn_evt_00000000e966_000000001c33e224",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:15:52.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.935726,
+    "graph_risk_score": 0.380711,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00002_syn_evt_00000000e95e_000000001c32eaac",
+    "queue_rank": 2,
+    "event_id": "syn_evt_00000000e95e_000000001c32eaac",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:12:08.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.966923,
+    "graph_risk_score": 0.340102,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00003_syn_evt_00000000e962_000000001c336668",
+    "queue_rank": 3,
+    "event_id": "syn_evt_00000000e962_000000001c336668",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:14:00.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.950744,
+    "graph_risk_score": 0.350254,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00004_syn_evt_00000000e963_000000001c338557",
+    "queue_rank": 4,
+    "event_id": "syn_evt_00000000e963_000000001c338557",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:14:28.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999982,
+    "novelty_score": 0.964785,
+    "graph_risk_score": 0.385787,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00005_syn_evt_00000000e965_000000001c33c335",
+    "queue_rank": 5,
+    "event_id": "syn_evt_00000000e965_000000001c33c335",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:15:24.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.99998,
+    "novelty_score": 0.922889,
+    "graph_risk_score": 0.375635,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00006_syn_evt_00000000e960_000000001c33288a",
+    "queue_rank": 6,
+    "event_id": "syn_evt_00000000e960_000000001c33288a",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:13:04.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999977,
+    "novelty_score": 0.953156,
+    "graph_risk_score": 0.340102,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00007_syn_evt_00000000e678_000000001bd941f2",
+    "queue_rank": 7,
+    "event_id": "syn_evt_00000000e678_000000001bd941f2",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:06:48.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999971,
+    "novelty_score": 0.919321,
+    "graph_risk_score": 0.380711,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00008_syn_evt_00000000e676_000000001bd90414",
+    "queue_rank": 8,
+    "event_id": "syn_evt_00000000e676_000000001bd90414",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:06:24.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999971,
+    "novelty_score": 0.927669,
+    "graph_risk_score": 0.360406,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00009_syn_evt_00000000e864_000000001c14b546",
+    "queue_rank": 9,
+    "event_id": "syn_evt_00000000e864_000000001c14b546",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:16:28.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999967,
+    "novelty_score": 0.99064,
+    "graph_risk_score": 0.35533,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00010_syn_evt_00000000e86a_000000001c156ee0",
+    "queue_rank": 10,
+    "event_id": "syn_evt_00000000e86a_000000001c156ee0",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:20:16.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999965,
+    "novelty_score": 0.953409,
+    "graph_risk_score": 0.395939,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00011_syn_evt_00000000e866_000000001c14f324",
+    "queue_rank": 11,
+    "event_id": "syn_evt_00000000e866_000000001c14f324",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:17:44.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.94353,
+    "graph_risk_score": 0.360406,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00012_syn_evt_00000000e86c_000000001c15acbe",
+    "queue_rank": 12,
+    "event_id": "syn_evt_00000000e86c_000000001c15acbe",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:21:32.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999958,
+    "novelty_score": 0.940598,
+    "graph_risk_score": 0.401015,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00013_syn_evt_00000000e865_000000001c14d435",
+    "queue_rank": 13,
+    "event_id": "syn_evt_00000000e865_000000001c14d435",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:17:06.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999956,
+    "novelty_score": 0.976147,
+    "graph_risk_score": 0.350254,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00014_syn_evt_00000000e863_000000001c149657",
+    "queue_rank": 14,
+    "event_id": "syn_evt_00000000e863_000000001c149657",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:15:50.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999956,
+    "novelty_score": 0.960088,
+    "graph_risk_score": 0.314721,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00015_syn_evt_00000000e86b_000000001c158dcf",
+    "queue_rank": 15,
+    "event_id": "syn_evt_00000000e86b_000000001c158dcf",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:20:54.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999944,
+    "novelty_score": 0.949234,
+    "graph_risk_score": 0.401015,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00016_syn_evt_00000000e867_000000001c151213",
+    "queue_rank": 16,
+    "event_id": "syn_evt_00000000e867_000000001c151213",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:18:22.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999932,
+    "novelty_score": 0.971298,
+    "graph_risk_score": 0.375635,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00017_syn_evt_00000000e869_000000001c154ff1",
+    "queue_rank": 17,
+    "event_id": "syn_evt_00000000e869_000000001c154ff1",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:19:38.000Z",
+    "risk_score": 93,
+    "ml_probability": 0.999895,
+    "novelty_score": 0.94576,
+    "graph_risk_score": 0.380711,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00018_syn_evt_00000000e95d_000000001c32cbbd",
+    "queue_rank": 18,
+    "event_id": "syn_evt_00000000e95d_000000001c32cbbd",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:11:40.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.931683,
+    "graph_risk_score": 0.294416,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00019_syn_evt_00000000e961_000000001c334779",
+    "queue_rank": 19,
+    "event_id": "syn_evt_00000000e961_000000001c334779",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:13:32.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.944017,
+    "graph_risk_score": 0.329949,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00020_syn_evt_00000000e959_000000001c325001",
+    "queue_rank": 20,
+    "event_id": "syn_evt_00000000e959_000000001c325001",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:09:48.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.935527,
+    "graph_risk_score": 0.258883,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00021_syn_evt_00000000e387_000000001b7e44f3",
+    "queue_rank": 21,
+    "event_id": "syn_evt_00000000e387_000000001b7e44f3",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:37:12.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.927256,
+    "graph_risk_score": 0.263959,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00022_syn_evt_00000000e95a_000000001c326ef0",
+    "queue_rank": 22,
+    "event_id": "syn_evt_00000000e95a_000000001c326ef0",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:10:16.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.965862,
+    "graph_risk_score": 0.279188,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00023_syn_evt_00000000e95c_000000001c32acce",
+    "queue_rank": 23,
+    "event_id": "syn_evt_00000000e95c_000000001c32acce",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:11:12.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.937042,
+    "graph_risk_score": 0.269036,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00024_syn_evt_00000000e675_000000001bd8e525",
+    "queue_rank": 24,
+    "event_id": "syn_evt_00000000e675_000000001bd8e525",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:06:12.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999986,
+    "novelty_score": 0.886707,
+    "graph_risk_score": 0.345178,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00025_syn_evt_00000000e673_000000001bd8a747",
+    "queue_rank": 25,
+    "event_id": "syn_evt_00000000e673_000000001bd8a747",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:05:48.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999986,
+    "novelty_score": 0.910484,
+    "graph_risk_score": 0.319797,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00026_syn_evt_00000000e674_000000001bd8c636",
+    "queue_rank": 26,
+    "event_id": "syn_evt_00000000e674_000000001bd8c636",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:06:00.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999986,
+    "novelty_score": 0.901335,
+    "graph_risk_score": 0.329949,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00027_syn_evt_00000000e38a_000000001b7ea1c0",
+    "queue_rank": 27,
+    "event_id": "syn_evt_00000000e38a_000000001b7ea1c0",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:40:48.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.946412,
+    "graph_risk_score": 0.279188,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00028_syn_evt_00000000e671_000000001bd86969",
+    "queue_rank": 28,
+    "event_id": "syn_evt_00000000e671_000000001bd86969",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:05:24.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.902832,
+    "graph_risk_score": 0.299492,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00029_syn_evt_00000000e388_000000001b7e63e2",
+    "queue_rank": 29,
+    "event_id": "syn_evt_00000000e388_000000001b7e63e2",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:38:24.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.936893,
+    "graph_risk_score": 0.274112,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00030_syn_evt_00000000e386_000000001b7e2604",
+    "queue_rank": 30,
+    "event_id": "syn_evt_00000000e386_000000001b7e2604",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:36:00.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.937605,
+    "graph_risk_score": 0.253807,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00031_syn_evt_00000000e677_000000001bd92303",
+    "queue_rank": 31,
+    "event_id": "syn_evt_00000000e677_000000001bd92303",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:06:36.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999982,
+    "novelty_score": 0.891612,
+    "graph_risk_score": 0.360406,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00032_syn_evt_00000000e95b_000000001c328ddf",
+    "queue_rank": 32,
+    "event_id": "syn_evt_00000000e95b_000000001c328ddf",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:10:44.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999979,
+    "novelty_score": 0.926897,
+    "graph_risk_score": 0.269036,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00033_syn_evt_00000000e956_000000001c31f334",
+    "queue_rank": 33,
+    "event_id": "syn_evt_00000000e956_000000001c31f334",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:08:24.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999978,
+    "novelty_score": 0.945022,
+    "graph_risk_score": 0.238579,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00034_syn_evt_00000000e389_000000001b7e82d1",
+    "queue_rank": 34,
+    "event_id": "syn_evt_00000000e389_000000001b7e82d1",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:39:36.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999976,
+    "novelty_score": 0.935236,
+    "graph_risk_score": 0.269036,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00035_syn_evt_00000000e383_000000001b7dc937",
+    "queue_rank": 35,
+    "event_id": "syn_evt_00000000e383_000000001b7dc937",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:32:24.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999974,
+    "novelty_score": 0.938709,
+    "graph_risk_score": 0.253807,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00036_syn_evt_00000000e964_000000001c33a446",
+    "queue_rank": 36,
+    "event_id": "syn_evt_00000000e964_000000001c33a446",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:14:56.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999971,
+    "novelty_score": 0.913616,
+    "graph_risk_score": 0.360406,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00037_syn_evt_00000000e95f_000000001c33099b",
+    "queue_rank": 37,
+    "event_id": "syn_evt_00000000e95f_000000001c33099b",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:12:36.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.99997,
+    "novelty_score": 0.935946,
+    "graph_risk_score": 0.319797,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00038_syn_evt_00000000e85b_000000001c139edf",
+    "queue_rank": 38,
+    "event_id": "syn_evt_00000000e85b_000000001c139edf",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:10:46.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999964,
+    "novelty_score": 0.941946,
+    "graph_risk_score": 0.238579,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00039_syn_evt_00000000e85f_000000001c141a9b",
+    "queue_rank": 39,
+    "event_id": "syn_evt_00000000e85f_000000001c141a9b",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:13:18.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.952254,
+    "graph_risk_score": 0.284264,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00040_syn_evt_00000000e85e_000000001c13fbac",
+    "queue_rank": 40,
+    "event_id": "syn_evt_00000000e85e_000000001c13fbac",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:12:40.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.944715,
+    "graph_risk_score": 0.269036,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00041_syn_evt_00000000e862_000000001c147768",
+    "queue_rank": 41,
+    "event_id": "syn_evt_00000000e862_000000001c147768",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:15:12.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999941,
+    "novelty_score": 0.940954,
+    "graph_risk_score": 0.304569,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00042_syn_evt_00000000e858_000000001c134212",
+    "queue_rank": 42,
+    "event_id": "syn_evt_00000000e858_000000001c134212",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:08:52.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.99992,
+    "novelty_score": 0.973325,
+    "graph_risk_score": 0.228426,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00043_syn_evt_00000000e859_000000001c136101",
+    "queue_rank": 43,
+    "event_id": "syn_evt_00000000e859_000000001c136101",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:09:30.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999882,
+    "novelty_score": 0.964529,
+    "graph_risk_score": 0.228426,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00044_syn_evt_00000000e860_000000001c14398a",
+    "queue_rank": 44,
+    "event_id": "syn_evt_00000000e860_000000001c14398a",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:13:56.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.99988,
+    "novelty_score": 0.929758,
+    "graph_risk_score": 0.28934,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00045_syn_evt_00000000e868_000000001c153102",
+    "queue_rank": 45,
+    "event_id": "syn_evt_00000000e868_000000001c153102",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:19:00.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999872,
+    "novelty_score": 0.926105,
+    "graph_risk_score": 0.360406,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00046_syn_evt_00000000e861_000000001c145879",
+    "queue_rank": 46,
+    "event_id": "syn_evt_00000000e861_000000001c145879",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:14:34.000Z",
+    "risk_score": 92,
+    "ml_probability": 0.999853,
+    "novelty_score": 0.935857,
+    "graph_risk_score": 0.294416,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00047_syn_evt_00000000e94a_000000001c308000",
+    "queue_rank": 47,
+    "event_id": "syn_evt_00000000e94a_000000001c308000",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:02:48.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999993,
+    "novelty_score": 0.9581,
+    "graph_risk_score": 0.116751,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00048_syn_evt_00000000e952_000000001c317778",
+    "queue_rank": 48,
+    "event_id": "syn_evt_00000000e952_000000001c317778",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:06:32.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999991,
+    "novelty_score": 0.917655,
+    "graph_risk_score": 0.177665,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00049_syn_evt_00000000e955_000000001c31d445",
+    "queue_rank": 49,
+    "event_id": "syn_evt_00000000e955_000000001c31d445",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:07:56.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.925842,
+    "graph_risk_score": 0.208122,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00050_syn_evt_00000000e953_000000001c319667",
+    "queue_rank": 50,
+    "event_id": "syn_evt_00000000e953_000000001c319667",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:07:00.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.908542,
+    "graph_risk_score": 0.192893,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00051_syn_evt_00000000e661_000000001bd67a79",
+    "queue_rank": 51,
+    "event_id": "syn_evt_00000000e661_000000001bd67a79",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:02:12.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.932047,
+    "graph_risk_score": 0.162437,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00052_syn_evt_00000000e94e_000000001c30fbbc",
+    "queue_rank": 52,
+    "event_id": "syn_evt_00000000e94e_000000001c30fbbc",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:04:40.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.970977,
+    "graph_risk_score": 0.15736,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00053_syn_evt_00000000e665_000000001bd6f635",
+    "queue_rank": 53,
+    "event_id": "syn_evt_00000000e665_000000001bd6f635",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:03:00.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.911466,
+    "graph_risk_score": 0.19797,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00054_syn_evt_00000000e381_000000001b7d8b59",
+    "queue_rank": 54,
+    "event_id": "syn_evt_00000000e381_000000001b7d8b59",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:30:00.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.901961,
+    "graph_risk_score": 0.208122,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00055_syn_evt_00000000e37d_000000001b7d0f9d",
+    "queue_rank": 55,
+    "event_id": "syn_evt_00000000e37d_000000001b7d0f9d",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:25:12.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.910117,
+    "graph_risk_score": 0.208122,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00056_syn_evt_00000000e66a_000000001bd790e0",
+    "queue_rank": 56,
+    "event_id": "syn_evt_00000000e66a_000000001bd790e0",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:04:00.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.929572,
+    "graph_risk_score": 0.253807,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00057_syn_evt_00000000e380_000000001b7d6c6a",
+    "queue_rank": 57,
+    "event_id": "syn_evt_00000000e380_000000001b7d6c6a",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:28:48.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.909034,
+    "graph_risk_score": 0.22335,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00058_syn_evt_00000000e66e_000000001bd80c9c",
+    "queue_rank": 58,
+    "event_id": "syn_evt_00000000e66e_000000001bd80c9c",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:04:48.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999985,
+    "novelty_score": 0.880182,
+    "graph_risk_score": 0.274112,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00059_syn_evt_00000000e37e_000000001b7d2e8c",
+    "queue_rank": 59,
+    "event_id": "syn_evt_00000000e37e_000000001b7d2e8c",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:26:24.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999985,
+    "novelty_score": 0.932345,
+    "graph_risk_score": 0.218274,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00060_syn_evt_00000000e37f_000000001b7d4d7b",
+    "queue_rank": 60,
+    "event_id": "syn_evt_00000000e37f_000000001b7d4d7b",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:27:36.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999985,
+    "novelty_score": 0.915278,
+    "graph_risk_score": 0.213198,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00061_syn_evt_00000000e66d_000000001bd7edad",
+    "queue_rank": 61,
+    "event_id": "syn_evt_00000000e66d_000000001bd7edad",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:04:36.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999985,
+    "novelty_score": 0.890282,
+    "graph_risk_score": 0.269036,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00062_syn_evt_00000000e66c_000000001bd7cebe",
+    "queue_rank": 62,
+    "event_id": "syn_evt_00000000e66c_000000001bd7cebe",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:04:24.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999985,
+    "novelty_score": 0.910206,
+    "graph_risk_score": 0.263959,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00063_syn_evt_00000000e384_000000001b7de826",
+    "queue_rank": 63,
+    "event_id": "syn_evt_00000000e384_000000001b7de826",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:33:36.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.924009,
+    "graph_risk_score": 0.243655,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00064_syn_evt_00000000e382_000000001b7daa48",
+    "queue_rank": 64,
+    "event_id": "syn_evt_00000000e382_000000001b7daa48",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:31:12.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.910313,
+    "graph_risk_score": 0.228426,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00065_syn_evt_00000000e666_000000001bd71524",
+    "queue_rank": 65,
+    "event_id": "syn_evt_00000000e666_000000001bd71524",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:03:12.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.906976,
+    "graph_risk_score": 0.203046,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00066_syn_evt_00000000e954_000000001c31b556",
+    "queue_rank": 66,
+    "event_id": "syn_evt_00000000e954_000000001c31b556",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:07:28.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.915002,
+    "graph_risk_score": 0.208122,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00067_syn_evt_00000000e66b_000000001bd7afcf",
+    "queue_rank": 67,
+    "event_id": "syn_evt_00000000e66b_000000001bd7afcf",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:04:12.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.881747,
+    "graph_risk_score": 0.238579,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00068_syn_evt_00000000e958_000000001c323112",
+    "queue_rank": 68,
+    "event_id": "syn_evt_00000000e958_000000001c323112",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:09:20.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.922563,
+    "graph_risk_score": 0.233503,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00069_syn_evt_00000000e669_000000001bd771f1",
+    "queue_rank": 69,
+    "event_id": "syn_evt_00000000e669_000000001bd771f1",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:03:48.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.881171,
+    "graph_risk_score": 0.228426,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00070_syn_evt_00000000e672_000000001bd88858",
+    "queue_rank": 70,
+    "event_id": "syn_evt_00000000e672_000000001bd88858",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:05:36.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999982,
+    "novelty_score": 0.880617,
+    "graph_risk_score": 0.309645,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00071_syn_evt_00000000e670_000000001bd84a7a",
+    "queue_rank": 71,
+    "event_id": "syn_evt_00000000e670_000000001bd84a7a",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:05:12.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999981,
+    "novelty_score": 0.883614,
+    "graph_risk_score": 0.294416,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00072_syn_evt_00000000e957_000000001c321223",
+    "queue_rank": 72,
+    "event_id": "syn_evt_00000000e957_000000001c321223",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:08:52.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999978,
+    "novelty_score": 0.902557,
+    "graph_risk_score": 0.22335,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00073_syn_evt_00000000e379_000000001b7c93e1",
+    "queue_rank": 73,
+    "event_id": "syn_evt_00000000e379_000000001b7c93e1",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:20:24.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999977,
+    "novelty_score": 0.92977,
+    "graph_risk_score": 0.19797,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00074_syn_evt_00000000e57b_000000001bbaafbf",
+    "queue_rank": 74,
+    "event_id": "syn_evt_00000000e57b_000000001bbaafbf",
+    "entity_id": "syn_w_0000000000000962",
+    "observed_at": "2026-07-26T00:08:47.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999977,
+    "novelty_score": 0.971719,
+    "graph_risk_score": 0.106599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00075_syn_evt_00000000e57e_000000001bbb0c8c",
+    "queue_rank": 75,
+    "event_id": "syn_evt_00000000e57e_000000001bbb0c8c",
+    "entity_id": "syn_w_0000000000000965",
+    "observed_at": "2026-07-26T00:09:38.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999974,
+    "novelty_score": 0.973448,
+    "graph_risk_score": 0.106599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00076_syn_evt_00000000e66f_000000001bd82b8b",
+    "queue_rank": 76,
+    "event_id": "syn_evt_00000000e66f_000000001bd82b8b",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:05:00.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999972,
+    "novelty_score": 0.881276,
+    "graph_risk_score": 0.284264,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00077_syn_evt_00000000e57c_000000001bbaceae",
+    "queue_rank": 77,
+    "event_id": "syn_evt_00000000e57c_000000001bbaceae",
+    "entity_id": "syn_w_0000000000000963",
+    "observed_at": "2026-07-26T00:09:04.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999967,
+    "novelty_score": 0.987274,
+    "graph_risk_score": 0.111675,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00078_syn_evt_00000000e855_000000001c12e545",
+    "queue_rank": 78,
+    "event_id": "syn_evt_00000000e855_000000001c12e545",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:06:58.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999966,
+    "novelty_score": 0.945332,
+    "graph_risk_score": 0.192893,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00079_syn_evt_00000000e85a_000000001c137ff0",
+    "queue_rank": 79,
+    "event_id": "syn_evt_00000000e85a_000000001c137ff0",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:10:08.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999954,
+    "novelty_score": 0.941365,
+    "graph_risk_score": 0.218274,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00080_syn_evt_00000000e56d_000000001bb8fead",
+    "queue_rank": 80,
+    "event_id": "syn_evt_00000000e56d_000000001bb8fead",
+    "entity_id": "syn_w_0000000000000968",
+    "observed_at": "2026-07-26T00:04:49.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999953,
+    "novelty_score": 0.969243,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00081_syn_evt_00000000e476_000000001b9b2614",
+    "queue_rank": 81,
+    "event_id": "syn_evt_00000000e476_000000001b9b2614",
+    "entity_id": "syn_w_00000000000005e5",
+    "observed_at": "2026-07-26T00:28:20.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.99995,
+    "novelty_score": 0.978054,
+    "graph_risk_score": 0.126904,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00082_syn_evt_00000000e852_000000001c128878",
+    "queue_rank": 82,
+    "event_id": "syn_evt_00000000e852_000000001c128878",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:05:04.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999945,
+    "novelty_score": 0.956957,
+    "graph_risk_score": 0.162437,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00083_syn_evt_00000000e577_000000001bba3403",
+    "queue_rank": 83,
+    "event_id": "syn_evt_00000000e577_000000001bba3403",
+    "entity_id": "syn_w_0000000000000968",
+    "observed_at": "2026-07-26T00:07:39.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999943,
+    "novelty_score": 0.979104,
+    "graph_risk_score": 0.111675,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00084_syn_evt_00000000e857_000000001c132323",
+    "queue_rank": 84,
+    "event_id": "syn_evt_00000000e857_000000001c132323",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:08:14.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.99994,
+    "novelty_score": 0.912719,
+    "graph_risk_score": 0.203046,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00085_syn_evt_00000000e85d_000000001c13dcbd",
+    "queue_rank": 85,
+    "event_id": "syn_evt_00000000e85d_000000001c13dcbd",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:12:02.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999936,
+    "novelty_score": 0.921928,
+    "graph_risk_score": 0.258883,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00086_syn_evt_00000000e853_000000001c12a767",
+    "queue_rank": 86,
+    "event_id": "syn_evt_00000000e853_000000001c12a767",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:05:42.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999929,
+    "novelty_score": 0.941382,
+    "graph_risk_score": 0.152284,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00087_syn_evt_00000000e85c_000000001c13bdce",
+    "queue_rank": 87,
+    "event_id": "syn_evt_00000000e85c_000000001c13bdce",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:11:24.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999926,
+    "novelty_score": 0.924044,
+    "graph_risk_score": 0.253807,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00088_syn_evt_00000000e482_000000001b9c9948",
+    "queue_rank": 88,
+    "event_id": "syn_evt_00000000e482_000000001b9c9948",
+    "entity_id": "syn_w_00000000000005e5",
+    "observed_at": "2026-07-26T00:45:20.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999898,
+    "novelty_score": 0.943412,
+    "graph_risk_score": 0.137056,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00089_syn_evt_00000000e770_000000001bf7397a",
+    "queue_rank": 89,
+    "event_id": "syn_evt_00000000e770_000000001bf7397a",
+    "entity_id": "syn_w_00000000000010ba",
+    "observed_at": "2026-07-26T00:07:28.000Z",
+    "risk_score": 91,
+    "ml_probability": 0.999803,
+    "novelty_score": 0.920747,
+    "graph_risk_score": 0.238579,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00090_syn_evt_00000000e377_000000001b7c5603",
+    "queue_rank": 90,
+    "event_id": "syn_evt_00000000e377_000000001b7c5603",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:18:00.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999991,
+    "novelty_score": 0.875928,
+    "graph_risk_score": 0.152284,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00091_syn_evt_00000000e36f_000000001b7b5e8b",
+    "queue_rank": 91,
+    "event_id": "syn_evt_00000000e36f_000000001b7b5e8b",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:08:24.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.918007,
+    "graph_risk_score": 0.126904,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00092_syn_evt_00000000e371_000000001b7b9c69",
+    "queue_rank": 92,
+    "event_id": "syn_evt_00000000e371_000000001b7b9c69",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:10:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.895585,
+    "graph_risk_score": 0.111675,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00093_syn_evt_00000000e375_000000001b7c1825",
+    "queue_rank": 93,
+    "event_id": "syn_evt_00000000e375_000000001b7c1825",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:15:36.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.99999,
+    "novelty_score": 0.87409,
+    "graph_risk_score": 0.15736,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00094_syn_evt_00000000e951_000000001c315889",
+    "queue_rank": 94,
+    "event_id": "syn_evt_00000000e951_000000001c315889",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:06:04.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.896891,
+    "graph_risk_score": 0.167513,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00095_syn_evt_00000000e663_000000001bd6b857",
+    "queue_rank": 95,
+    "event_id": "syn_evt_00000000e663_000000001bd6b857",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:02:36.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.882061,
+    "graph_risk_score": 0.147208,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00096_syn_evt_00000000e94c_000000001c30bdde",
+    "queue_rank": 96,
+    "event_id": "syn_evt_00000000e94c_000000001c30bdde",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:03:44.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.900809,
+    "graph_risk_score": 0.121827,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00097_syn_evt_00000000e376_000000001b7c3714",
+    "queue_rank": 97,
+    "event_id": "syn_evt_00000000e376_000000001b7c3714",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:16:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.894251,
+    "graph_risk_score": 0.167513,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00098_syn_evt_00000000e660_000000001bd65b8a",
+    "queue_rank": 98,
+    "event_id": "syn_evt_00000000e660_000000001bd65b8a",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:02:00.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.924434,
+    "graph_risk_score": 0.15736,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00099_syn_evt_00000000e374_000000001b7bf936",
+    "queue_rank": 99,
+    "event_id": "syn_evt_00000000e374_000000001b7bf936",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:14:24.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.910836,
+    "graph_risk_score": 0.162437,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00100_syn_evt_00000000e37c_000000001b7cf0ae",
+    "queue_rank": 100,
+    "event_id": "syn_evt_00000000e37c_000000001b7cf0ae",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:24:00.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.897306,
+    "graph_risk_score": 0.19797,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00101_syn_evt_00000000e373_000000001b7bda47",
+    "queue_rank": 101,
+    "event_id": "syn_evt_00000000e373_000000001b7bda47",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:13:12.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.87664,
+    "graph_risk_score": 0.152284,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00102_syn_evt_00000000e950_000000001c31399a",
+    "queue_rank": 102,
+    "event_id": "syn_evt_00000000e950_000000001c31399a",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:05:36.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.902179,
+    "graph_risk_score": 0.167513,
+    "baseline_score": 65,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00103_syn_evt_00000000e664_000000001bd6d746",
+    "queue_rank": 103,
+    "event_id": "syn_evt_00000000e664_000000001bd6d746",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:02:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.878864,
+    "graph_risk_score": 0.15736,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00104_syn_evt_00000000e94f_000000001c311aab",
+    "queue_rank": 104,
+    "event_id": "syn_evt_00000000e94f_000000001c311aab",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:05:08.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999986,
+    "novelty_score": 0.89661,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00105_syn_evt_00000000e385_000000001b7e0715",
+    "queue_rank": 105,
+    "event_id": "syn_evt_00000000e385_000000001b7e0715",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:34:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999986,
+    "novelty_score": 0.873613,
+    "graph_risk_score": 0.228426,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00106_syn_evt_00000000e94d_000000001c30dccd",
+    "queue_rank": 106,
+    "event_id": "syn_evt_00000000e94d_000000001c30dccd",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:04:12.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999986,
+    "novelty_score": 0.935188,
+    "graph_risk_score": 0.111675,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00107_syn_evt_00000000e378_000000001b7c74f2",
+    "queue_rank": 107,
+    "event_id": "syn_evt_00000000e378_000000001b7c74f2",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:19:12.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.874655,
+    "graph_risk_score": 0.172589,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00108_syn_evt_00000000e37a_000000001b7cb2d0",
+    "queue_rank": 108,
+    "event_id": "syn_evt_00000000e37a_000000001b7cb2d0",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:21:36.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.892222,
+    "graph_risk_score": 0.187817,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00109_syn_evt_00000000e37b_000000001b7cd1bf",
+    "queue_rank": 109,
+    "event_id": "syn_evt_00000000e37b_000000001b7cd1bf",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:22:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.872187,
+    "graph_risk_score": 0.172589,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00110_syn_evt_00000000e668_000000001bd75302",
+    "queue_rank": 110,
+    "event_id": "syn_evt_00000000e668_000000001bd75302",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:03:36.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999982,
+    "novelty_score": 0.869667,
+    "graph_risk_score": 0.213198,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00111_syn_evt_00000000e57d_000000001bbaed9d",
+    "queue_rank": 111,
+    "event_id": "syn_evt_00000000e57d_000000001bbaed9d",
+    "entity_id": "syn_w_0000000000000964",
+    "observed_at": "2026-07-26T00:09:21.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999981,
+    "novelty_score": 0.946567,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00112_syn_evt_00000000e667_000000001bd73413",
+    "queue_rank": 112,
+    "event_id": "syn_evt_00000000e667_000000001bd73413",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:03:24.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999978,
+    "novelty_score": 0.867074,
+    "graph_risk_score": 0.203046,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00113_syn_evt_00000000e568_000000001bb86402",
+    "queue_rank": 113,
+    "event_id": "syn_evt_00000000e568_000000001bb86402",
+    "entity_id": "syn_w_0000000000000963",
+    "observed_at": "2026-07-26T00:03:24.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999961,
+    "novelty_score": 0.928637,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00114_syn_evt_00000000e572_000000001bb99958",
+    "queue_rank": 114,
+    "event_id": "syn_evt_00000000e572_000000001bb99958",
+    "entity_id": "syn_w_0000000000000963",
+    "observed_at": "2026-07-26T00:06:14.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999952,
+    "novelty_score": 0.946871,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00115_syn_evt_00000000e574_000000001bb9d736",
+    "queue_rank": 115,
+    "event_id": "syn_evt_00000000e574_000000001bb9d736",
+    "entity_id": "syn_w_0000000000000965",
+    "observed_at": "2026-07-26T00:06:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999946,
+    "novelty_score": 0.946083,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00116_syn_evt_00000000e571_000000001bb97a69",
+    "queue_rank": 116,
+    "event_id": "syn_evt_00000000e571_000000001bb97a69",
+    "entity_id": "syn_w_0000000000000962",
+    "observed_at": "2026-07-26T00:05:57.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999945,
+    "novelty_score": 0.944041,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00117_syn_evt_00000000e856_000000001c130434",
+    "queue_rank": 117,
+    "event_id": "syn_evt_00000000e856_000000001c130434",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:07:36.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999936,
+    "novelty_score": 0.898589,
+    "graph_risk_score": 0.192893,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00118_syn_evt_00000000e854_000000001c12c656",
+    "queue_rank": 118,
+    "event_id": "syn_evt_00000000e854_000000001c12c656",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:06:20.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999917,
+    "novelty_score": 0.924601,
+    "graph_risk_score": 0.15736,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00119_syn_evt_00000000e771_000000001bf75869",
+    "queue_rank": 119,
+    "event_id": "syn_evt_00000000e771_000000001bf75869",
+    "entity_id": "syn_w_00000000000010bb",
+    "observed_at": "2026-07-26T00:07:42.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.99987,
+    "novelty_score": 0.834612,
+    "graph_risk_score": 0.243655,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00120_syn_evt_00000000ea59_000000001c513f01",
+    "queue_rank": 120,
+    "event_id": "syn_evt_00000000ea59_000000001c513f01",
+    "entity_id": "syn_w_0000000000001b2d",
+    "observed_at": "2026-07-26T00:08:33.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999812,
+    "novelty_score": 0.916076,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00121_syn_evt_00000000ea5c_000000001c519bce",
+    "queue_rank": 121,
+    "event_id": "syn_evt_00000000ea5c_000000001c519bce",
+    "entity_id": "syn_w_0000000000001b30",
+    "observed_at": "2026-07-26T00:09:30.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999808,
+    "novelty_score": 0.933922,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00122_syn_evt_00000000ea5e_000000001c51d9ac",
+    "queue_rank": 122,
+    "event_id": "syn_evt_00000000ea5e_000000001c51d9ac",
+    "entity_id": "syn_w_0000000000001b32",
+    "observed_at": "2026-07-26T00:10:08.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999787,
+    "novelty_score": 0.939205,
+    "graph_risk_score": 0.121827,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00123_syn_evt_00000000e851_000000001c126989",
+    "queue_rank": 123,
+    "event_id": "syn_evt_00000000e851_000000001c126989",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:04:26.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999785,
+    "novelty_score": 0.90317,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00124_syn_evt_00000000e850_000000001c124a9a",
+    "queue_rank": 124,
+    "event_id": "syn_evt_00000000e850_000000001c124a9a",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:03:48.000Z",
+    "risk_score": 90,
+    "ml_probability": 0.999783,
+    "novelty_score": 0.929963,
+    "graph_risk_score": 0.137056,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00125_syn_evt_00000000e65c_000000001bd5dfce",
+    "queue_rank": 125,
+    "event_id": "syn_evt_00000000e65c_000000001bd5dfce",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:01:12.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999991,
+    "novelty_score": 0.851274,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00126_syn_evt_00000000e65b_000000001bd5c0df",
+    "queue_rank": 126,
+    "event_id": "syn_evt_00000000e65b_000000001bd5c0df",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:01:00.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999991,
+    "novelty_score": 0.866789,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00127_syn_evt_00000000e662_000000001bd69968",
+    "queue_rank": 127,
+    "event_id": "syn_evt_00000000e662_000000001bd69968",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:02:24.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999991,
+    "novelty_score": 0.861956,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 50,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-02",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00128_syn_evt_00000000e370_000000001b7b7d7a",
+    "queue_rank": 128,
+    "event_id": "syn_evt_00000000e370_000000001b7b7d7a",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:09:36.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.839691,
+    "graph_risk_score": 0.121827,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00129_syn_evt_00000000e372_000000001b7bbb58",
+    "queue_rank": 129,
+    "event_id": "syn_evt_00000000e372_000000001b7bbb58",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:12:00.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.859879,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00130_syn_evt_00000000e65f_000000001bd63c9b",
+    "queue_rank": 130,
+    "event_id": "syn_evt_00000000e65f_000000001bd63c9b",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:01:48.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.874084,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00131_syn_evt_00000000e65d_000000001bd5febd",
+    "queue_rank": 131,
+    "event_id": "syn_evt_00000000e65d_000000001bd5febd",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:01:24.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.857903,
+    "graph_risk_score": 0.106599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00132_syn_evt_00000000e57a_000000001bba90d0",
+    "queue_rank": 132,
+    "event_id": "syn_evt_00000000e57a_000000001bba90d0",
+    "entity_id": "syn_w_0000000000000961",
+    "observed_at": "2026-07-26T00:08:30.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999988,
+    "novelty_score": 0.891874,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00133_syn_evt_00000000e579_000000001bba71e1",
+    "queue_rank": 133,
+    "event_id": "syn_evt_00000000e579_000000001bba71e1",
+    "entity_id": "syn_w_000000000000096a",
+    "observed_at": "2026-07-26T00:08:13.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.868466,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00134_syn_evt_00000000e36e_000000001b7b3f9c",
+    "queue_rank": 134,
+    "event_id": "syn_evt_00000000e36e_000000001b7b3f9c",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:07:12.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.838109,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00135_syn_evt_00000000e949_000000001c306111",
+    "queue_rank": 135,
+    "event_id": "syn_evt_00000000e949_000000001c306111",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:02:20.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.846859,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00136_syn_evt_00000000e575_000000001bb9f625",
+    "queue_rank": 136,
+    "event_id": "syn_evt_00000000e575_000000001bb9f625",
+    "entity_id": "syn_w_0000000000000966",
+    "observed_at": "2026-07-26T00:07:05.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999982,
+    "novelty_score": 0.900936,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00137_syn_evt_00000000e94b_000000001c309eef",
+    "queue_rank": 137,
+    "event_id": "syn_evt_00000000e94b_000000001c309eef",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:03:16.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999979,
+    "novelty_score": 0.868112,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04",
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00138_syn_evt_00000000e56b_000000001bb8c0cf",
+    "queue_rank": 138,
+    "event_id": "syn_evt_00000000e56b_000000001bb8c0cf",
+    "entity_id": "syn_w_0000000000000966",
+    "observed_at": "2026-07-26T00:04:15.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999977,
+    "novelty_score": 0.875191,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00139_syn_evt_00000000e47c_000000001b9bdfae",
+    "queue_rank": 139,
+    "event_id": "syn_evt_00000000e47c_000000001b9bdfae",
+    "entity_id": "syn_w_00000000000005df",
+    "observed_at": "2026-07-26T00:36:50.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.871918,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00140_syn_evt_00000000e578_000000001bba52f2",
+    "queue_rank": 140,
+    "event_id": "syn_evt_00000000e578_000000001bba52f2",
+    "entity_id": "syn_w_0000000000000969",
+    "observed_at": "2026-07-26T00:07:56.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.857943,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00141_syn_evt_00000000e573_000000001bb9b847",
+    "queue_rank": 141,
+    "event_id": "syn_evt_00000000e573_000000001bb9b847",
+    "entity_id": "syn_w_0000000000000964",
+    "observed_at": "2026-07-26T00:06:31.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999952,
+    "novelty_score": 0.902862,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00142_syn_evt_00000000e567_000000001bb84513",
+    "queue_rank": 142,
+    "event_id": "syn_evt_00000000e567_000000001bb84513",
+    "entity_id": "syn_w_0000000000000962",
+    "observed_at": "2026-07-26T00:03:07.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999943,
+    "novelty_score": 0.887295,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00143_syn_evt_00000000e759_000000001bf47201",
+    "queue_rank": 143,
+    "event_id": "syn_evt_00000000e759_000000001bf47201",
+    "entity_id": "syn_w_00000000000010a3",
+    "observed_at": "2026-07-26T00:02:06.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999942,
+    "novelty_score": 0.878816,
+    "graph_risk_score": 0.121827,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00144_syn_evt_00000000e56a_000000001bb8a1e0",
+    "queue_rank": 144,
+    "event_id": "syn_evt_00000000e56a_000000001bb8a1e0",
+    "entity_id": "syn_w_0000000000000965",
+    "observed_at": "2026-07-26T00:03:58.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999938,
+    "novelty_score": 0.880879,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00145_syn_evt_00000000e75e_000000001bf50cac",
+    "queue_rank": 145,
+    "event_id": "syn_evt_00000000e75e_000000001bf50cac",
+    "entity_id": "syn_w_00000000000010a8",
+    "observed_at": "2026-07-26T00:03:16.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999903,
+    "novelty_score": 0.827655,
+    "graph_risk_score": 0.147208,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00146_syn_evt_00000000e483_000000001b9cb837",
+    "queue_rank": 146,
+    "event_id": "syn_evt_00000000e483_000000001b9cb837",
+    "entity_id": "syn_w_00000000000005e6",
+    "observed_at": "2026-07-26T00:46:45.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999887,
+    "novelty_score": 0.873907,
+    "graph_risk_score": 0.096447,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00147_syn_evt_00000000e46a_000000001b99b2e0",
+    "queue_rank": 147,
+    "event_id": "syn_evt_00000000e46a_000000001b99b2e0",
+    "entity_id": "syn_w_00000000000005e5",
+    "observed_at": "2026-07-26T00:11:20.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999886,
+    "novelty_score": 0.846814,
+    "graph_risk_score": 0.111675,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00148_syn_evt_00000000ea55_000000001c50c345",
+    "queue_rank": 148,
+    "event_id": "syn_evt_00000000ea55_000000001c50c345",
+    "entity_id": "syn_w_0000000000001b29",
+    "observed_at": "2026-07-26T00:07:17.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999859,
+    "novelty_score": 0.886934,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00149_syn_evt_00000000e76e_000000001bf6fb9c",
+    "queue_rank": 149,
+    "event_id": "syn_evt_00000000e76e_000000001bf6fb9c",
+    "entity_id": "syn_w_00000000000010b8",
+    "observed_at": "2026-07-26T00:07:00.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999856,
+    "novelty_score": 0.771924,
+    "graph_risk_score": 0.218274,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00150_syn_evt_00000000ea57_000000001c510123",
+    "queue_rank": 150,
+    "event_id": "syn_evt_00000000ea57_000000001c510123",
+    "entity_id": "syn_w_0000000000001b2b",
+    "observed_at": "2026-07-26T00:07:55.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999851,
+    "novelty_score": 0.889798,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00151_syn_evt_00000000ea5a_000000001c515df0",
+    "queue_rank": 151,
+    "event_id": "syn_evt_00000000ea5a_000000001c515df0",
+    "entity_id": "syn_w_0000000000001b2e",
+    "observed_at": "2026-07-26T00:08:52.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999832,
+    "novelty_score": 0.878011,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00152_syn_evt_00000000e84e_000000001c120cbc",
+    "queue_rank": 152,
+    "event_id": "syn_evt_00000000e84e_000000001c120cbc",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:02:32.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999793,
+    "novelty_score": 0.878963,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00153_syn_evt_00000000ea52_000000001c506678",
+    "queue_rank": 153,
+    "event_id": "syn_evt_00000000ea52_000000001c506678",
+    "entity_id": "syn_w_0000000000001b26",
+    "observed_at": "2026-07-26T00:06:20.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999788,
+    "novelty_score": 0.885441,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00154_syn_evt_00000000e84f_000000001c122bab",
+    "queue_rank": 154,
+    "event_id": "syn_evt_00000000e84f_000000001c122bab",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:03:10.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999722,
+    "novelty_score": 0.869911,
+    "graph_risk_score": 0.116751,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00155_syn_evt_00000000e84d_000000001c11edcd",
+    "queue_rank": 155,
+    "event_id": "syn_evt_00000000e84d_000000001c11edcd",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:01:54.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999678,
+    "novelty_score": 0.860042,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00156_syn_evt_00000000ea53_000000001c508567",
+    "queue_rank": 156,
+    "event_id": "syn_evt_00000000ea53_000000001c508567",
+    "entity_id": "syn_w_0000000000001b27",
+    "observed_at": "2026-07-26T00:06:39.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.999646,
+    "novelty_score": 0.89145,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00157_syn_evt_00000000e84c_000000001c11cede",
+    "queue_rank": 157,
+    "event_id": "syn_evt_00000000e84c_000000001c11cede",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:01:16.000Z",
+    "risk_score": 89,
+    "ml_probability": 0.997125,
+    "novelty_score": 0.870274,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00158_syn_evt_00000000e36d_000000001b7b20ad",
+    "queue_rank": 158,
+    "event_id": "syn_evt_00000000e36d_000000001b7b20ad",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:06:00.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999989,
+    "novelty_score": 0.820282,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00159_syn_evt_00000000e36c_000000001b7b01be",
+    "queue_rank": 159,
+    "event_id": "syn_evt_00000000e36c_000000001b7b01be",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:04:48.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999987,
+    "novelty_score": 0.804854,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00160_syn_evt_00000000e65e_000000001bd61dac",
+    "queue_rank": 160,
+    "event_id": "syn_evt_00000000e65e_000000001bd61dac",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:01:36.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999985,
+    "novelty_score": 0.816901,
+    "graph_risk_score": 0.106599,
+    "baseline_score": 35,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00161_syn_evt_00000000e65a_000000001bd5a1f0",
+    "queue_rank": 161,
+    "event_id": "syn_evt_00000000e65a_000000001bd5a1f0",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:00:48.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999982,
+    "novelty_score": 0.817638,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00162_syn_evt_00000000e484_000000001b9cd726",
+    "queue_rank": 162,
+    "event_id": "syn_evt_00000000e484_000000001b9cd726",
+    "entity_id": "syn_w_00000000000005e7",
+    "observed_at": "2026-07-26T00:48:10.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999969,
+    "novelty_score": 0.839418,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00163_syn_evt_00000000e56f_000000001bb93c8b",
+    "queue_rank": 163,
+    "event_id": "syn_evt_00000000e56f_000000001bb93c8b",
+    "entity_id": "syn_w_000000000000096a",
+    "observed_at": "2026-07-26T00:05:23.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999967,
+    "novelty_score": 0.793743,
+    "graph_risk_score": 0.06599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00164_syn_evt_00000000e570_000000001bb95b7a",
+    "queue_rank": 164,
+    "event_id": "syn_evt_00000000e570_000000001bb95b7a",
+    "entity_id": "syn_w_0000000000000961",
+    "observed_at": "2026-07-26T00:05:40.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999962,
+    "novelty_score": 0.800832,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00165_syn_evt_00000000ea56_000000001c50e234",
+    "queue_rank": 165,
+    "event_id": "syn_evt_00000000ea56_000000001c50e234",
+    "entity_id": "syn_w_0000000000001b2a",
+    "observed_at": "2026-07-26T00:07:36.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999961,
+    "novelty_score": 0.819898,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00166_syn_evt_00000000e576_000000001bba1514",
+    "queue_rank": 166,
+    "event_id": "syn_evt_00000000e576_000000001bba1514",
+    "entity_id": "syn_w_0000000000000967",
+    "observed_at": "2026-07-26T00:07:22.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.99996,
+    "novelty_score": 0.811709,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00167_syn_evt_00000000e569_000000001bb882f1",
+    "queue_rank": 167,
+    "event_id": "syn_evt_00000000e569_000000001bb882f1",
+    "entity_id": "syn_w_0000000000000964",
+    "observed_at": "2026-07-26T00:03:41.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999939,
+    "novelty_score": 0.803894,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00168_syn_evt_00000000e481_000000001b9c7a59",
+    "queue_rank": 168,
+    "event_id": "syn_evt_00000000e481_000000001b9c7a59",
+    "entity_id": "syn_w_00000000000005e4",
+    "observed_at": "2026-07-26T00:43:55.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999936,
+    "novelty_score": 0.802532,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00169_syn_evt_00000000e480_000000001b9c5b6a",
+    "queue_rank": 169,
+    "event_id": "syn_evt_00000000e480_000000001b9c5b6a",
+    "entity_id": "syn_w_00000000000005e3",
+    "observed_at": "2026-07-26T00:42:30.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999932,
+    "novelty_score": 0.823585,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00170_syn_evt_00000000e47e_000000001b9c1d8c",
+    "queue_rank": 170,
+    "event_id": "syn_evt_00000000e47e_000000001b9c1d8c",
+    "entity_id": "syn_w_00000000000005e1",
+    "observed_at": "2026-07-26T00:39:40.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999919,
+    "novelty_score": 0.798996,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00171_syn_evt_00000000e470_000000001b9a6c7a",
+    "queue_rank": 171,
+    "event_id": "syn_evt_00000000e470_000000001b9a6c7a",
+    "entity_id": "syn_w_00000000000005df",
+    "observed_at": "2026-07-26T00:19:50.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999904,
+    "novelty_score": 0.806382,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00172_syn_evt_00000000e47d_000000001b9bfe9d",
+    "queue_rank": 172,
+    "event_id": "syn_evt_00000000e47d_000000001b9bfe9d",
+    "entity_id": "syn_w_00000000000005e0",
+    "observed_at": "2026-07-26T00:38:15.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.9999,
+    "novelty_score": 0.829916,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00173_syn_evt_00000000e47f_000000001b9c3c7b",
+    "queue_rank": 173,
+    "event_id": "syn_evt_00000000e47f_000000001b9c3c7b",
+    "entity_id": "syn_w_00000000000005e2",
+    "observed_at": "2026-07-26T00:41:05.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999894,
+    "novelty_score": 0.817719,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00174_syn_evt_00000000e477_000000001b9b4503",
+    "queue_rank": 174,
+    "event_id": "syn_evt_00000000e477_000000001b9b4503",
+    "entity_id": "syn_w_00000000000005e6",
+    "observed_at": "2026-07-26T00:29:45.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999889,
+    "novelty_score": 0.812999,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00175_syn_evt_00000000ea48_000000001c4f3122",
+    "queue_rank": 175,
+    "event_id": "syn_evt_00000000ea48_000000001c4f3122",
+    "entity_id": "syn_w_0000000000001b30",
+    "observed_at": "2026-07-26T00:03:10.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999879,
+    "novelty_score": 0.829924,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00176_syn_evt_00000000e766_000000001bf60424",
+    "queue_rank": 176,
+    "event_id": "syn_evt_00000000e766_000000001bf60424",
+    "entity_id": "syn_w_00000000000010b0",
+    "observed_at": "2026-07-26T00:05:08.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999837,
+    "novelty_score": 0.766633,
+    "graph_risk_score": 0.177665,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00177_syn_evt_00000000ea4a_000000001c4f6f00",
+    "queue_rank": 177,
+    "event_id": "syn_evt_00000000ea4a_000000001c4f6f00",
+    "entity_id": "syn_w_0000000000001b32",
+    "observed_at": "2026-07-26T00:03:48.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999797,
+    "novelty_score": 0.817603,
+    "graph_risk_score": 0.106599,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-04"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00178_syn_evt_00000000ea54_000000001c50a456",
+    "queue_rank": 178,
+    "event_id": "syn_evt_00000000ea54_000000001c50a456",
+    "entity_id": "syn_w_0000000000001b28",
+    "observed_at": "2026-07-26T00:06:58.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999748,
+    "novelty_score": 0.795837,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00179_syn_evt_00000000ea4e_000000001c4feabc",
+    "queue_rank": 179,
+    "event_id": "syn_evt_00000000ea4e_000000001c4feabc",
+    "entity_id": "syn_w_0000000000001b36",
+    "observed_at": "2026-07-26T00:05:04.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999741,
+    "novelty_score": 0.84251,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00180_syn_evt_00000000ea60_000000001c52178a",
+    "queue_rank": 180,
+    "event_id": "syn_evt_00000000ea60_000000001c52178a",
+    "entity_id": "syn_w_0000000000001b34",
+    "observed_at": "2026-07-26T00:10:46.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.999601,
+    "novelty_score": 0.81446,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00181_syn_evt_00000000e760_000000001bf54a8a",
+    "queue_rank": 181,
+    "event_id": "syn_evt_00000000e760_000000001bf54a8a",
+    "entity_id": "syn_w_00000000000010aa",
+    "observed_at": "2026-07-26T00:03:44.000Z",
+    "risk_score": 88,
+    "ml_probability": 0.998632,
+    "novelty_score": 0.76056,
+    "graph_risk_score": 0.147208,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00182_syn_evt_00000000e947_000000001c302333",
+    "queue_rank": 182,
+    "event_id": "syn_evt_00000000e947_000000001c302333",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:01:24.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999983,
+    "novelty_score": 0.738498,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00183_syn_evt_00000000e47a_000000001b9ba1d0",
+    "queue_rank": 183,
+    "event_id": "syn_evt_00000000e47a_000000001b9ba1d0",
+    "entity_id": "syn_w_00000000000005dd",
+    "observed_at": "2026-07-26T00:34:00.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999979,
+    "novelty_score": 0.747915,
+    "graph_risk_score": 0.06599,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00184_syn_evt_00000000e948_000000001c304222",
+    "queue_rank": 184,
+    "event_id": "syn_evt_00000000e948_000000001c304222",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:01:52.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999972,
+    "novelty_score": 0.75164,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00185_syn_evt_00000000e478_000000001b9b63f2",
+    "queue_rank": 185,
+    "event_id": "syn_evt_00000000e478_000000001b9b63f2",
+    "entity_id": "syn_w_00000000000005e7",
+    "observed_at": "2026-07-26T00:31:10.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999958,
+    "novelty_score": 0.769769,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00186_syn_evt_00000000e764_000000001bf5c646",
+    "queue_rank": 186,
+    "event_id": "syn_evt_00000000e764_000000001bf5c646",
+    "entity_id": "syn_w_00000000000010ae",
+    "observed_at": "2026-07-26T00:04:40.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999954,
+    "novelty_score": 0.70352,
+    "graph_risk_score": 0.137056,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00187_syn_evt_00000000e56e_000000001bb91d9c",
+    "queue_rank": 187,
+    "event_id": "syn_evt_00000000e56e_000000001bb91d9c",
+    "entity_id": "syn_w_0000000000000969",
+    "observed_at": "2026-07-26T00:05:06.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999944,
+    "novelty_score": 0.736756,
+    "graph_risk_score": 0.06599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00188_syn_evt_00000000e563_000000001bb7c957",
+    "queue_rank": 188,
+    "event_id": "syn_evt_00000000e563_000000001bb7c957",
+    "entity_id": "syn_w_0000000000000968",
+    "observed_at": "2026-07-26T00:01:59.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.99994,
+    "novelty_score": 0.760913,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00189_syn_evt_00000000e479_000000001b9b82e1",
+    "queue_rank": 189,
+    "event_id": "syn_evt_00000000e479_000000001b9b82e1",
+    "entity_id": "syn_w_00000000000005e8",
+    "observed_at": "2026-07-26T00:32:35.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999939,
+    "novelty_score": 0.749432,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00190_syn_evt_00000000e472_000000001b9aaa58",
+    "queue_rank": 190,
+    "event_id": "syn_evt_00000000e472_000000001b9aaa58",
+    "entity_id": "syn_w_00000000000005e1",
+    "observed_at": "2026-07-26T00:22:40.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999937,
+    "novelty_score": 0.720216,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00191_syn_evt_00000000e75b_000000001bf4afdf",
+    "queue_rank": 191,
+    "event_id": "syn_evt_00000000e75b_000000001bf4afdf",
+    "entity_id": "syn_w_00000000000010a5",
+    "observed_at": "2026-07-26T00:02:34.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999934,
+    "novelty_score": 0.739555,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00192_syn_evt_00000000e76b_000000001bf69ecf",
+    "queue_rank": 192,
+    "event_id": "syn_evt_00000000e76b_000000001bf69ecf",
+    "entity_id": "syn_w_00000000000010b5",
+    "observed_at": "2026-07-26T00:06:18.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999926,
+    "novelty_score": 0.69999,
+    "graph_risk_score": 0.192893,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00193_syn_evt_00000000e768_000000001bf64202",
+    "queue_rank": 193,
+    "event_id": "syn_evt_00000000e768_000000001bf64202",
+    "entity_id": "syn_w_00000000000010b2",
+    "observed_at": "2026-07-26T00:05:36.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999919,
+    "novelty_score": 0.705795,
+    "graph_risk_score": 0.177665,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00194_syn_evt_00000000e471_000000001b9a8b69",
+    "queue_rank": 194,
+    "event_id": "syn_evt_00000000e471_000000001b9a8b69",
+    "entity_id": "syn_w_00000000000005e0",
+    "observed_at": "2026-07-26T00:21:15.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999911,
+    "novelty_score": 0.74378,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00195_syn_evt_00000000e75f_000000001bf52b9b",
+    "queue_rank": 195,
+    "event_id": "syn_evt_00000000e75f_000000001bf52b9b",
+    "entity_id": "syn_w_00000000000010a9",
+    "observed_at": "2026-07-26T00:03:30.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999907,
+    "novelty_score": 0.696798,
+    "graph_risk_score": 0.13198,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00196_syn_evt_00000000e76f_000000001bf71a8b",
+    "queue_rank": 196,
+    "event_id": "syn_evt_00000000e76f_000000001bf71a8b",
+    "entity_id": "syn_w_00000000000010b9",
+    "observed_at": "2026-07-26T00:07:14.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999892,
+    "novelty_score": 0.680269,
+    "graph_risk_score": 0.213198,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00197_syn_evt_00000000e761_000000001bf56979",
+    "queue_rank": 197,
+    "event_id": "syn_evt_00000000e761_000000001bf56979",
+    "entity_id": "syn_w_00000000000010ab",
+    "observed_at": "2026-07-26T00:03:58.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999879,
+    "novelty_score": 0.727767,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00198_syn_evt_00000000e763_000000001bf5a757",
+    "queue_rank": 198,
+    "event_id": "syn_evt_00000000e763_000000001bf5a757",
+    "entity_id": "syn_w_00000000000010ad",
+    "observed_at": "2026-07-26T00:04:26.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999853,
+    "novelty_score": 0.6765,
+    "graph_risk_score": 0.152284,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00199_syn_evt_00000000ea43_000000001c4e9677",
+    "queue_rank": 199,
+    "event_id": "syn_evt_00000000ea43_000000001c4e9677",
+    "entity_id": "syn_w_0000000000001b2b",
+    "observed_at": "2026-07-26T00:01:35.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.99982,
+    "novelty_score": 0.726719,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00200_syn_evt_00000000e76c_000000001bf6bdbe",
+    "queue_rank": 200,
+    "event_id": "syn_evt_00000000e76c_000000001bf6bdbe",
+    "entity_id": "syn_w_00000000000010b6",
+    "observed_at": "2026-07-26T00:06:32.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999818,
+    "novelty_score": 0.695987,
+    "graph_risk_score": 0.19797,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00201_syn_evt_00000000ea45_000000001c4ed455",
+    "queue_rank": 201,
+    "event_id": "syn_evt_00000000ea45_000000001c4ed455",
+    "entity_id": "syn_w_0000000000001b2d",
+    "observed_at": "2026-07-26T00:02:13.000Z",
+    "risk_score": 87,
+    "ml_probability": 0.999653,
+    "novelty_score": 0.76885,
+    "graph_risk_score": 0.081218,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00202_syn_evt_00000000e36b_000000001b7ae2cf",
+    "queue_rank": 202,
+    "event_id": "syn_evt_00000000e36b_000000001b7ae2cf",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:03:36.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999984,
+    "novelty_score": 0.675957,
+    "graph_risk_score": 0.06599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00203_syn_evt_00000000e47b_000000001b9bc0bf",
+    "queue_rank": 203,
+    "event_id": "syn_evt_00000000e47b_000000001b9bc0bf",
+    "entity_id": "syn_w_00000000000005de",
+    "observed_at": "2026-07-26T00:35:25.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999973,
+    "novelty_score": 0.673169,
+    "graph_risk_score": 0.050761,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00204_syn_evt_00000000e46e_000000001b9a2e9c",
+    "queue_rank": 204,
+    "event_id": "syn_evt_00000000e46e_000000001b9a2e9c",
+    "entity_id": "syn_w_00000000000005dd",
+    "observed_at": "2026-07-26T00:17:00.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999969,
+    "novelty_score": 0.69359,
+    "graph_risk_score": 0.055838,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00205_syn_evt_00000000e566_000000001bb82624",
+    "queue_rank": 205,
+    "event_id": "syn_evt_00000000e566_000000001bb82624",
+    "entity_id": "syn_w_0000000000000961",
+    "observed_at": "2026-07-26T00:02:50.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999962,
+    "novelty_score": 0.695779,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00206_syn_evt_00000000e56c_000000001bb8dfbe",
+    "queue_rank": 206,
+    "event_id": "syn_evt_00000000e56c_000000001bb8dfbe",
+    "entity_id": "syn_w_0000000000000967",
+    "observed_at": "2026-07-26T00:04:32.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.705523,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00207_syn_evt_00000000e475_000000001b9b0725",
+    "queue_rank": 207,
+    "event_id": "syn_evt_00000000e475_000000001b9b0725",
+    "entity_id": "syn_w_00000000000005e4",
+    "observed_at": "2026-07-26T00:26:55.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999956,
+    "novelty_score": 0.714282,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00208_syn_evt_00000000e55e_000000001bb72eac",
+    "queue_rank": 208,
+    "event_id": "syn_evt_00000000e55e_000000001bb72eac",
+    "entity_id": "syn_w_0000000000000963",
+    "observed_at": "2026-07-26T00:00:34.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999955,
+    "novelty_score": 0.651672,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00209_syn_evt_00000000e658_000000001bd56412",
+    "queue_rank": 209,
+    "event_id": "syn_evt_00000000e658_000000001bd56412",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:00:24.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999942,
+    "novelty_score": 0.670081,
+    "graph_risk_score": 0.055838,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00210_syn_evt_00000000e757_000000001bf43423",
+    "queue_rank": 210,
+    "event_id": "syn_evt_00000000e757_000000001bf43423",
+    "entity_id": "syn_w_00000000000010a1",
+    "observed_at": "2026-07-26T00:01:38.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999938,
+    "novelty_score": 0.673643,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00211_syn_evt_00000000e36a_000000001b7ac3e0",
+    "queue_rank": 211,
+    "event_id": "syn_evt_00000000e36a_000000001b7ac3e0",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:02:24.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999904,
+    "novelty_score": 0.717433,
+    "graph_risk_score": 0.06599,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00212_syn_evt_00000000ea5d_000000001c51babd",
+    "queue_rank": 212,
+    "event_id": "syn_evt_00000000ea5d_000000001c51babd",
+    "entity_id": "syn_w_0000000000001b31",
+    "observed_at": "2026-07-26T00:09:49.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.99979,
+    "novelty_score": 0.693649,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00213_syn_evt_00000000e474_000000001b9ae836",
+    "queue_rank": 213,
+    "event_id": "syn_evt_00000000e474_000000001b9ae836",
+    "entity_id": "syn_w_00000000000005e3",
+    "observed_at": "2026-07-26T00:25:30.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999748,
+    "novelty_score": 0.69864,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00214_syn_evt_00000000e473_000000001b9ac947",
+    "queue_rank": 214,
+    "event_id": "syn_evt_00000000e473_000000001b9ac947",
+    "entity_id": "syn_w_00000000000005e2",
+    "observed_at": "2026-07-26T00:24:05.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999722,
+    "novelty_score": 0.684996,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00215_syn_evt_00000000e755_000000001bf3f645",
+    "queue_rank": 215,
+    "event_id": "syn_evt_00000000e755_000000001bf3f645",
+    "entity_id": "syn_w_000000000000109f",
+    "observed_at": "2026-07-26T00:01:10.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.999638,
+    "novelty_score": 0.693162,
+    "graph_risk_score": 0.091371,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00216_syn_evt_00000000e84b_000000001c11afef",
+    "queue_rank": 216,
+    "event_id": "syn_evt_00000000e84b_000000001c11afef",
+    "entity_id": "syn_w_00000000000013ec",
+    "observed_at": "2026-07-26T00:00:38.000Z",
+    "risk_score": 86,
+    "ml_probability": 0.98177,
+    "novelty_score": 0.795215,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00217_syn_evt_00000000e659_000000001bd58301",
+    "queue_rank": 217,
+    "event_id": "syn_evt_00000000e659_000000001bd58301",
+    "entity_id": "syn_w_0000000000000ce4",
+    "observed_at": "2026-07-26T00:00:36.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999991,
+    "novelty_score": 0.659212,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00218_syn_evt_00000000e946_000000001c300444",
+    "queue_rank": 218,
+    "event_id": "syn_evt_00000000e946_000000001c300444",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:00:56.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999974,
+    "novelty_score": 0.663015,
+    "graph_risk_score": 0.050761,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00219_syn_evt_00000000e75a_000000001bf490f0",
+    "queue_rank": 219,
+    "event_id": "syn_evt_00000000e75a_000000001bf490f0",
+    "entity_id": "syn_w_00000000000010a4",
+    "observed_at": "2026-07-26T00:02:20.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999959,
+    "novelty_score": 0.61857,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00220_syn_evt_00000000e565_000000001bb80735",
+    "queue_rank": 220,
+    "event_id": "syn_evt_00000000e565_000000001bb80735",
+    "entity_id": "syn_w_000000000000096a",
+    "observed_at": "2026-07-26T00:02:33.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999955,
+    "novelty_score": 0.604221,
+    "graph_risk_score": 0.050761,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00221_syn_evt_00000000e769_000000001bf660f1",
+    "queue_rank": 221,
+    "event_id": "syn_evt_00000000e769_000000001bf660f1",
+    "entity_id": "syn_w_00000000000010b3",
+    "observed_at": "2026-07-26T00:05:50.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999944,
+    "novelty_score": 0.536969,
+    "graph_risk_score": 0.162437,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00222_syn_evt_00000000e76d_000000001bf6dcad",
+    "queue_rank": 222,
+    "event_id": "syn_evt_00000000e76d_000000001bf6dcad",
+    "entity_id": "syn_w_00000000000010b7",
+    "observed_at": "2026-07-26T00:06:46.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999925,
+    "novelty_score": 0.532096,
+    "graph_risk_score": 0.172589,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00223_syn_evt_00000000e75c_000000001bf4cece",
+    "queue_rank": 223,
+    "event_id": "syn_evt_00000000e75c_000000001bf4cece",
+    "entity_id": "syn_w_00000000000010a6",
+    "observed_at": "2026-07-26T00:02:48.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999918,
+    "novelty_score": 0.573662,
+    "graph_risk_score": 0.106599,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00224_syn_evt_00000000e762_000000001bf58868",
+    "queue_rank": 224,
+    "event_id": "syn_evt_00000000e762_000000001bf58868",
+    "entity_id": "syn_w_00000000000010ac",
+    "observed_at": "2026-07-26T00:04:12.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999913,
+    "novelty_score": 0.596989,
+    "graph_risk_score": 0.137056,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00225_syn_evt_00000000e772_000000001bf77758",
+    "queue_rank": 225,
+    "event_id": "syn_evt_00000000e772_000000001bf77758",
+    "entity_id": "syn_w_00000000000010bc",
+    "observed_at": "2026-07-26T00:07:56.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999908,
+    "novelty_score": 0.546137,
+    "graph_risk_score": 0.208122,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00226_syn_evt_00000000e76a_000000001bf67fe0",
+    "queue_rank": 226,
+    "event_id": "syn_evt_00000000e76a_000000001bf67fe0",
+    "entity_id": "syn_w_00000000000010b4",
+    "observed_at": "2026-07-26T00:06:04.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999892,
+    "novelty_score": 0.530736,
+    "graph_risk_score": 0.167513,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00227_syn_evt_00000000e560_000000001bb76c8a",
+    "queue_rank": 227,
+    "event_id": "syn_evt_00000000e560_000000001bb76c8a",
+    "entity_id": "syn_w_0000000000000965",
+    "observed_at": "2026-07-26T00:01:08.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999865,
+    "novelty_score": 0.58939,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00228_syn_evt_00000000ea5b_000000001c517cdf",
+    "queue_rank": 228,
+    "event_id": "syn_evt_00000000ea5b_000000001c517cdf",
+    "entity_id": "syn_w_0000000000001b2f",
+    "observed_at": "2026-07-26T00:09:11.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999841,
+    "novelty_score": 0.629354,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00229_syn_evt_00000000e561_000000001bb78b79",
+    "queue_rank": 229,
+    "event_id": "syn_evt_00000000e561_000000001bb78b79",
+    "entity_id": "syn_w_0000000000000966",
+    "observed_at": "2026-07-26T00:01:25.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999833,
+    "novelty_score": 0.656719,
+    "graph_risk_score": 0.055838,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00230_syn_evt_00000000ea3f_000000001c4e1abb",
+    "queue_rank": 230,
+    "event_id": "syn_evt_00000000ea3f_000000001c4e1abb",
+    "entity_id": "syn_w_0000000000001b27",
+    "observed_at": "2026-07-26T00:00:19.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999716,
+    "novelty_score": 0.641696,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00231_syn_evt_00000000ea41_000000001c4e5899",
+    "queue_rank": 231,
+    "event_id": "syn_evt_00000000ea41_000000001c4e5899",
+    "entity_id": "syn_w_0000000000001b29",
+    "observed_at": "2026-07-26T00:00:57.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999668,
+    "novelty_score": 0.622886,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00232_syn_evt_00000000ea42_000000001c4e7788",
+    "queue_rank": 232,
+    "event_id": "syn_evt_00000000ea42_000000001c4e7788",
+    "entity_id": "syn_w_0000000000001b2a",
+    "observed_at": "2026-07-26T00:01:16.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999426,
+    "novelty_score": 0.61157,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00233_syn_evt_00000000e751_000000001bf37a89",
+    "queue_rank": 233,
+    "event_id": "syn_evt_00000000e751_000000001bf37a89",
+    "entity_id": "syn_w_000000000000109b",
+    "observed_at": "2026-07-26T00:00:14.000Z",
+    "risk_score": 85,
+    "ml_probability": 0.999298,
+    "novelty_score": 0.606521,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00234_syn_evt_00000000e464_000000001b98f946",
+    "queue_rank": 234,
+    "event_id": "syn_evt_00000000e464_000000001b98f946",
+    "entity_id": "syn_w_00000000000005df",
+    "observed_at": "2026-07-26T00:02:50.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999944,
+    "novelty_score": 0.572776,
+    "graph_risk_score": 0.06599,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00235_syn_evt_00000000e75d_000000001bf4edbd",
+    "queue_rank": 235,
+    "event_id": "syn_evt_00000000e75d_000000001bf4edbd",
+    "entity_id": "syn_w_00000000000010a7",
+    "observed_at": "2026-07-26T00:03:02.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999941,
+    "novelty_score": 0.564928,
+    "graph_risk_score": 0.101523,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00236_syn_evt_00000000e765_000000001bf5e535",
+    "queue_rank": 236,
+    "event_id": "syn_evt_00000000e765_000000001bf5e535",
+    "entity_id": "syn_w_00000000000010af",
+    "observed_at": "2026-07-26T00:04:54.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999933,
+    "novelty_score": 0.521852,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00237_syn_evt_00000000e46b_000000001b99d1cf",
+    "queue_rank": 237,
+    "event_id": "syn_evt_00000000e46b_000000001b99d1cf",
+    "entity_id": "syn_w_00000000000005e6",
+    "observed_at": "2026-07-26T00:12:45.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999862,
+    "novelty_score": 0.526869,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00238_syn_evt_00000000e55d_000000001bb70fbd",
+    "queue_rank": 238,
+    "event_id": "syn_evt_00000000e55d_000000001bb70fbd",
+    "entity_id": "syn_w_0000000000000962",
+    "observed_at": "2026-07-26T00:00:17.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999861,
+    "novelty_score": 0.579291,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00239_syn_evt_00000000e46c_000000001b99f0be",
+    "queue_rank": 239,
+    "event_id": "syn_evt_00000000e46c_000000001b99f0be",
+    "entity_id": "syn_w_00000000000005e7",
+    "observed_at": "2026-07-26T00:14:10.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999781,
+    "novelty_score": 0.537625,
+    "graph_risk_score": 0.055838,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00240_syn_evt_00000000ea5f_000000001c51f89b",
+    "queue_rank": 240,
+    "event_id": "syn_evt_00000000ea5f_000000001c51f89b",
+    "entity_id": "syn_w_0000000000001b33",
+    "observed_at": "2026-07-26T00:10:27.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999713,
+    "novelty_score": 0.562171,
+    "graph_risk_score": 0.050761,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00241_syn_evt_00000000e767_000000001bf62313",
+    "queue_rank": 241,
+    "event_id": "syn_evt_00000000e767_000000001bf62313",
+    "entity_id": "syn_w_00000000000010b1",
+    "observed_at": "2026-07-26T00:05:22.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999671,
+    "novelty_score": 0.502535,
+    "graph_risk_score": 0.142132,
+    "baseline_score": 15,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00242_syn_evt_00000000e758_000000001bf45312",
+    "queue_rank": 242,
+    "event_id": "syn_evt_00000000e758_000000001bf45312",
+    "entity_id": "syn_w_00000000000010a2",
+    "observed_at": "2026-07-26T00:01:52.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.999547,
+    "novelty_score": 0.552801,
+    "graph_risk_score": 0.086294,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00243_syn_evt_00000000e945_000000001c2fe555",
+    "queue_rank": 243,
+    "event_id": "syn_evt_00000000e945_000000001c2fe555",
+    "entity_id": "syn_w_0000000000001770",
+    "observed_at": "2026-07-26T00:00:28.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.998987,
+    "novelty_score": 0.559388,
+    "graph_risk_score": 0.055838,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00244_syn_evt_00000000ea3e_000000001c4dfbcc",
+    "queue_rank": 244,
+    "event_id": "syn_evt_00000000ea3e_000000001c4dfbcc",
+    "entity_id": "syn_w_0000000000001b26",
+    "observed_at": "2026-07-26T00:00:00.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.998537,
+    "novelty_score": 0.572858,
+    "graph_risk_score": 0.076142,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00245_syn_evt_00000000ea46_000000001c4ef344",
+    "queue_rank": 245,
+    "event_id": "syn_evt_00000000ea46_000000001c4ef344",
+    "entity_id": "syn_w_0000000000001b2e",
+    "observed_at": "2026-07-26T00:02:32.000Z",
+    "risk_score": 84,
+    "ml_probability": 0.996819,
+    "novelty_score": 0.560257,
+    "graph_risk_score": 0.071066,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00246_syn_evt_00000000e46f_000000001b9a4d8b",
+    "queue_rank": 246,
+    "event_id": "syn_evt_00000000e46f_000000001b9a4d8b",
+    "entity_id": "syn_w_00000000000005de",
+    "observed_at": "2026-07-26T00:18:25.000Z",
+    "risk_score": 83,
+    "ml_probability": 0.999941,
+    "novelty_score": 0.477409,
+    "graph_risk_score": 0.040609,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00247_syn_evt_00000000e55f_000000001bb74d9b",
+    "queue_rank": 247,
+    "event_id": "syn_evt_00000000e55f_000000001bb74d9b",
+    "entity_id": "syn_w_0000000000000964",
+    "observed_at": "2026-07-26T00:00:51.000Z",
+    "risk_score": 83,
+    "ml_probability": 0.999896,
+    "novelty_score": 0.515287,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00248_syn_evt_00000000ea58_000000001c512012",
+    "queue_rank": 248,
+    "event_id": "syn_evt_00000000ea58_000000001c512012",
+    "entity_id": "syn_w_0000000000001b2c",
+    "observed_at": "2026-07-26T00:08:14.000Z",
+    "risk_score": 83,
+    "ml_probability": 0.99983,
+    "novelty_score": 0.518651,
+    "graph_risk_score": 0.045685,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00249_syn_evt_00000000e369_000000001b7aa4f1",
+    "queue_rank": 249,
+    "event_id": "syn_evt_00000000e369_000000001b7aa4f1",
+    "entity_id": "syn_w_0000000000000258",
+    "observed_at": "2026-07-26T00:01:12.000Z",
+    "risk_score": 83,
+    "ml_probability": 0.998963,
+    "novelty_score": 0.500186,
+    "graph_risk_score": 0.050761,
+    "baseline_score": 20,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [
+      "BR-05"
+    ],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  },
+  {
+    "alert_id": "alt_00250_syn_evt_00000000e465_000000001b991835",
+    "queue_rank": 250,
+    "event_id": "syn_evt_00000000e465_000000001b991835",
+    "entity_id": "syn_w_00000000000005e0",
+    "observed_at": "2026-07-26T00:04:15.000Z",
+    "risk_score": 82,
+    "ml_probability": 0.999849,
+    "novelty_score": 0.434772,
+    "graph_risk_score": 0.060914,
+    "baseline_score": 0,
+    "scenario_truth_hidden": "NOT_EXPOSED_TO_UI",
+    "rule_hits": [],
+    "limitations": [
+      "Synthetic evidence only",
+      "Human review required"
+    ]
+  }
+]

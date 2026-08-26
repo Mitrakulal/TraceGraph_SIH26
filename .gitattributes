@@ -1,0 +1,4 @@
+*.csv -text whitespace=-trailing-space
+*.parquet -text
+*.joblib -text
+*.json -text

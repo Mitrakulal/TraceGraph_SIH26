@@ -1,0 +1,23 @@
+{
+  "features": [
+    "amount_log",
+    "fee_rate",
+    "latency_log",
+    "peer_count_hint",
+    "src_port_norm",
+    "inter_event_seconds",
+    "recent_count_10m",
+    "wallet_out_count",
+    "wallet_unique_destinations",
+    "wallet_unique_ips",
+    "ip_rotation_rate",
+    "fan_out_ratio",
+    "target_unique_senders",
+    "source_out_degree",
+    "target_in_degree",
+    "degree_ratio",
+    "graph_reach_proxy",
+    "script_type_code"
+  ],
+  "sha256": "6bcd69da4ca91ccb9b685639d538cd91437616edb9c1c5fb2f4be7a96ef5fcca"
+}

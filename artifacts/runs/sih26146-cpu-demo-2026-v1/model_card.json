@@ -1,0 +1,119 @@
+{
+  "model_name": "TraceGraph AI hybrid CPU model",
+  "dataset": {
+    "event_count": 60000,
+    "anomaly_count": 2000,
+    "benign_count": 58000,
+    "seed": 2026,
+    "events_sha256": "0ada9cf18cc56cf16ebea0d88038b40c5ef2fef998d16b03a2c4ee0ecccb4963",
+    "labels_sha256": "5e78160f6ad0f532155e630bff30d72039f6a836e470bab9fc7aff2a181a7fbc",
+    "scenario_counts": {
+      "FAN_IN": 250,
+      "FAN_OUT": 250,
+      "IP_ROTATION": 250,
+      "MIXER_LIKE_CLUSTER": 250,
+      "PEEL_CHAIN": 250,
+      "PORT_SHIFT": 250,
+      "RAPID_HOP": 250,
+      "STRUCTURING": 250
+    }
+  },
+  "seed": 2026,
+  "feature_schema_sha256": "6bcd69da4ca91ccb9b685639d538cd91437616edb9c1c5fb2f4be7a96ef5fcca",
+  "feature_count": 18,
+  "models": {
+    "isolation_forest": {
+      "n_estimators": 300,
+      "max_samples": 256,
+      "contamination": 0.08,
+      "n_jobs": 1
+    },
+    "xgboost": {
+      "n_estimators": 400,
+      "max_depth": 5,
+      "learning_rate": 0.05,
+      "n_jobs": 1,
+      "scale_pos_weight": 24.857142857142858
+    }
+  },
+  "selection_threshold": 0.5,
+  "validation_metrics": {
+    "pr_auc": 0.99999,
+    "roc_auc": 1.0,
+    "precision_at_100": 1.0,
+    "recall_at_100": 0.3125,
+    "precision_at_threshold": 0.996885,
+    "recall_at_threshold": 1.0,
+    "f1_at_threshold": 0.99844,
+    "brier_score": 0.000181,
+    "false_positives_per_1000": 0.083893,
+    "confusion_matrix": [
+      [
+        11599,
+        1
+      ],
+      [
+        0,
+        320
+      ]
+    ]
+  },
+  "test_metrics": {
+    "pr_auc": 0.999962,
+    "roc_auc": 0.999999,
+    "precision_at_100": 1.0,
+    "recall_at_100": 0.357143,
+    "precision_at_threshold": 0.982456,
+    "recall_at_threshold": 1.0,
+    "f1_at_threshold": 0.99115,
+    "brier_score": 0.00027,
+    "false_positives_per_1000": 0.420875,
+    "confusion_matrix": [
+      [
+        11595,
+        5
+      ],
+      [
+        0,
+        280
+      ]
+    ]
+  },
+  "queue_alert_count": 250,
+  "graph_summary": {
+    "node_count": 11999,
+    "edge_count": 58989,
+    "strongly_connected_components": 180,
+    "feature_columns": [
+      "amount_log",
+      "fee_rate",
+      "latency_log",
+      "peer_count_hint",
+      "src_port_norm",
+      "inter_event_seconds",
+      "recent_count_10m",
+      "wallet_out_count",
+      "wallet_unique_destinations",
+      "wallet_unique_ips",
+      "ip_rotation_rate",
+      "fan_out_ratio",
+      "target_unique_senders",
+      "source_out_degree",
+      "target_in_degree",
+      "degree_ratio",
+      "graph_reach_proxy",
+      "script_type_code"
+    ],
+    "split_counts": {
+      "train": 36200,
+      "validation": 11920,
+      "test": 11880
+    },
+    "split_label_counts": {
+      "test": 280,
+      "train": 1400,
+      "validation": 320
+    }
+  },
+  "responsible_use": "Synthetic-only decision support. Alerts require human review and do not infer identity, ownership, wrongdoing, or real-world risk."
+}

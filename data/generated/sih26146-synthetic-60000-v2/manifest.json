@@ -1,0 +1,26 @@
+{
+  "schema_version": "2.0.0",
+  "dataset_id": "sih26146-synthetic-60000-v2",
+  "generator_name": "tracegraph-synthetic-generator",
+  "generator_version": "2.0.0",
+  "data_classification": "SYNTHETIC_ONLY",
+  "seed": 2026,
+  "event_file": "events.csv",
+  "event_row_count": 60000,
+  "dataset_sha256": "0ada9cf18cc56cf16ebea0d88038b40c5ef2fef998d16b03a2c4ee0ecccb4963",
+  "label_file": "truth/labels.csv",
+  "label_row_count": 2000,
+  "label_access": "EVALUATOR_ONLY",
+  "scenario_catalog": [
+    "STRUCTURING",
+    "PEEL_CHAIN",
+    "RAPID_HOP",
+    "FAN_OUT",
+    "FAN_IN",
+    "PORT_SHIFT",
+    "IP_ROTATION",
+    "MIXER_LIKE_CLUSTER"
+  ],
+  "allowed_ip_range": "198.18.0.0/15",
+  "responsible_use": "Synthetic training data only. No real wallet, IP, identity, or blockchain inference is permitted."
+}
