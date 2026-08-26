@@ -4,6 +4,13 @@ TraceGraph AI is a **CPU-only, offline, synthetic-data-only** model-training pro
 
 > The repository rejects the intended use of real wallets, real IP addresses, real blockchain data, identity resolution, or enforcement decisions. Every identifier and event in the generated fixture is synthetic.
 
+## Authoritative Specifications
+
+Read these before modifying code or asking a coding agent to extend the project:
+
+- [`docs/TRACEGRAPH_AI_EXECUTION_SPEC.md`](docs/TRACEGRAPH_AI_EXECUTION_SPEC.md) defines the current implementation, exact data/model/artifact contracts, what is planned versus implemented, and vibe-coding rules.
+- [`docs/SIH26146TraceGraphAI_model.md`](docs/SIH26146TraceGraphAI_model.md) defines the trained model, metrics, saved files, risk score, and required future inference interface.
+
 ## Quick Start
 
 ```bash

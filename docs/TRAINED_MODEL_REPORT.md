@@ -1,5 +1,7 @@
 # Trained Model Report — TraceGraph AI
 
+> The complete authoritative contracts now live in [`TRACEGRAPH_AI_EXECUTION_SPEC.md`](TRACEGRAPH_AI_EXECUTION_SPEC.md) and [`SIH26146TraceGraphAI_model.md`](SIH26146TraceGraphAI_model.md). This report is retained as a concise metric summary.
+
 ## Run Identity
 
 | Field | Value |
