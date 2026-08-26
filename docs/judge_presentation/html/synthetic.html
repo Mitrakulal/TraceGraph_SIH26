@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #F8FAFC; color: #1E293B; font-family: Inter, Arial, sans-serif; }
+    .top-rule { min-height: 8px; background: #EA580C; }
+    /* keep top padding (title spacing) but reduce bottom padding to shave height */
+    .wrap { min-height: 712px; padding: 50px 72px 12px; display: flex; flex-direction: column; }
+    .kicker { color: #EA580C; font-size: 14px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2 { font-size: 49px; line-height: 1; letter-spacing: -2px; font-weight: 900; margin-top: 10px; }
+    .lead { max-width: 900px; color: #475569; font-size: 20px; line-height: 1.35; margin-top: 13px; }
+    /* slightly reduce fixture block height and inner padding */
+    .fixture { min-height: 130px; margin-top: 28px; background: #1E293B; color: #F8FAFC; display: grid; grid-template-columns: 29% 24% 24% 23%; align-items: center; }
+    .fixture-item { min-height: 100px; padding: 12px 20px 0; border-right: 1px solid #475569; }
+    .fixture-item:last-child { border-right: 0; }
+    .fixture-value { font-size: 39px; line-height: 1; font-weight: 900; letter-spacing: -1px; color: #F8FAFC; }
+    .fixture-value.green { color: #5EEAD4; }
+    .fixture-value.orange { color: #FDBA74; }
+    .fixture-label { margin-top: 8px; font-size: 13px; line-height: 1.25; letter-spacing: .7px; color: #CBD5E1; font-weight: 800; text-transform: uppercase; }
+    /* reduce benefits block height and inner padding to fit under 720px */
+    .benefits { min-height: 260px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    .benefit { min-height: 230px; border-top: 6px solid #1E293B; padding: 14px 8px 0; }
+    .benefit.green { border-color: #059669; }
+    .benefit.orange { border-color: #EA580C; }
+    .index { font-size: 14px; color: #94A3B8; font-weight: 900; letter-spacing: 1px; }
+    .benefit h3 { font-size: 25px; line-height: 1.02; font-weight: 900; margin-top: 16px; }
+    .benefit p { font-size: 16px; line-height: 1.38; color: #475569; margin-top: 12px; max-width: 200px; }
+    .foot { margin-top: auto; font-size: 14px; line-height: 1.3; color: #64748B; }
+    .foot strong { color: #C2410C; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="top-rule"></div>
+    <main class="wrap">
+      <div class="kicker">The synthetic-data decision</div>
+      <h2>Why synthetic data is the right starting point.</h2>
+      <p class="lead">It gives us a safe, labelled, repeatable environment to prove the entire workflow—without exposing a real wallet, IP address, identity, or financial record.</p>
+      <section class="fixture">
+        <div class="fixture-item"><div class="fixture-value">60,000</div><div class="fixture-label">Synthetic event records</div></div>
+        <div class="fixture-item"><div class="fixture-value orange">2,000</div><div class="fixture-label">Labelled anomaly events</div></div>
+        <div class="fixture-item"><div class="fixture-value green">8</div><div class="fixture-label">Controlled scenario families</div></div>
+        <div class="fixture-item"><div class="fixture-value">2026</div><div class="fixture-label">Fixed replay seed</div></div>
+      </section>
+      <section class="benefits">
+        <article class="benefit green"><div class="index">01</div><h3>Safe by design</h3><p>Fake wallet IDs and benchmark-range IPs prevent exposure of sensitive or personal data.</p></article>
+        <article class="benefit orange"><div class="index">02</div><h3>Known answers</h3><p>Injected scenarios provide evaluator-only labels for honest training and testing.</p></article>
+        <article class="benefit"><div class="index">03</div><h3>Repeatable demo</h3><p>The same seed recreates the same fixture, expected alerts, and presentation story.</p></article>
+        <article class="benefit green"><div class="index">04</div><h3>Offline proof</h3><p>No blockchain API, wallet lookup, cloud service, or external network call is required.</p></article>
+      </section>
+      <p class="foot"><strong>Honest limitation:</strong> Synthetic benchmark metrics prove the controlled pipeline works; they are not a claim of real-world deployment accuracy.</p>
+    </main>
+  </div>
+</body>
+</html>

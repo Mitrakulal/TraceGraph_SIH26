@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #F8FAFC; color: #1E293B; font-family: Inter, Arial, sans-serif; }
+    .top-rule { min-height: 8px; background: #EA580C; }
+    .shell { min-height: 712px; display: grid; grid-template-columns: 57% 43%; }
+    .left { min-height: 712px; padding: 88px 60px 48px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+    .eyebrow { color: #EA580C; font-size: 17px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { font-size: 70px; line-height: 0.95; font-weight: 900; letter-spacing: -3px; max-width: 600px; }
+    .subtitle { font-size: 25px; line-height: 1.32; max-width: 540px; color: #475569; margin-top: 26px; }
+    .pills { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pill { border: 2px solid #1E293B; padding: 10px 14px; font-size: 14px; font-weight: 800; letter-spacing: .3px; }
+    .pill.green { border-color: #059669; color: #047857; }
+    .pill.orange { border-color: #EA580C; color: #C2410C; }
+    .right { min-height: 712px; background: #1E293B; padding: 72px 52px 48px 34px; display: flex; flex-direction: column; justify-content: center; }
+    .graph-frame { min-height: 420px; border: 1px solid rgba(255,255,255,.28); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(5,150,105,.14), rgba(234,88,12,.10)); }
+    .graph-frame img { width: 430px; height: 300px; object-fit: contain; opacity: .96; }
+    .right-label { color: #E2E8F0; font-size: 16px; font-weight: 700; letter-spacing: 1px; margin-top: 18px; text-transform: uppercase; }
+    .right-note { color: #94A3B8; font-size: 16px; line-height: 1.4; margin-top: 8px; max-width: 420px; }
+    .micro { font-size: 14px; color: #64748B; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="top-rule"></div>
+    <div class="shell">
+      <section class="left">
+        <div>
+          <div class="eyebrow">SIH26146 · Judge Presentation</div>
+          <h1>TraceGraph<br>AI</h1>
+          <p class="subtitle">From raw synthetic transaction records to an <strong>explainable visual trail</strong> for human review.</p>
+        </div>
+        <div>
+          <div class="pills">
+            <span class="pill green">Offline</span>
+            <span class="pill">CPU-trained</span>
+            <span class="pill orange">Synthetic-only</span>
+            <span class="pill">Human in control</span>
+          </div>
+          <p class="micro" style="margin-top:18px;">A safer way to demonstrate investigation intelligence—without real wallets, IPs, or identities.</p>
+        </div>
+      </section>
+      <section class="right">
+        <div class="graph-frame"><img src="../assets/tracegraph-architecture.png" alt="TraceGraph synthetic wallet and IP graph" /></div>
+        <div class="right-label">Explainable investigation workflow</div>
+        <p class="right-note">The model is the brain. The product is the visual workflow: identify, explain, connect, and review.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

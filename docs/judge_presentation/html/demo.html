@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #F8FAFC; color: #1E293B; font-family: Inter, Arial, sans-serif; }
+    .top-rule { min-height: 8px; background: #EA580C; }
+    .wrap { min-height: 712px; padding: 52px 72px 20px; display: flex; flex-direction: column; }
+    .kicker { color: #EA580C; font-size: 14px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2 { font-size: 50px; line-height: 1; font-weight: 900; letter-spacing: -2px; margin-top: 10px; }
+    .lead { color: #475569; font-size: 20px; line-height: 1.35; max-width: 900px; margin-top: 13px; }
+    .flow { min-height: 365px; display: grid; grid-template-columns: 1fr 44px 1fr 44px 1fr 44px 1fr; align-items: center; margin-top: 38px; }
+    .step { min-height: 270px; background: #FFFFFF; border-top: 7px solid #1E293B; padding: 23px 18px 14px; display: flex; flex-direction: column; justify-content: space-between; }
+    .step.green { border-top-color: #059669; }
+    .step.orange { border-top-color: #EA580C; }
+    .step .number { color: #94A3B8; font-size: 18px; font-weight: 900; letter-spacing: 1.2px; }
+    .step h3 { font-size: 24px; line-height: 1.04; font-weight: 900; margin-top: 14px; }
+    .step p { color: #475569; font-size: 15px; line-height: 1.35; margin-top: 12px; }
+    .step .proof { color: #047857; font-size: 12px; font-weight: 900; letter-spacing: .8px; text-transform: uppercase; margin-top: 14px; }
+    .step.orange .proof { color: #C2410C; }
+    .arrow { color: #EA580C; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+    .run-strip { min-height: 86px; border-top: 3px solid #1E293B; display: grid; grid-template-columns: 36% 22% 22% 20%; align-items: center; margin-top: auto; }
+    .run-strip div { padding: 9px 16px 0 0; }
+    .run-strip strong { display: block; font-size: 14px; text-transform: uppercase; letter-spacing: .8px; }
+    .run-strip span { display: block; color: #475569; font-size: 15px; line-height: 1.25; margin-top: 4px; }
+    .badge { color: #C2410C; font-weight: 900; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="top-rule"></div>
+    <main class="wrap">
+      <div class="kicker">Live demonstration</div>
+      <h2>A judge can follow the decision in four clicks.</h2>
+      <p class="lead">We use prepared synthetic scenarios, so the proof is deterministic: the same seed, same artifacts, same alert ordering, and no surprise live-data dependency.</p>
+      <section class="flow">
+        <article class="step green">
+          <div><div class="number">01</div><h3>Select a synthetic scenario</h3><p>Choose <strong>Normal</strong>, <strong>Rapid Hop</strong>, <strong>IP Rotation</strong>, or <strong>Fan-Out</strong>.</p></div>
+          <div class="proof">Safe + repeatable input</div>
+        </article>
+        <div class="arrow">→</div>
+        <article class="step">
+          <div><div class="number">02</div><h3>Open the ranked alert queue</h3><p>Show the low-risk normal item beside a high-priority synthetic pattern.</p></div>
+          <div class="proof">Risk score + queue rank</div>
+        </article>
+        <div class="arrow">→</div>
+        <article class="step orange">
+          <div><div class="number">03</div><h3>Inspect evidence + graph</h3><p>Show top feature contributions, rule hits, and the connected wallet/IP trail.</p></div>
+          <div class="proof">Explain, do not black-box</div>
+        </article>
+        <div class="arrow">→</div>
+        <article class="step green">
+          <div><div class="number">04</div><h3>Record human review</h3><p>The reviewer marks the synthetic alert as reviewed, dismissed, or escalated for synthetic review.</p></div>
+          <div class="proof">Human remains in control</div>
+        </article>
+      </section>
+      <section class="run-strip">
+        <div><strong>Demo promise</strong><span>No random live input. No external lookup.</span></div>
+        <div><strong>Seed</strong><span>2026</span></div>
+        <div><strong>Fixture</strong><span>60,000 synthetic events</span></div>
+        <div><strong class="badge">Boundary</strong><span>Synthetic-only review assistance</span></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

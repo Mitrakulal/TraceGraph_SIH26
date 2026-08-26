@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #F8FAFC; color: #1E293B; font-family: Inter, Arial, sans-serif; }
+    .top-rule { min-height: 8px; background: #EA580C; }
+    .wrap { min-height: 712px; padding: 58px 72px 22px; display: flex; flex-direction: column; }
+    .kicker { color: #EA580C; font-size: 14px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2 { max-width: 1040px; font-size: 60px; line-height: .96; font-weight: 900; letter-spacing: -3px; margin-top: 14px; }
+    h2 span { color: #EA580C; }
+    .subtitle { max-width: 780px; color: #475569; font-size: 22px; line-height: 1.35; margin-top: 22px; }
+    .pillars { min-height: 206px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+    .pillar { min-height: 192px; padding: 18px 20px 8px; background: #FFFFFF; border-top: 8px solid #1E293B; display: flex; flex-direction: column; }
+    .pillar.green { border-color: #059669; }
+    .pillar.orange { border-color: #EA580C; }
+    .pillar .number { color: #94A3B8; font-size: 13px; font-weight: 900; letter-spacing: 1px; }
+    .pillar h3 { font-size: 25px; line-height: 1.03; font-weight: 900; margin-top: 13px; }
+    .pillar p { color: #475569; font-size: 15px; line-height: 1.34; margin-top: 11px; }
+    .close-strip { min-height: 64px; background: #1E293B; color: #F8FAFC; display: flex; align-items: center; padding: 15px 22px 0; margin-top: auto; }
+    .close-strip strong { color: #FDBA74; font-size: 19px; }
+    .close-strip span { font-size: 17px; margin-left: 10px; line-height: 1.25; }
+    .foot { font-size: 12px; color: #64748B; margin-top: 13px; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="top-rule"></div>
+    <main class="wrap">
+      <div class="kicker">Closing thought</div>
+      <h2>From a black-box score to a <span>visual trail</span> a reviewer can understand.</h2>
+      <p class="subtitle">TraceGraph AI makes anomaly detection useful for a judge demo and an analyst workflow: it prioritizes a synthetic pattern, shows why it matters, and keeps the human—not the model—in charge.</p>
+      <section class="pillars">
+        <article class="pillar orange">
+          <div class="number">01</div>
+          <h3>Explainable</h3>
+          <p>Every queued alert carries actual feature evidence, rules context, and a visible relationship trail.</p>
+        </article>
+        <article class="pillar green">
+          <div class="number">02</div>
+          <h3>Offline + synthetic-safe</h3>
+          <p>Controlled fixture, fixed seed, no real wallets or IPs, and no external network dependency.</p>
+        </article>
+        <article class="pillar">
+          <div class="number">03</div>
+          <h3>Human in control</h3>
+          <p>The model prioritizes synthetic review work. A reviewer interprets, dismisses, or escalates the case.</p>
+        </article>
+      </section>
+      <div class="close-strip"><strong>TraceGraph AI:</strong><span>show the pattern, show the evidence, let the human decide.</span></div>
+      <p class="foot">Synthetic training data only — review assistance, not an accusation or enforcement decision.</p>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #F8FAFC; color: #1E293B; font-family: Inter, Arial, sans-serif; }
+    .top-rule { min-height: 8px; background: #EA580C; }
+    /* keep top padding for title (important) */
+    .wrap { min-height: auto; padding: 52px 72px 18px; display: flex; flex-direction: column; }
+    .kicker { color: #EA580C; font-size: 14px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2 { font-size: 49px; line-height: 1; font-weight: 900; letter-spacing: -2px; margin-top: 10px; }
+    .lead { color: #475569; font-size: 20px; line-height: 1.35; max-width: 860px; margin-top: 12px; }
+    .main { min-height: auto; display: grid; grid-template-columns: 69% 31%; gap: 16px; align-items: start; margin-top: 28px; }
+    .pipeline { min-height: 0; display: grid; grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr; align-items: start; gap: 12px; }
+    .stage { min-height: 0; padding: 18px 12px 10px; display: flex; flex-direction: column; justify-content: flex-start; background: #FFFFFF; border-top: 6px solid #1E293B; }
+    .stage.green { border-color: #059669; }
+    .stage.orange { border-color: #EA580C; }
+    .num { color: #94A3B8; font-size: 15px; font-weight: 900; letter-spacing: 1px; }
+    .stage h3 { font-size: 23px; line-height: 1.03; font-weight: 900; margin-top: 14px; }
+    .stage p { font-size: 15px; line-height: 1.35; color: #475569; margin-top: 12px; }
+    .tag { font-size: 12px; font-weight: 900; color: #047857; text-transform: uppercase; letter-spacing: .8px; margin-top: 8px; }
+    .tag.orange { color: #C2410C; }
+    .arrow { color: #EA580C; font-size: 31px; display: flex; align-items: center; justify-content: center; }
+    .side { min-height: 0; padding-top: 10px; border-top: 4px solid #1E293B; }
+    .side img { width: 260px; height: 200px; object-fit: contain; background: #FFFFFF; }
+    .side h4 { font-size: 17px; line-height: 1.2; margin-top: 12px; }
+    .side p { font-size: 14px; color: #64748B; line-height: 1.35; margin-top: 7px; }
+    .bottom { display: flex; gap: 12px; align-items: center; font-size: 16px; color: #475569; margin-top: 18px; }
+    .bottom strong { color: #1E293B; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="top-rule"></div>
+    <main class="wrap">
+      <div class="kicker">Unique value proposition</div>
+      <h2>More than a model: an explainable investigation workflow.</h2>
+      <p class="lead">TraceGraph AI transforms synthetic traffic into a visual, reviewable trail—rather than returning an unexplained “fraud” label.</p>
+      <section class="main">
+        <div class="pipeline">
+          <article class="stage"><div><div class="num">01</div><h3>Synthetic input</h3><p>Safe, labelled records with fake wallets, benchmark IPs, timing and metadata.</p></div><div class="tag">Validated fixture</div></article>
+          <div class="arrow">→</div>
+          <article class="stage green"><div><div class="num">02</div><h3>Behaviour + relationships</h3><p>18 features expose velocity, IP rotation, destinations, and graph context.</p></div><div class="tag">Context, not one row</div></article>
+          <div class="arrow">→</div>
+          <article class="stage orange"><div><div class="num">03</div><h3>Hybrid AI</h3><p>Rules baseline + novelty detection + learned probability create a score.</p></div><div class="tag orange">Model evidence</div></article>
+          <div class="arrow">→</div>
+          <article class="stage"><div><div class="num">04</div><h3>Human review</h3><p>Ranked alerts, feature evidence, and a visual relationship trail support the reviewer.</p></div><div class="tag">Human decides</div></article>
+        </div>
+        <aside class="side">
+          <img src="../assets/workflow-reference.jpg" alt="Illustrative analysis workflow reference" />
+          <h4>The score is not the final product.</h4>
+          <p>TraceGraph AI makes the score useful by showing evidence and relationships for a synthetic review workflow.</p>
+        </aside>
+      </section>
+      <div class="bottom"><strong>Key distinction:</strong> AI prioritizes a synthetic pattern; the reviewer interprets and decides.</div>
+    </main>
+  </div>
+</body>
+</html>

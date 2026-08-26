@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    .slide-container { width: 1280px; min-height: 720px; background: #F8FAFC; color: #1E293B; font-family: Inter, Arial, sans-serif; }
+    .top-rule { min-height: 8px; background: #EA580C; }
+    /* kept top padding for title; reduced bottom padding to save height */
+    .wrap { min-height: 712px; padding: 42px 64px 6px; display: flex; flex-direction: column; }
+    .eyebrow { color: #EA580C; font-size: 14px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; }
+    h2 { font-size: 48px; line-height: 1; font-weight: 900; letter-spacing: -2px; margin-top: 9px; }
+    .lead { color: #475569; font-size: 20px; line-height: 1.3; margin-top: 10px; max-width: 960px; }
+    /* reduced compare and gaps to shrink overall layout */
+    .compare { min-height: 420px; display: grid; grid-template-columns: 1fr 80px 1fr; gap: 12px; margin-top: 16px; align-items: stretch; }
+    .case { min-height: 380px; padding: 22px 24px 8px; display: flex; flex-direction: column; background: #FFFFFF; border-top: 7px solid #1E293B; }
+    .case.normal { border-top-color: #059669; }
+    .case.anomaly { border-top-color: #EA580C; }
+    .label { font-size: 14px; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; }
+    .normal .label { color: #047857; }
+    .anomaly .label { color: #C2410C; }
+    .case-title { font-size: 28px; line-height: 1.02; font-weight: 900; margin-top: 10px; }
+    .score-row { display: flex; align-items: baseline; gap: 10px; margin-top: 20px; }
+    .score { font-size: 64px; line-height: .9; font-weight: 900; letter-spacing: -3px; }
+    .normal .score { color: #059669; }
+    .anomaly .score { color: #EA580C; }
+    .score-copy { color: #64748B; font-size: 15px; line-height: 1.2; font-weight: 700; }
+    .facts { display: grid; gap: 8px; margin-top: 12px; }
+    .fact { min-height: 30px; border-top: 1px solid #CBD5E1; padding-top: 8px; font-size: 16px; color: #334155; }
+    .fact strong { color: #1E293B; }
+    .mini-graph { min-height: 70px; display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .node { width: 32px; min-height: 32px; border: 3px solid #059669; background: #ECFDF5; display: flex; align-items: center; justify-content: center; color: #047857; font-size: 11px; font-weight: 900; }
+    .node.orange { border-color: #EA580C; background: #FFF7ED; color: #C2410C; }
+    .link { min-width: 32px; min-height: 3px; background: #059669; }
+    .link.orange { background: #EA580C; }
+    .divider { min-height: 360px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .divider .line { min-height: 120px; width: 2px; background: #CBD5E1; }
+    .divider strong { font-size: 15px; line-height: 1.15; color: #475569; margin: 10px 0; }
+    .divider span { color: #EA580C; font-size: 27px; font-weight: 900; }
+    .footer { color: #64748B; font-size: 13px; line-height: 1.25; margin-top: auto; }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="top-rule"></div>
+    <main class="wrap">
+      <div class="eyebrow">Visual demo centerpiece</div>
+      <h2>Normal behaviour versus a synthetic anomaly pattern.</h2>
+      <p class="lead">The model does not judge one transaction alone. It scores the transaction <strong>in context</strong>: timing, connections, IP behaviour, and previously observed relationships.</p>
+      <section class="compare">
+        <article class="case normal">
+          <div class="label">Normal synthetic pattern</div>
+          <div class="case-title">Stable activity, low review priority</div>
+          <div class="score-row"><div class="score">12</div><div class="score-copy">/100<br>synthetic review score</div></div>
+          <div class="facts">
+            <div class="fact"><strong>Stable synthetic IP:</strong> one familiar source path</div>
+            <div class="fact"><strong>Limited spread:</strong> one receiver, no burst</div>
+            <div class="fact"><strong>Normal timing:</strong> expected gap between events</div>
+          </div>
+          <div class="mini-graph" aria-label="Small simple synthetic relationship graph">
+            <div class="node">A</div><div class="link"></div><div class="node">B</div>
+          </div>
+        </article>
+        <div class="divider"><div class="line"></div><strong>Same kind of<br>raw record</strong><span>≠</span><strong>Different<br>behaviour context</strong><div class="line"></div></div>
+        <article class="case anomaly">
+          <div class="label">Rapid-hop + IP-rotation scenario</div>
+          <div class="case-title">Behaviour changes; review first</div>
+          <div class="score-row"><div class="score">88</div><div class="score-copy">/100<br>synthetic review score</div></div>
+          <div class="facts">
+            <div class="fact"><strong>Fast activity:</strong> multiple events in a short period</div>
+            <div class="fact"><strong>High fan-out:</strong> many new recipient wallets</div>
+            <div class="fact"><strong>IP rotation:</strong> frequent change in synthetic source IPs</div>
+          </div>
+          <div class="mini-graph" aria-label="Dense synthetic anomaly relationship graph">
+            <div class="node orange">A</div><div class="link orange"></div><div class="node orange">B</div><div class="link orange"></div><div class="node orange">C</div><div class="link orange"></div><div class="node orange">D</div>
+          </div>
+        </article>
+      </section>
+      <p class="footer">Illustrative scores are for the prepared synthetic demo scenario. The reviewer sees evidence and decides; the system does not infer real-world identity or wrongdoing.</p>
+    </main>
+  </div>
+</body>
+</html>
