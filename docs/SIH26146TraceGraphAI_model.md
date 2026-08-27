@@ -3,13 +3,13 @@
 
 | Model property | Current value |
 |---|---|
-| Model run directory | `artifacts/runs/sih26146-cpu-demo-2026-v1/` |
+| Model run directory | `services/ml/artifacts/runs/sih26146-cpu-demo-2026-v1/` |
 | Dataset | `sih26146-synthetic-60000-v2` |
 | Dataset seed | `2026` |
 | Events / labels | 60,000 / 2,000 synthetic only |
 | Model architecture | Isolation Forest novelty signal + XGBoost binary classifier + deterministic graph proxy |
 | CPU requirement | CPU only; `n_jobs=1`; no GPU required |
-| Training entry point | `PYTHONPATH=src python3 scripts/train_model.py --regenerate` |
+| Training entry point | `cd services/ml && PYTHONPATH=src python3 scripts/train_model.py --regenerate` |
 | Current inference command | **Not implemented yet**; exact required interface is in Section 9 |
 
 > **Model limitation.** This is a trained model for the repository’s controlled synthetic scenarios. It does not analyze real Bitcoin transactions, wallets, IP addresses, identities, or crime. It must only prioritize synthetic records for human review.
@@ -20,9 +20,9 @@
 
 | File | Load method | Role |
 |---|---|---|
-| `artifacts/robust_scaler.joblib` | `joblib.load` | Scales feature vectors before Isolation Forest scoring |
-| `artifacts/isolation_forest.joblib` | `joblib.load` | Produces a novelty signal based on benign training patterns |
-| `artifacts/xgboost_model.json` | `XGBClassifier().load_model` | Produces the supervised synthetic-anomaly probability |
+| `services/ml/artifacts/runs/.../artifacts/robust_scaler.joblib` | `joblib.load` | Scales feature vectors before Isolation Forest scoring |
+| `services/ml/artifacts/runs/.../artifacts/isolation_forest.joblib` | `joblib.load` | Produces a novelty signal based on benign training patterns |
+| `services/ml/artifacts/runs/.../artifacts/xgboost_model.json` | `XGBClassifier().load_model` | Produces the supervised synthetic-anomaly probability |
 | `feature_schema.json` | JSON read | Locks the exact ordered 18-feature contract |
 | `model_card.json` | JSON read | Provenance, model settings, metrics, and limitations |
 
@@ -181,7 +181,7 @@ These outcomes are high because test patterns are generated from known controlle
 ## 8. How To Reproduce Training
 
 ```bash
-cd TraceGraph_SIH26
+cd TraceGraph_SIH26/services/ml
 python3 -m pip install -r requirements.txt
 PYTHONPATH=src python3 scripts/train_model.py --regenerate
 PYTHONPATH=src pytest
@@ -196,6 +196,7 @@ Expected acceptance result: the run recreates the fixture, validates it, writes 
 The training command is not an end-user inference command. Implement this next so the model can score a new **synthetic batch** without retraining:
 
 ```bash
+cd services/ml
 PYTHONPATH=src python3 scripts/predict.py \
   --input path/to/synthetic_fixture/events.csv \
   --manifest path/to/synthetic_fixture/manifest.json \

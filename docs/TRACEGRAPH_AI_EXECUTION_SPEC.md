@@ -5,7 +5,7 @@
 |---|---|
 | SIH problem statement | **SIH26146 — AI-Powered Monitoring & Analysis of Bitcoin Transaction Traffic** |
 | Repository | `Mitrakulal/TraceGraph_SIH26` |
-| Current implementation | Standalone Python 3 CPU-only training and artifact pipeline |
+| Current implementation | `services/ml/` Python 3 CPU-only training and artifact pipeline |
 | Current model run | `sih26146-cpu-demo-2026-v1` |
 | Current fixture | `sih26146-synthetic-60000-v2` |
 | Data class | `SYNTHETIC_ONLY` |
@@ -19,21 +19,21 @@
 
 ## 1. What Is Implemented Now
 
-The repository contains a fully trained CPU model and the deterministic code that created it. It does not yet contain the planned React dashboard, Node/tRPC API, SQLite case workspace, file-upload page, login, or `predict.py` command. These are future product layers and must not be represented as completed functionality.
+The repository contains a fully trained CPU model and the deterministic code that created it in `services/ml/`. It does not yet contain an implemented dashboard, HTTP API, SQLite case workspace, file-upload page, login, or `predict.py` command. The empty `apps/web/` and `services/api/` workspaces are intentionally reserved for those future product layers and must not be represented as completed functionality.
 
 | Capability | Status | Exact implementation / artifact |
 |---|---|---|
-| Deterministic synthetic fixture generation | Implemented | `src/tracegraph/pipeline.py::generate_dataset` |
-| Synthetic fixture validation | Implemented | `src/tracegraph/pipeline.py::validate_dataset` |
-| Chronological 60/20/20 data split | Implemented | `src/tracegraph/pipeline.py::_time_split` |
-| Time-safe relationship/graph proxy features | Implemented | `src/tracegraph/pipeline.py::extract_features` |
-| Rules baseline | Implemented | `src/tracegraph/pipeline.py::_baseline_scores` |
-| Isolation Forest novelty model | Trained and committed | `artifacts/runs/.../artifacts/isolation_forest.joblib` |
-| XGBoost classifier | Trained and committed | `artifacts/runs/.../artifacts/xgboost_model.json` |
+| Deterministic synthetic fixture generation | Implemented | `services/ml/src/tracegraph/pipeline.py::generate_dataset` |
+| Synthetic fixture validation | Implemented | `services/ml/src/tracegraph/pipeline.py::validate_dataset` |
+| Chronological 60/20/20 data split | Implemented | `services/ml/src/tracegraph/pipeline.py::_time_split` |
+| Time-safe relationship/graph proxy features | Implemented | `services/ml/src/tracegraph/pipeline.py::extract_features` |
+| Rules baseline | Implemented | `services/ml/src/tracegraph/pipeline.py::_baseline_scores` |
+| Isolation Forest novelty model | Trained and committed | `services/ml/artifacts/runs/.../artifacts/isolation_forest.joblib` |
+| XGBoost classifier | Trained and committed | `services/ml/artifacts/runs/.../artifacts/xgboost_model.json` |
 | Native XGBoost TreeSHAP contributions | Implemented | `Booster.predict(..., pred_contribs=True)` |
 | Ranked alert and evidence artifacts | Trained and committed | `alerts.json`, `evidence.json` |
 | Model card and held-out metrics | Trained and committed | `model_card.json`, `metrics_*.json` |
-| CLI inference against a new CSV | **Planned, not implemented** | Must be added as `scripts/predict.py` under Section 11 |
+| CLI inference against a new CSV | **Planned, not implemented** | Must be added as `services/ml/scripts/predict.py` under Section 11 |
 | Dashboard/API/database | **Planned, not implemented** | Must consume only existing artifact contracts |
 
 ---
@@ -42,44 +42,37 @@ The repository contains a fully trained CPU model and the deterministic code tha
 
 ```text
 TraceGraph_SIH26/
-├── README.md
-├── requirements.txt
-├── pyproject.toml
-├── src/tracegraph/
-│   ├── __init__.py
-│   └── pipeline.py                 # Authoritative generator, validator, features, models, scoring
-├── scripts/
-│   └── train_model.py              # Existing generate → validate → train → evaluate entry point
-├── data/generated/
-│   └── sih26146-synthetic-60000-v2/
-│       ├── events.csv              # 60,000 synthetic source events
-│       ├── manifest.json           # Fixture provenance and SHA-256
-│       ├── data_summary.json
-│       ├── validation_report.json
-│       └── truth/labels.csv        # Training/evaluation only; never display in investigator UI
-├── artifacts/runs/sih26146-cpu-demo-2026-v1/
-│   ├── artifacts/
-│   │   ├── robust_scaler.joblib
-│   │   ├── isolation_forest.joblib
-│   │   └── xgboost_model.json
-│   ├── features.parquet
-│   ├── feature_schema.json
-│   ├── graph_summary.json
-│   ├── metrics_validation.json
-│   ├── metrics_test.json
-│   ├── threshold_table.json
-│   ├── model_card.json
-│   ├── alerts.json
-│   └── evidence.json
-├── tests/
-│   ├── test_pipeline.py
-│   └── test_artifact_contract.py
-└── docs/
-    ├── TRACEGRAPH_AI_EXECUTION_SPEC.md
-    └── SIH26146TraceGraphAI_model.md
+├── apps/web/                       # Reserved frontend workspace; no UI is implemented yet
+├── services/
+│   ├── api/                        # Reserved FastAPI workspace; no endpoint is implemented yet
+│   └── ml/                         # Authoritative trained-model workspace
+│       ├── requirements.txt
+│       ├── pyproject.toml
+│       ├── src/tracegraph/pipeline.py
+│       ├── scripts/train_model.py
+│       ├── tests/
+│       ├── data/generated/sih26146-synthetic-60000-v2/
+│       │   ├── events.csv
+│       │   ├── manifest.json
+│       │   ├── data_summary.json
+│       │   ├── validation_report.json
+│       │   └── truth/labels.csv    # Training/evaluation only; never display in the UI
+│       └── artifacts/runs/sih26146-cpu-demo-2026-v1/
+│           ├── artifacts/          # Scaler, Isolation Forest, and XGBoost files
+│           ├── features.parquet
+│           ├── feature_schema.json
+│           ├── graph_summary.json
+│           ├── metrics_*.json
+│           ├── threshold_table.json
+│           ├── model_card.json
+│           ├── alerts.json
+│           └── evidence.json
+├── packages/contracts/v1/           # Future versioned API schemas
+├── packages/fixtures/               # Future frontend-safe API-shaped JSON only
+└── docs/                            # Product, model, API, team, and deck documentation
 ```
 
-**Ownership rule:** `pipeline.py` is the single source of truth for feature names, model settings, risk scoring, dataset validation, and artifact paths. Do not duplicate those constants in UI/API code; import or read the emitted JSON contracts instead.
+**Ownership rule:** `services/ml/src/tracegraph/pipeline.py` is the single source of truth for feature names, model settings, risk scoring, dataset validation, and artifact paths. Do not duplicate those constants in UI/API code; the API must read model artifacts and send only contract-safe JSON to `apps/web/`.
 
 ---
 
@@ -145,7 +138,7 @@ event_id,observed_at,txid,input_wallet,output_wallet,amount_sats,fee_sats,script
 The only supported training command is below. It is deterministic when run with the pinned requirements and seed 2026.
 
 ```bash
-cd TraceGraph_SIH26
+cd TraceGraph_SIH26/services/ml
 python3 -m pip install -r requirements.txt
 PYTHONPATH=src python3 scripts/train_model.py --regenerate
 PYTHONPATH=src pytest
@@ -153,7 +146,7 @@ PYTHONPATH=src pytest
 
 The command performs this exact sequence:
 
-1. `generate_dataset` deletes and recreates `data/generated/sih26146-synthetic-60000-v2/` from seed 2026.
+1. `generate_dataset` deletes and recreates `services/ml/data/generated/sih26146-synthetic-60000-v2/` from seed 2026 when run from the repository root; from inside `services/ml/`, the same fixture path is `data/generated/sih26146-synthetic-60000-v2/`.
 2. `validate_dataset` verifies synthetic-only classification, SHA-256, canonical columns, uniqueness, benchmark IP range, amount/fee relation, and scenario count.
 3. `extract_features` sorts events by `observed_at,event_sequence` and calculates features using prior observed events only.
 4. `_time_split` assigns chronological train, validation, and test partitions at 60%, 80%, and 100% of the event-time span.
@@ -309,11 +302,12 @@ The current suite must pass before committing model changes.
 
 ---
 
-## 11. Next Implementation Contract: `scripts/predict.py`
+## 11. Next Implementation Contract: `services/ml/scripts/predict.py`
 
 The current repository has trained artifacts but no standalone prediction command. The next coding task must create exactly this interface:
 
 ```bash
+cd services/ml
 PYTHONPATH=src python3 scripts/predict.py \
   --input data/generated/sih26146-synthetic-60000-v2/events.csv \
   --model-run artifacts/runs/sih26146-cpu-demo-2026-v1 \
@@ -324,6 +318,6 @@ PYTHONPATH=src python3 scripts/predict.py \
 
 ## 12. Planned UI/API Contract
 
-When UI implementation begins, it must read only the current artifact contracts: `model_card.json`, `alerts.json`, `evidence.json`, `graph_summary.json`, and metrics JSON. The initial screens are Overview, Alert Queue, Alert Evidence, Graph Explorer, Run History, and Model Evaluation. They are **planned**, not currently implemented.
+When UI implementation begins, `apps/web/` must call `services/api/` only. The API reads only the current artifact contracts from `services/ml/artifacts/runs/sih26146-cpu-demo-2026-v1/`: `model_card.json`, `alerts.json`, `evidence.json`, `graph_summary.json`, and metrics JSON. The initial screens are Overview, Alert Queue, Alert Evidence, Graph Explorer, Run History, and Model Evaluation. They are **planned**, not currently implemented.
 
 The dashboard must display the completed run ID, fixture ID/hash, training seed, 250 alert count, evidence count, metric values, and the persistent synthetic-only boundary. A UI must never infer or display real identity, ownership, criminality, or enforcement actions.

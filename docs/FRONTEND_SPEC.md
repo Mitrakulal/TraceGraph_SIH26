@@ -1,5 +1,9 @@
 # TraceGraph AI — Frontend
 
+> **Canonical implementation override.** The frontend application must be created only in `apps/web/`. The current repository has no working frontend yet. `services/ml/` owns the trained models, source fixture, labels, and artifacts; `services/api/` will be the only backend HTTP boundary; `packages/contracts/v1/` will own versioned API schemas; `packages/fixtures/` will own temporary frontend-safe mock JSON. Read `CANONICAL_PROJECT_STRUCTURE.md` and `TEAM_FRONTEND_BACKEND_HANDOFF.md` before adding code.
+
+> **Data-truth override.** All example IDs, alert scores, entity counts, and labels below are visual layout examples only unless they are returned by the API or a fixture generated from the current model artifacts. The UI must never ship invented alert rows, scores, entity counts, or model evidence. The current known facts are: 60,000 synthetic events, 250 queued alerts, 1,250 evidence records, and the run ID `sih26146-cpu-demo-2026-v1`.
+
 > TraceGraph AI is a CPU-only, offline, synthetic-data-only intelligence dashboard for investigating unusual Bitcoin-style transaction patterns. The frontend presents model-generated review signals, explanations, relationships, and synthetic investigation data for human review.
 
 ## Project Scope
@@ -958,7 +962,7 @@ src/
     └── utils.ts
 ```
 
-The existing project structure may be retained where equivalent.
+This tree belongs specifically at `apps/web/src/`. Do not create a second root-level `src/`, `client/`, `frontend/`, or `app/` folder. The UI may only obtain data via the future API or `packages/fixtures/`; it never imports from `services/ml/`.
 
 ## Design System
 
@@ -1146,16 +1150,16 @@ The frontend is a presentation and interaction layer for TraceGraph AI's synthet
 
 ## Authoritative Backend Artifacts
 
-The frontend should align with the repository's generated artifacts:
+The frontend should align with the repository's generated artifacts through `services/api/` or frontend-safe files in `packages/fixtures/`:
 
 ```text
-data/generated/
+services/ml/data/generated/
 └── sih26146-synthetic-60000-v2/
     ├── events.csv
     └── truth/
         └── labels.csv
 
-artifacts/runs/
+services/ml/artifacts/runs/
 └── sih26146-cpu-demo-2026-v1/
     ├── model_card.json
     ├── metrics_*.json

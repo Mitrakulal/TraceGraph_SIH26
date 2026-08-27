@@ -52,7 +52,7 @@ Assign actual names next to each role before implementation starts. One person m
 
 ### Non-Negotiable Rules
 
-1. The frontend never receives `is_anomalous`, `scenario_id`, `severity_truth`, or any hidden ground-truth field. Those exist only for evaluator/training use.
+1. The frontend never receives `is_anomalous`, `scenario_id`, `severity_truth`, or any hidden ground-truth field. Those exist only for evaluator/training use in `services/ml/data/generated/.../truth/`.
 2. The frontend never recalculates risk, threshold, novelty, graph risk, or TreeSHAP values. It renders backend values exactly.
 3. The backend never sends a real wallet ID, real IP, real transaction ID, or real-world attribution. Every dataset response must be synthetic-only.
 4. The API contract is versioned. A backend field rename requires a pull request changing the contract, frontend types, mock responses, and tests in the same release.

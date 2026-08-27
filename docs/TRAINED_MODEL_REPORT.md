@@ -48,9 +48,10 @@ The committed run contains the XGBoost model, Isolation Forest, scaler, feature 
 ## Reproduction
 
 ```bash
+cd services/ml
 python3 -m pip install -r requirements.txt
 PYTHONPATH=src python3 scripts/train_model.py --regenerate
 PYTHONPATH=src pytest
 ```
 
-The run is deterministic under the pinned dependency set, seed 2026, and CPU thread settings recorded in `src/tracegraph/pipeline.py`.
+The run is deterministic under the pinned dependency set, seed 2026, and CPU thread settings recorded in `services/ml/src/tracegraph/pipeline.py`.
