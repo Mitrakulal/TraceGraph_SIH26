@@ -84,3 +84,34 @@ class AlertDetailPayload(BaseModel):
     evidence: list[EvidenceItem]
     linked_entity_ids: list[str]
     review_history: list[ReviewRecord] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# Reviewer decision schemas (spec Section 6.9)
+# ---------------------------------------------------------------------------
+
+DecisionType = Literal["REVIEWED", "DISMISSED", "ESCALATED"]
+
+
+class ReviewRequest(BaseModel):
+    """Request body for POST /api/v1/alerts/:alertId/reviews."""
+
+    decision: DecisionType
+    note: str | None = Field(default=None, max_length=500)
+
+
+class LatestReview(BaseModel):
+    """The most recent reviewer decision record."""
+
+    review_id: str
+    decision: DecisionType
+    note: str | None = None
+    reviewed_at: str
+
+
+class ReviewResponse(BaseModel):
+    """Payload for POST /api/v1/alerts/:alertId/reviews data field."""
+
+    alert_id: str
+    review_state: ReviewState
+    latest_review: LatestReview

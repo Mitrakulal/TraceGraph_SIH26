@@ -8,9 +8,13 @@ from app.core.errors import APIException
 from app.schemas.alerts import (
     AlertDetailPayload,
     AlertListPayload,
+    LatestReview,
+    ReviewRequest,
+    ReviewResponse,
 )
 from app.schemas.common import DataEnvelope
 from app.services.alert_service import AlertService
+from app.storage import review_store
 
 router = APIRouter()
 
@@ -68,4 +72,49 @@ def list_alerts(
 def get_alert_detail(alertId: str) -> DataEnvelope[AlertDetailPayload]:
     """Get detailed explainability evidence and metadata for a single alert."""
     payload = AlertService.get_alert_detail(alert_id=alertId)
+    return DataEnvelope(data=payload)
+
+
+@router.post("/alerts/{alertId}/reviews", response_model=DataEnvelope[ReviewResponse])
+def create_review(
+    alertId: str,
+    body: ReviewRequest,
+) -> DataEnvelope[ReviewResponse]:
+    """Store a human reviewer decision for an alert.
+
+    Validates that the alert exists in the current run, persists the decision
+    to SQLite with a UTC timestamp, and returns the updated alert review state.
+    Valid decisions: REVIEWED, DISMISSED, ESCALATED.
+    """
+    from app.storage.artifact_store import store  # lazy import avoids circular
+
+    if not store.is_loaded:
+        store.load()
+
+    if alertId not in store.alerts_by_id:
+        raise APIException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            code="ALERT_NOT_FOUND",
+            message=f"No alert with ID '{alertId}' exists in the current run.",
+        )
+
+    # Persist decision
+    saved = review_store.save_review(
+        alert_id=alertId,
+        decision=body.decision,
+        note=body.note,
+    )
+
+    latest = LatestReview(
+        review_id=saved["review_id"],
+        decision=saved["decision"],
+        note=saved["note"],
+        reviewed_at=saved["reviewed_at"],
+    )
+
+    payload = ReviewResponse(
+        alert_id=alertId,
+        review_state=body.decision,
+        latest_review=latest,
+    )
     return DataEnvelope(data=payload)

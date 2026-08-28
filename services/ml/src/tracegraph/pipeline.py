@@ -17,7 +17,7 @@ import random
 import shutil
 from collections import Counter, defaultdict, deque
 from dataclasses import asdict, dataclass
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -103,7 +103,7 @@ def _sha256(path: Path) -> str:
 
 
 def _iso(dt: datetime) -> str:
-    return dt.astimezone(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    return dt.astimezone(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
 
 def _wallet(index: int) -> str:
@@ -249,7 +249,7 @@ def generate_dataset(output_dir: Path, event_count: int = EVENT_COUNT, seed: int
     wallets = [_wallet(i) for i in range(wallet_count)]
     anomaly_count = len(SCENARIOS) * 250
     benign_count = event_count - anomaly_count
-    base = datetime(2026, 7, 1, tzinfo=UTC)
+    base = datetime(2026, 7, 1, tzinfo=timezone.utc)
     events: list[dict[str, Any]] = []
     scripts = ["P2PKH", "P2SH", "P2WPKH", "P2WSH", "TAPROOT"]
 

@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from app.api import alerts, dashboard, graph, status
+from app.api import alerts, dashboard, demo, graph, model, status
 from app.core.errors import (
     APIException,
     api_exception_handler,
@@ -69,6 +69,8 @@ app.include_router(status.router, prefix=API_V1_PREFIX, tags=["Status"])
 app.include_router(dashboard.router, prefix=API_V1_PREFIX, tags=["Dashboard"])
 app.include_router(alerts.router, prefix=API_V1_PREFIX, tags=["Alerts"])
 app.include_router(graph.router, prefix=API_V1_PREFIX, tags=["Graph Explorer"])
+app.include_router(demo.router, prefix=API_V1_PREFIX, tags=["Demo"])
+app.include_router(model.router, prefix=API_V1_PREFIX, tags=["Model"])
 
 
 @app.get("/", include_in_schema=False)

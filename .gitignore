@@ -13,3 +13,5 @@ services/ml/data/generated/*
 apps/web/node_modules/
 apps/web/.next/
 services/api/.venv/
+services/api/tracegraph_reviews.db
+services/ml/artifacts/predictions/
