@@ -1,0 +1,86 @@
+"""Schemas for Alert List and Alert Detail endpoints."""
+
+from typing import Literal
+from pydantic import BaseModel, Field
+
+
+ReviewState = Literal["UNREVIEWED", "REVIEWED", "DISMISSED", "ESCALATED"]
+PriorityBand = Literal["REVIEW_PRIORITY", "LOW_PRIORITY"]
+DirectionType = Literal["INCREASED_RISK", "DECREASED_RISK"]
+SortOption = Literal["RISK_DESC", "TIME_DESC"]
+
+
+class AlertListItem(BaseModel):
+    """Single item in the alert queue list."""
+
+    alert_id: str
+    event_id: str
+    observed_at: str
+    source_wallet: str
+    target_wallet: str
+    risk_score: int = Field(ge=0, le=100)
+    ml_probability: float
+    novelty_score: float
+    graph_risk_score: float
+    baseline_score: int
+    priority_band: PriorityBand
+    review_state: ReviewState
+    top_reason: str
+    synthetic_notice: str = "Synthetic evidence only. Human review required."
+
+
+class AlertListPayload(BaseModel):
+    """Payload for GET /api/v1/alerts data field."""
+
+    items: list[AlertListItem]
+    page: int
+    page_size: int
+    total: int
+
+
+class AlertDetailItem(BaseModel):
+    """Alert metadata sub-object inside alert detail."""
+
+    alert_id: str
+    event_id: str
+    observed_at: str
+    source_wallet: str
+    target_wallet: str
+    risk_score: int = Field(ge=0, le=100)
+    ml_probability: float
+    novelty_score: float
+    graph_risk_score: float
+    baseline_score: int
+    priority_band: PriorityBand
+    review_state: ReviewState
+    synthetic_notice: str = "Synthetic evidence only. Human review required."
+
+
+class EvidenceItem(BaseModel):
+    """Single TreeSHAP feature contribution record."""
+
+    evidence_id: str
+    feature: str
+    feature_value: float
+    shap_value: float
+    direction: DirectionType
+    message: str
+
+
+class ReviewRecord(BaseModel):
+    """History of human reviewer decisions."""
+
+    review_id: str
+    decision: ReviewState
+    note: str | None = None
+    reviewed_at: str
+
+
+class AlertDetailPayload(BaseModel):
+    """Payload for GET /api/v1/alerts/:alertId data field."""
+
+    alert: AlertDetailItem
+    rule_hits: list[str]
+    evidence: list[EvidenceItem]
+    linked_entity_ids: list[str]
+    review_history: list[ReviewRecord] = Field(default_factory=list)
