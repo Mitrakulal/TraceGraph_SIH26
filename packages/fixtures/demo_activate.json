@@ -1,0 +1,10 @@
+{
+  "data": {
+    "demo_session_id": "demo_01J000000000000000000000",
+    "scenario_key": "rapid_hop",
+    "run_id": "sih26146-cpu-demo-2026-v1",
+    "status": "READY",
+    "featured_alert_id": "alt_00001_syn_evt_004201",
+    "message": "Synthetic scenario is ready for review."
+  }
+}

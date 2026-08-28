@@ -115,3 +115,10 @@ class ReviewResponse(BaseModel):
     alert_id: str
     review_state: ReviewState
     latest_review: LatestReview
+
+
+class ActionNoteRequest(BaseModel):
+    """Optional note body for POST /api/v1/alerts/:alertId/dismiss or /escalate."""
+
+    note: str | None = Field(default=None, max_length=500)
+

@@ -1,0 +1,61 @@
+{
+  "sample_reviews": [
+    {
+      "action": "REVIEWED",
+      "request": {
+        "decision": "REVIEWED",
+        "note": "Synthetic rapid-hop pattern reviewed during judge demonstration."
+      },
+      "response": {
+        "data": {
+          "alert_id": "alt_00001_syn_evt_004201",
+          "review_state": "REVIEWED",
+          "latest_review": {
+            "review_id": "rev_sample_01",
+            "decision": "REVIEWED",
+            "note": "Synthetic rapid-hop pattern reviewed during judge demonstration.",
+            "reviewed_at": "2026-08-28T12:00:00Z"
+          }
+        }
+      }
+    },
+    {
+      "action": "DISMISSED",
+      "request": {
+        "decision": "DISMISSED",
+        "note": "Synthetic low-risk background variation dismissed."
+      },
+      "response": {
+        "data": {
+          "alert_id": "alt_00002_syn_evt_004202",
+          "review_state": "DISMISSED",
+          "latest_review": {
+            "review_id": "rev_sample_02",
+            "decision": "DISMISSED",
+            "note": "Synthetic low-risk background variation dismissed.",
+            "reviewed_at": "2026-08-28T12:05:00Z"
+          }
+        }
+      }
+    },
+    {
+      "action": "ESCALATED",
+      "request": {
+        "decision": "ESCALATED",
+        "note": "Synthetic high-confidence structuring pattern escalated for detailed audit."
+      },
+      "response": {
+        "data": {
+          "alert_id": "alt_00003_syn_evt_004203",
+          "review_state": "ESCALATED",
+          "latest_review": {
+            "review_id": "rev_sample_03",
+            "decision": "ESCALATED",
+            "note": "Synthetic high-confidence structuring pattern escalated for detailed audit.",
+            "reviewed_at": "2026-08-28T12:10:00Z"
+          }
+        }
+      }
+    }
+  ]
+}

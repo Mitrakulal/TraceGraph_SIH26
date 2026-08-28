@@ -102,3 +102,18 @@ def get_latest_review(alert_id: str) -> dict[str, Any] | None:
     """Return the most recent review for an alert, or None if not yet reviewed."""
     reviews = get_reviews(alert_id)
     return reviews[0] if reviews else None
+
+
+def get_all_latest_reviews() -> dict[str, str]:
+    """Return a mapping of alert_id -> latest decision state for all reviewed alerts."""
+    with _connect() as conn:
+        rows = conn.execute(
+            """
+            SELECT alert_id, decision FROM (
+                SELECT alert_id, decision, ROW_NUMBER() OVER (PARTITION BY alert_id ORDER BY reviewed_at DESC) as rn
+                FROM reviews
+            ) WHERE rn = 1
+            """
+        ).fetchall()
+    return {row["alert_id"]: row["decision"] for row in rows}
+

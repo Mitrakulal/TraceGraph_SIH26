@@ -130,3 +130,54 @@ class TestReviewValidation:
             json={"note": "No decision provided."},
         )
         assert response.status_code == 422
+
+
+class TestReviewPersistenceIntegration:
+    """Verifies that backend review decisions persist and reflect in GET alert list/detail."""
+
+    def test_dismiss_shortcut_endpoint(self, client, first_alert_id):
+        """POST /dismiss shortcut sets review_state to DISMISSED."""
+        response = client.post(
+            f"/api/v1/alerts/{first_alert_id}/dismiss",
+            json={"note": "Dismissed via shortcut endpoint."},
+        )
+        assert response.status_code == 200
+        assert response.json()["data"]["review_state"] == "DISMISSED"
+
+    def test_escalate_shortcut_endpoint(self, client, first_alert_id):
+        """POST /escalate shortcut sets review_state to ESCALATED."""
+        response = client.post(
+            f"/api/v1/alerts/{first_alert_id}/escalate",
+            json={"note": "Escalated via shortcut endpoint."},
+        )
+        assert response.status_code == 200
+        assert response.json()["data"]["review_state"] == "ESCALATED"
+
+    def test_review_reflected_in_alert_detail(self, client, first_alert_id):
+        """GET /alerts/{alertId} reflects latest review_state and history after action."""
+        client.post(
+            f"/api/v1/alerts/{first_alert_id}/reviews",
+            json={"decision": "ESCALATED", "note": "Audit note"},
+        )
+        detail_res = client.get(f"/api/v1/alerts/{first_alert_id}")
+        assert detail_res.status_code == 200
+        data = detail_res.json()["data"]
+        assert data["alert"]["review_state"] == "ESCALATED"
+        assert len(data["review_history"]) >= 1
+        latest_h = data["review_history"][0]
+        assert latest_h["decision"] == "ESCALATED"
+        assert latest_h["note"] == "Audit note"
+
+    def test_review_filtering_in_alert_list(self, client, first_alert_id):
+        """GET /alerts?review_state=ESCALATED returns only ESCALATED alerts."""
+        client.post(
+            f"/api/v1/alerts/{first_alert_id}/reviews",
+            json={"decision": "ESCALATED"},
+        )
+        list_res = client.get("/api/v1/alerts?review_state=ESCALATED")
+        assert list_res.status_code == 200
+        items = list_res.json()["data"]["items"]
+        assert len(items) >= 1
+        for item in items:
+            assert item["review_state"] == "ESCALATED"
+

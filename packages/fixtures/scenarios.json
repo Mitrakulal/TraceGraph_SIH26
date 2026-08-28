@@ -1,0 +1,62 @@
+{
+  "data": {
+    "items": [
+      {
+        "scenario_key": "normal",
+        "display_name": "Normal synthetic pattern",
+        "description": "Stable timing, limited destinations, and low IP rotation.",
+        "expected_review_band": "LOW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "structuring",
+        "display_name": "Structuring pattern",
+        "description": "Repeated near-threshold amounts sent in rapid succession.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "peel_chain",
+        "display_name": "Peel chain pattern",
+        "description": "Sequential decreasing transfers through a synthetic wallet chain.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "rapid_hop",
+        "display_name": "Rapid hop pattern",
+        "description": "Rapid consecutive transfers through several synthetic wallets.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "fan_out",
+        "display_name": "Fan-out pattern",
+        "description": "One synthetic wallet distributing to many recipients in a short window.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "fan_in",
+        "display_name": "Fan-in pattern",
+        "description": "Many synthetic senders converging funds to a single recipient wallet.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "ip_rotation",
+        "display_name": "IP rotation pattern",
+        "description": "High rate of synthetic source-IP rotation for a single wallet.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      },
+      {
+        "scenario_key": "source_port_shift",
+        "display_name": "Source port shift pattern",
+        "description": "Unusual source-port and elevated latency deviating from background traffic.",
+        "expected_review_band": "REVIEW_PRIORITY",
+        "available": true
+      }
+    ]
+  }
+}

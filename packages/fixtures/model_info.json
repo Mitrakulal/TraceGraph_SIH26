@@ -1,0 +1,20 @@
+{
+  "data": {
+    "run_id": "sih26146-cpu-demo-2026-v1",
+    "dataset_version": "sih26146-synthetic-60000-v2",
+    "data_classification": "SYNTHETIC_ONLY",
+    "models": [
+      "IsolationForest",
+      "XGBoost"
+    ],
+    "feature_count": 18,
+    "risk_threshold": 65,
+    "metrics": {
+      "test_pr_auc": 0.999962,
+      "test_f1": 0.99115,
+      "test_false_positives_per_1000": 0.420875
+    },
+    "artifact_status": "READY",
+    "limitation": "Held-out controlled synthetic benchmark only; not a real-world accuracy claim."
+  }
+}
