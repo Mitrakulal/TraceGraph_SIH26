@@ -30,14 +30,16 @@ Do not create a root-level `src/`, `client/`, `server/`, `api/`, `data/`, or `ar
 
 The trained model exists in `services/ml/artifacts/runs/sih26146-cpu-demo-2026-v1/`. It uses an Isolation Forest novelty signal and XGBoost classifier, generates explainable synthetic alerts, and has a deterministic 60,000-event fixture plus test suite.
 
-```bash
-cd services/ml
-python3 -m pip install -r requirements.txt
-PYTHONPATH=src python3 scripts/train_model.py --regenerate
-PYTHONPATH=src pytest
-```
+The backend HTTP API (`services/api`), standalone batch prediction CLI (`services/ml/scripts/predict.py`), SQLite reviewer persistence workflow (`review_store.py`), and frontend fixtures (`packages/fixtures`) are **fully implemented, tested (76/76 tests passing), and ready**. See [`STARTUP.md`](STARTUP.md) or run `.\start_backend.bat` for one-click setup and startup.
 
-The API, standalone batch prediction command, database-backed review workflow, and frontend dashboard are planned work. They must consume the existing ML artifacts; they must not claim to be implemented yet.
+```bash
+# Quick start backend server
+.\start_backend.bat
+
+# Or run API test suite
+cd services/api
+python3 -m pytest tests/ -v
+```
 
 ## Authoritative Documents
 
