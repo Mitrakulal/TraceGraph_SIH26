@@ -1,36 +1,59 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { entities } from '@/data/entities';
 import { syntheticEvents } from '@/data/events';
 import { getSeverity, getRiskBarClass, formatTimestamp } from '@/lib/utils';
 import { ArrowLeft, Building2, ShieldAlert, Activity, Cpu } from 'lucide-react';
+import { api, ApiGraphPayload } from '@/lib/api';
 
 export default function EntityDetailPage() {
   const params = useParams();
-  const entityId = (params?.id as string) ?? 'Entity-7F3A';
+  const entityId = (params?.id as string) ?? 'syn_w_0042';
 
-  const entity = entities.find((e) => e.id === entityId) ?? entities[0];
-  const severity = getSeverity(entity.riskScore);
+  const [graph, setGraph] = useState<ApiGraphPayload | null>(null);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  useEffect(() => {
+    async function loadGraph() {
+      const res = await api.getEntityGraph(entityId, 2, 60);
+      if (res && res.nodes) {
+        setGraph(res);
+        setIsBackendConnected(true);
+      }
+    }
+    loadGraph();
+  }, [entityId]);
+
+  const mockEntity = entities.find((e) => e.id === entityId) ?? entities[0];
+  const nodeCount = graph?.summary?.node_count ?? mockEntity.transactions;
+  const edgeCount = graph?.summary?.edge_count ?? mockEntity.counterparties;
+
+  const focusNode = graph?.nodes?.find((n) => n.is_focus);
+  const activeScore = focusNode?.risk_score ?? mockEntity.riskScore;
+  const severity = getSeverity(activeScore);
 
   return (
     <div className="w-full space-y-6 pb-12">
-      <div>
+      <div className="flex items-center justify-between">
         <Link
           href="/entities"
           className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-white transition-colors"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Entities Explorer
         </Link>
+        <span className="font-mono text-xs text-purple-300 bg-purple-950/40 border border-purple-800/40 px-3 py-1 rounded-md">
+          {isBackendConnected ? 'LIVE GRAPH API' : 'OFFLINE SYNTHETIC'}
+        </span>
       </div>
 
       <section className="card p-6 space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--border)] pb-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="badge badge-blue">{entity.type}</span>
+              <span className="badge badge-blue">WALLET</span>
               <span
                 className={
                   severity === 'HIGH'
@@ -43,7 +66,7 @@ export default function EntityDetailPage() {
                 {severity} RISK
               </span>
             </div>
-            <h1 className="text-xl font-bold font-mono text-white tracking-tight">{entity.id}</h1>
+            <h1 className="text-xl font-bold font-mono text-white tracking-tight">{entityId}</h1>
             <p className="text-xs text-[var(--text-secondary)]">Synthetic wallet cluster identifier</p>
           </div>
 
@@ -51,11 +74,11 @@ export default function EntityDetailPage() {
             <div
               className="score-ring"
               style={{
-                borderColor: entity.riskScore >= 75 ? '#EF4444' : entity.riskScore >= 50 ? '#F59E0B' : '#22C55E',
-                color: entity.riskScore >= 75 ? '#EF4444' : entity.riskScore >= 50 ? '#F59E0B' : '#22C55E',
+                borderColor: activeScore >= 75 ? '#EF4444' : activeScore >= 50 ? '#F59E0B' : '#22C55E',
+                color: activeScore >= 75 ? '#EF4444' : activeScore >= 50 ? '#F59E0B' : '#22C55E',
               }}
             >
-              {entity.riskScore}
+              {activeScore}
             </div>
             <div>
               <div className="text-xs font-semibold text-white">Risk Score</div>
@@ -66,54 +89,68 @@ export default function EntityDetailPage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
           <div className="card-elevated p-3">
-            <span className="text-[var(--text-muted)] block text-[11px]">Total Events</span>
-            <span className="font-mono text-base font-bold text-white mt-1 block">{entity.transactions}</span>
+            <span className="text-[var(--text-muted)] block text-[11px]">Connected Nodes</span>
+            <span className="font-mono text-base font-bold text-white mt-1 block">{nodeCount}</span>
           </div>
           <div className="card-elevated p-3">
-            <span className="text-[var(--text-muted)] block text-[11px]">Unique Counterparties</span>
+            <span className="text-[var(--text-muted)] block text-[11px]">Graph Edges</span>
             <span className="font-mono text-base font-bold text-[var(--accent-cyan)] mt-1 block">
-              {entity.counterparties}
+              {edgeCount}
             </span>
           </div>
           <div className="card-elevated p-3">
-            <span className="text-[var(--text-muted)] block text-[11px]">Monitoring Status</span>
+            <span className="text-[var(--text-muted)] block text-[11px]">Traversal Depth</span>
             <span className="font-mono text-base font-bold text-[var(--accent-amber)] mt-1 block">
-              {entity.status}
+              2 Hops
             </span>
           </div>
           <div className="card-elevated p-3">
-            <span className="text-[var(--text-muted)] block text-[11px]">Last Observed</span>
-            <span className="font-mono text-xs text-white mt-1 block">{entity.lastSeen}</span>
+            <span className="text-[var(--text-muted)] block text-[11px]">Classification</span>
+            <span className="font-mono text-xs text-purple-300 mt-1 block">SYNTHETIC ONLY</span>
           </div>
         </div>
       </section>
 
-      {/* RELATED SYNTHETIC EVENTS */}
+      {/* GRAPH NODES DATA TABLE */}
       <section className="card p-6 space-y-4">
-        <h2 className="text-base font-semibold text-white">Associated Synthetic Events</h2>
+        <h2 className="text-base font-semibold text-white">Graph Topology Nodes ({graph?.nodes?.length ?? 0})</h2>
         <div className="data-table-wrap overflow-x-auto">
           <table className="data-table">
             <thead>
               <tr>
-                <th>Event ID</th>
-                <th>Timestamp</th>
-                <th>Sender</th>
-                <th>Receiver</th>
-                <th>Amount</th>
+                <th>Node ID</th>
+                <th>Type</th>
+                <th>Label</th>
+                <th>Focus Node</th>
                 <th>Risk Score</th>
               </tr>
             </thead>
             <tbody>
-              {syntheticEvents.slice(0, 4).map((evt) => (
-                <tr key={evt.id}>
-                  <td className="font-mono text-xs text-[var(--accent-blue)]">{evt.eventId}</td>
-                  <td className="font-mono text-xs text-[var(--text-muted)]">{formatTimestamp(evt.timestamp)}</td>
-                  <td className="font-mono text-xs text-[var(--accent-cyan)]">{evt.sender}</td>
-                  <td className="font-mono text-xs text-[var(--text-secondary)]">{evt.receiver}</td>
-                  <td className="font-mono text-xs text-white">{evt.amountBtc} BTC</td>
-                  <td className="font-mono text-xs font-bold text-[var(--accent-red)]">{evt.riskScore}</td>
-                </tr>
-              ))}
+              {graph?.nodes ? (
+                graph.nodes.map((n) => (
+                  <tr key={n.id}>
+                    <td className="font-mono text-xs text-[var(--accent-blue)]">{n.id}</td>
+                    <td>
+                      <span className={n.type === 'WALLET' ? 'badge badge-blue' : 'badge badge-neutral'}>
+                        {n.type}
+                      </span>
+                    </td>
+                    <td className="text-xs text-white">{n.label}</td>
+                    <td className="font-mono text-xs text-[var(--text-muted)]">{n.is_focus ? 'YES (FOCUS)' : 'NO'}</td>
+                    <td className="font-mono text-xs font-bold text-[var(--accent-red)]">{n.risk_score ?? 'N/A'}</td>
+                  </tr>
+                ))
+              ) : (
+                syntheticEvents.slice(0, 4).map((evt) => (
+                  <tr key={evt.id}>
+                    <td className="font-mono text-xs text-[var(--accent-blue)]">{evt.eventId}</td>
+                    <td><span className="badge badge-blue">WALLET</span></td>
+                    <td className="text-xs text-white">{evt.sender}</td>
+                    <td className="font-mono text-xs text-[var(--text-muted)]">NO</td>
+                    <td className="font-mono text-xs font-bold text-[var(--accent-red)]">{evt.riskScore}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

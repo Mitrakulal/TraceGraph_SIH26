@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 import { MOCK_ALERTS } from '@/data/alerts';
@@ -11,6 +11,7 @@ import {
   formatTimestamp,
 } from '@/lib/utils';
 import { Search, RotateCcw, ArrowUpRight, ShieldAlert, Filter } from 'lucide-react';
+import { api, ApiAlertListItem } from '@/lib/api';
 
 type AlertTab = 'ALL' | 'HIGH' | 'MEDIUM' | 'LOW';
 
@@ -21,13 +22,55 @@ export default function AlertsPage() {
   const [signalFilter, setSignalFilter] = useState('ALL');
   const [minScore, setMinScore] = useState(0);
   const [activeTab, setActiveTab] = useState<AlertTab>('ALL');
+  const [liveAlerts, setLiveAlerts] = useState<ApiAlertListItem[]>([]);
+  const [totalAlertsCount, setTotalAlertsCount] = useState(0);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  useEffect(() => {
+    async function loadAlerts() {
+      const res = await api.getAlerts({
+        page_size: 100,
+        min_risk: minScore > 0 ? minScore : undefined,
+        review_state: reviewStateFilter !== 'ALL' ? reviewStateFilter : undefined,
+        sort: 'RISK_DESC',
+      });
+
+      if (res && res.items) {
+        setLiveAlerts(res.items);
+        setTotalAlertsCount(res.total);
+        setIsBackendConnected(true);
+      }
+    }
+    loadAlerts();
+  }, [minScore, reviewStateFilter]);
 
   const changeTab = (tab: AlertTab) => {
     setActiveTab(tab);
   };
 
+  const alertDataPool = isBackendConnected && liveAlerts.length > 0
+    ? liveAlerts.map((a, idx) => ({
+        alert_id: a.alert_id,
+        event_id: a.event_id,
+        observed_at: a.observed_at,
+        source_wallet: a.source_wallet,
+        target_wallet: a.target_wallet,
+        risk_score: a.risk_score,
+        ml_probability: a.ml_probability,
+        novelty_score: a.novelty_score,
+        graph_risk_score: a.graph_risk_score,
+        priority_band: a.priority_band,
+        review_state: a.review_state,
+        top_reason: a.top_reason,
+        description: a.top_reason,
+        model_signal: 'IF + XGBoost',
+        queue_rank: idx + 1,
+        entity_id: a.source_wallet,
+      }))
+    : MOCK_ALERTS;
+
   const filteredAlerts = useMemo(() => {
-    return MOCK_ALERTS.filter((alert) => {
+    return alertDataPool.filter((alert) => {
       const severity = getSeverity(alert.risk_score);
 
       /* TAB */
@@ -61,7 +104,6 @@ export default function AlertsPage() {
         const query = search.toLowerCase();
         const match =
           alert.alert_id.toLowerCase().includes(query) ||
-          alert.entity_id.toLowerCase().includes(query) ||
           alert.source_wallet.toLowerCase().includes(query) ||
           alert.description.toLowerCase().includes(query) ||
           alert.top_reason.toLowerCase().includes(query) ||
@@ -72,7 +114,7 @@ export default function AlertsPage() {
 
       return true;
     });
-  }, [search, severityFilter, reviewStateFilter, signalFilter, minScore, activeTab]);
+  }, [alertDataPool, search, severityFilter, reviewStateFilter, signalFilter, minScore, activeTab]);
 
   const resetFilters = () => {
     setSearch('');
@@ -84,21 +126,21 @@ export default function AlertsPage() {
   };
 
   const tabs = [
-    { value: 'ALL' as const, label: 'All Alerts', count: MOCK_ALERTS.length },
+    { value: 'ALL' as const, label: 'All Alerts', count: alertDataPool.length },
     {
       value: 'HIGH' as const,
       label: 'High Risk',
-      count: MOCK_ALERTS.filter((a) => getSeverity(a.risk_score) === 'HIGH').length,
+      count: alertDataPool.filter((a) => getSeverity(a.risk_score) === 'HIGH').length,
     },
     {
       value: 'MEDIUM' as const,
       label: 'Medium Risk',
-      count: MOCK_ALERTS.filter((a) => getSeverity(a.risk_score) === 'MEDIUM').length,
+      count: alertDataPool.filter((a) => getSeverity(a.risk_score) === 'MEDIUM').length,
     },
     {
       value: 'LOW' as const,
       label: 'Low Risk',
-      count: MOCK_ALERTS.filter((a) => getSeverity(a.risk_score) === 'LOW').length,
+      count: alertDataPool.filter((a) => getSeverity(a.risk_score) === 'LOW').length,
     },
   ];
 
@@ -114,7 +156,7 @@ export default function AlertsPage() {
             </p>
           </div>
           <span className="font-mono text-xs text-[var(--accent-purple)] bg-purple-950/40 border border-purple-800/40 px-3 py-1.5 rounded-md">
-            OFFLINE · SYNTHETIC QUEUE
+            {isBackendConnected ? 'LIVE BACKEND API CONNECTED' : 'OFFLINE · SYNTHETIC QUEUE'}
           </span>
         </div>
       </section>
@@ -242,7 +284,7 @@ export default function AlertsPage() {
         <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
           <h2 className="text-sm font-semibold text-white">Alert Queue Results</h2>
           <span className="font-mono text-xs text-[var(--text-secondary)]">
-            Showing {filteredAlerts.length} of {MOCK_ALERTS.length} alerts
+            Showing {filteredAlerts.length} of {alertDataPool.length} alerts
           </span>
         </div>
 

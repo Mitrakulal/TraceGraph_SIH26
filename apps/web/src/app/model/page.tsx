@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, Cpu, ShieldCheck, Layers } from 'lucide-react';
 import {
   BarChart,
@@ -14,32 +14,45 @@ import {
 
 import { REAL_MODEL_CARD, MODEL_METRICS } from '@/data/model';
 import { featureDisplayName } from '@/lib/utils';
-
-const PERFORMANCE_CHART_DATA = [
-  {
-    metric: 'PR-AUC',
-    score: (MODEL_METRICS?.test?.pr_auc ?? 0.999) * 100,
-  },
-  {
-    metric: 'ROC-AUC',
-    score: (MODEL_METRICS?.test?.roc_auc ?? 0.999) * 100,
-  },
-  {
-    metric: 'Precision',
-    score: (MODEL_METRICS?.test?.precision_at_threshold ?? 0.947) * 100,
-  },
-  {
-    metric: 'Recall',
-    score: (MODEL_METRICS?.test?.recall_at_threshold ?? 0.931) * 100,
-  },
-  {
-    metric: 'F1',
-    score: (MODEL_METRICS?.test?.f1_at_threshold ?? 0.939) * 100,
-  },
-];
+import { api, ApiModelCurrentPayload } from '@/lib/api';
 
 export default function ModelIntelligencePage() {
+  const [modelPayload, setModelPayload] = useState<ApiModelCurrentPayload | null>(null);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  useEffect(() => {
+    async function loadModel() {
+      const res = await api.getModelCurrent();
+      if (res && res.run_id) {
+        setModelPayload(res);
+        setIsBackendConnected(true);
+      }
+    }
+    loadModel();
+  }, []);
+
   const featureList = REAL_MODEL_CARD?.feature_list ?? [];
+
+  // Single source of truth for all metrics displayed on this page.
+  // Backend overrides when live; otherwise MODEL_METRICS.test (= metrics_test.json) is used.
+  // Never mix fallback literals with MODEL_METRICS — that causes two different numbers
+  // for the same metric on the same screen.
+  const metrics = {
+    pr_auc:                  modelPayload?.metrics?.test_pr_auc                ?? MODEL_METRICS.test.pr_auc,
+    roc_auc:                 modelPayload?.metrics?.test_roc_auc               ?? MODEL_METRICS.test.roc_auc,
+    precision:               modelPayload?.metrics?.test_precision_at_threshold ?? MODEL_METRICS.test.precision_at_threshold,
+    recall:                  modelPayload?.metrics?.test_recall_at_threshold    ?? MODEL_METRICS.test.recall_at_threshold,
+    f1:                      modelPayload?.metrics?.test_f1                     ?? MODEL_METRICS.test.f1_at_threshold,
+    false_positives_per_1000:modelPayload?.metrics?.test_false_positives_per_1000 ?? MODEL_METRICS.test.false_positives_per_1000,
+  };
+
+  const PERFORMANCE_CHART_DATA = [
+    { metric: 'PR-AUC',    score: metrics.pr_auc    * 100 },
+    { metric: 'ROC-AUC',   score: metrics.roc_auc   * 100 },
+    { metric: 'Precision', score: metrics.precision  * 100 },
+    { metric: 'Recall',    score: metrics.recall     * 100 },
+    { metric: 'F1',        score: metrics.f1         * 100 },
+  ];
 
   return (
     <div className="w-full space-y-8 pb-12">
@@ -53,7 +66,7 @@ export default function ModelIntelligencePage() {
             </p>
           </div>
           <span className="font-mono text-xs text-[var(--accent-purple)] bg-purple-950/40 border border-purple-800/40 px-3 py-1.5 rounded-md">
-            RUN ID: sih26146-cpu-demo-2026-v1
+            RUN ID: {modelPayload?.run_id ?? 'sih26146-cpu-demo-2026-v1'}
           </span>
         </div>
       </section>
@@ -63,10 +76,10 @@ export default function ModelIntelligencePage() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="text-xs uppercase tracking-wider text-[var(--accent-blue)] font-semibold">
-              Pipeline Architecture
+              Pipeline Architecture ({isBackendConnected ? 'LIVE MODEL BACKEND' : 'OFFLINE FIXTURE'})
             </div>
             <h2 className="mt-1 text-xl font-bold text-white">
-              {REAL_MODEL_CARD?.model_name ?? 'Isolation Forest + XGBoost'}
+              Isolation Forest + XGBoost Ensemble
             </h2>
             <p className="mt-2 text-xs text-[var(--text-secondary)] max-w-xl">
               Combines unsupervised novelty detection (Isolation Forest) with supervised tree ensemble classification (XGBoost) to generate explainable 0–100 review priority scores.
@@ -77,7 +90,7 @@ export default function ModelIntelligencePage() {
             <div>
               <div className="text-[11px] text-[var(--text-muted)]">Time-Safe Features</div>
               <div className="mt-1 font-mono text-lg font-bold text-white">
-                {featureList.length || 18}
+                {modelPayload?.feature_count ?? featureList.length ?? 18}
               </div>
             </div>
             <div>
@@ -86,7 +99,9 @@ export default function ModelIntelligencePage() {
             </div>
             <div>
               <div className="text-[11px] text-[var(--text-muted)]">Alert Threshold</div>
-              <div className="mt-1 font-mono text-lg font-bold text-[var(--accent-amber)]">65</div>
+              <div className="mt-1 font-mono text-lg font-bold text-[var(--accent-amber)]">
+                {modelPayload?.risk_threshold ?? 65}
+              </div>
             </div>
           </div>
         </div>
@@ -179,23 +194,29 @@ export default function ModelIntelligencePage() {
             <div className="card-elevated p-3">
               <span className="text-[11px] text-[var(--text-muted)]">PR-AUC</span>
               <div className="font-mono text-lg font-bold text-white mt-1">
-                {(MODEL_METRICS?.test?.pr_auc ?? 0.999).toFixed(5)}
+                {metrics.pr_auc.toFixed(5)}
               </div>
             </div>
             <div className="card-elevated p-3">
-              <span className="text-[11px] text-[var(--text-muted)]">Precision @ Threshold</span>
+              <span className="text-[11px] text-[var(--text-muted)]">F1 Score</span>
               <div className="font-mono text-lg font-bold text-white mt-1">
-                {((MODEL_METRICS?.test?.precision_at_threshold ?? 0.947) * 100).toFixed(2)}%
+                {(metrics.f1 * 100).toFixed(2)}%
               </div>
             </div>
             <div className="card-elevated p-3">
-              <span className="text-[11px] text-[var(--text-muted)]">Recall @ Threshold</span>
-              <div className="font-mono text-lg font-bold text-white mt-1">
-                {((MODEL_METRICS?.test?.recall_at_threshold ?? 0.931) * 100).toFixed(2)}%
+              <span className="text-[11px] text-[var(--text-muted)]">False Positives / 1000</span>
+              <div className="font-mono text-lg font-bold text-[var(--accent-green)] mt-1">
+                {metrics.false_positives_per_1000.toFixed(4)}
               </div>
             </div>
           </div>
         </div>
+
+        {modelPayload?.limitation && (
+          <div className="p-3 rounded bg-purple-950/20 border border-purple-500/20 text-xs text-purple-300">
+            <strong>Model Limitation Disclaimer:</strong> {modelPayload.limitation}
+          </div>
+        )}
       </section>
 
       {/* FEATURE IMPORTANCE */}

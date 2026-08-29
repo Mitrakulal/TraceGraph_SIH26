@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
   Activity,
@@ -32,6 +32,7 @@ import {
   getReviewStateClass,
   formatTimestamp,
 } from '@/lib/utils';
+import { api, DashboardSummary, ApiAlertListItem } from '@/lib/api';
 
 const DONUT_COLORS = ['#EF4444', '#F59E0B', '#22C55E'];
 
@@ -41,7 +42,35 @@ const pieData = alertSummary.map((item) => ({
 }));
 
 export default function DashboardPage() {
-  const priorityAlerts = MOCK_ALERTS.slice(0, 5);
+  const [summary, setSummary] = useState<DashboardSummary | null>(null);
+  const [liveAlerts, setLiveAlerts] = useState<ApiAlertListItem[]>([]);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  useEffect(() => {
+    async function loadData() {
+      const [sumRes, alertsRes] = await Promise.all([
+        api.getDashboardSummary(),
+        api.getAlerts({ page_size: 5, sort: 'RISK_DESC' }),
+      ]);
+
+      if (sumRes) {
+        setSummary(sumRes);
+        setIsBackendConnected(true);
+      }
+      if (alertsRes && alertsRes.items) {
+        setLiveAlerts(alertsRes.items);
+      }
+    }
+    loadData();
+  }, []);
+
+  const totalEvents = summary?.total_events ?? dashboardStats.transactionsProcessed;
+  const activeAlertsCount = summary?.total_alerts ?? dashboardStats.activeAlerts;
+  const evidenceCount = summary?.evidence_record_count ?? dashboardStats.highRiskEntities;
+
+  const priorityAlerts = isBackendConnected && liveAlerts.length > 0
+    ? liveAlerts
+    : MOCK_ALERTS.slice(0, 5);
 
   return (
     <div className="w-full space-y-6 pb-8">
@@ -52,10 +81,12 @@ export default function DashboardPage() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-500"></span>
           </span>
-          <span className="font-semibold tracking-wider">OFFLINE · SYNTHETIC DATA ONLY</span>
+          <span className="font-semibold tracking-wider">
+            {isBackendConnected ? 'LIVE BACKEND API CONNECTED · SYNTHETIC DATA ONLY' : 'OFFLINE · SYNTHETIC DATA ONLY'}
+          </span>
         </div>
         <span className="text-purple-400/80">
-          No live blockchain or real wallet connections. Synthetic benchmark run: <code className="font-mono text-purple-200">sih26146-cpu-demo-2026-v1</code>
+          Synthetic benchmark run: <code className="font-mono text-purple-200">{summary?.run_id ?? 'sih26146-cpu-demo-2026-v1'}</code>
         </span>
       </div>
 
@@ -63,7 +94,7 @@ export default function DashboardPage() {
       <section className="flex flex-col gap-1 border-b border-[var(--border)] pb-5">
         <h1 className="text-2xl font-bold tracking-tight text-white">Dashboard</h1>
         <p className="text-sm text-[var(--text-secondary)]">
-          Offline analysis of synthetic Bitcoin-style transaction traffic
+          Analysis of synthetic Bitcoin-style transaction traffic and model-generated risk signals
         </p>
       </section>
 
@@ -75,7 +106,7 @@ export default function DashboardPage() {
             <Activity className="h-4 w-4 text-[var(--accent-blue)]" />
           </div>
           <div className="mt-3">
-            <div className="stat-value">{dashboardStats.transactionsProcessed.toLocaleString()}</div>
+            <div className="stat-value">{totalEvents.toLocaleString()}</div>
             <div className="stat-delta text-[var(--accent-green)]">60,000 benchmark dataset</div>
           </div>
         </div>
@@ -97,19 +128,19 @@ export default function DashboardPage() {
             <AlertTriangle className="h-4 w-4 text-[var(--accent-red)]" />
           </div>
           <div className="mt-3">
-            <div className="stat-value text-[var(--accent-red)]">{dashboardStats.activeAlerts}</div>
+            <div className="stat-value text-[var(--accent-red)]">{activeAlertsCount}</div>
             <div className="stat-delta text-[var(--accent-red)]">Requires human review</div>
           </div>
         </div>
 
         <div className="stat-card flex flex-col justify-between">
           <div className="flex items-center justify-between text-[var(--text-muted)]">
-            <span className="stat-label">Anomalies Detected</span>
+            <span className="stat-label">Evidence Records</span>
             <Cpu className="h-4 w-4 text-[var(--accent-purple)]" />
           </div>
           <div className="mt-3">
-            <div className="stat-value">{dashboardStats.highRiskEntities}</div>
-            <div className="stat-delta text-[var(--accent-purple)]">IF + XGBoost combined</div>
+            <div className="stat-value">{evidenceCount}</div>
+            <div className="stat-delta text-[var(--accent-purple)]">XGBoost TreeSHAP computed</div>
           </div>
         </div>
       </section>
@@ -242,10 +273,16 @@ export default function DashboardPage() {
                 </tr>
               </thead>
               <tbody>
-                {priorityAlerts.map((alert) => {
-                  const severity = getSeverity(alert.risk_score);
+                {priorityAlerts.map((alert: any) => {
+                  const alertId = alert.alert_id || alert.id;
+                  const sourceWallet = alert.source_wallet || alert.entity;
+                  const description = alert.top_reason || alert.description || alert.reason;
+                  const score = alert.risk_score ?? alert.riskScore;
+                  const reviewState = alert.review_state || alert.status || 'UNREVIEWED';
+                  const severity = getSeverity(score);
+
                   return (
-                    <tr key={alert.alert_id}>
+                    <tr key={alertId}>
                       <td>
                         <span
                           className={
@@ -260,29 +297,29 @@ export default function DashboardPage() {
                         </span>
                       </td>
                       <td className="font-mono text-xs text-[var(--text-primary)]">
-                        {alert.alert_id.slice(0, 16)}…
+                        {alertId.slice(0, 16)}…
                       </td>
-                      <td className="font-mono text-xs text-[var(--accent-cyan)]">{alert.source_wallet}</td>
+                      <td className="font-mono text-xs text-[var(--accent-cyan)]">{sourceWallet}</td>
                       <td className="max-w-[200px] truncate text-xs text-[var(--text-secondary)]">
-                        {alert.description}
+                        {description}
                       </td>
                       <td>
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-xs font-bold text-white">{alert.risk_score}</span>
+                          <span className="font-mono text-xs font-bold text-white">{score}</span>
                           <div className="risk-bar-track w-12 opacity-80">
                             <div
-                              className={`h-full ${getRiskBarClass(alert.risk_score)}`}
-                              style={{ width: `${alert.risk_score}%` }}
+                              className={`h-full ${getRiskBarClass(score)}`}
+                              style={{ width: `${score}%` }}
                             />
                           </div>
                         </div>
                       </td>
                       <td>
-                        <span className={getReviewStateClass(alert.review_state)}>{alert.review_state}</span>
+                        <span className={getReviewStateClass(reviewState)}>{reviewState}</span>
                       </td>
                       <td>
                         <Link
-                          href={`/investigation/${alert.alert_id}`}
+                          href={`/investigation/${alertId}`}
                           className="btn btn-ghost py-1 px-2.5 text-xs text-[var(--accent-blue)]"
                         >
                           Investigate
@@ -307,7 +344,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="my-4 relative h-[180px] w-full rounded-md border border-[var(--border-subtle)] bg-[var(--bg-card-elevated)] overflow-hidden flex items-center justify-center">
-            {/* SVG Network Mock Graph */}
+            {/* SVG Network Graph */}
             <svg className="w-full h-full" viewBox="0 0 300 180">
               <line x1="50" y1="90" x2="110" y2="40" stroke="#252B34" strokeWidth="1.5" />
               <line x1="50" y1="90" x2="110" y2="140" stroke="#252B34" strokeWidth="1.5" />

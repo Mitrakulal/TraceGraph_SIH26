@@ -1,12 +1,39 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MOCK_ALERTS } from '@/data/alerts';
 import { getSeverity, getRiskBarClass, getReviewStateClass, formatTimestamp } from '@/lib/utils';
 import { Search, ArrowUpRight, ShieldCheck, AlertTriangle } from 'lucide-react';
+import { api, ApiAlertListItem } from '@/lib/api';
 
 export default function InvestigationQueuePage() {
+  const [liveAlerts, setLiveAlerts] = useState<ApiAlertListItem[]>([]);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  useEffect(() => {
+    async function loadQueue() {
+      const res = await api.getAlerts({ page_size: 15, sort: 'RISK_DESC' });
+      if (res && res.items && res.items.length > 0) {
+        setLiveAlerts(res.items);
+        setIsBackendConnected(true);
+      }
+    }
+    loadQueue();
+  }, []);
+
+  const alertList = isBackendConnected && liveAlerts.length > 0
+    ? liveAlerts.map((a, idx) => ({
+        alert_id: a.alert_id,
+        source_wallet: a.source_wallet,
+        description: a.top_reason,
+        risk_score: a.risk_score,
+        model_signal: 'IF + XGBoost Ensemble',
+        queue_rank: idx + 1,
+        review_state: a.review_state,
+      }))
+    : MOCK_ALERTS;
+
   return (
     <div className="w-full space-y-6 pb-8">
       {/* HEADER */}
@@ -19,14 +46,14 @@ export default function InvestigationQueuePage() {
             </p>
           </div>
           <span className="font-mono text-xs text-[var(--accent-purple)] bg-purple-950/40 border border-purple-800/40 px-3 py-1.5 rounded-md">
-            HUMAN IN THE LOOP
+            {isBackendConnected ? 'LIVE BACKEND QUEUE' : 'HUMAN IN THE LOOP'}
           </span>
         </div>
       </section>
 
       {/* CASES CARDS GRID */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {MOCK_ALERTS.map((alert) => {
+        {alertList.map((alert) => {
           const severity = getSeverity(alert.risk_score);
           return (
             <div
@@ -36,17 +63,20 @@ export default function InvestigationQueuePage() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs text-[var(--text-muted)]">#{alert.queue_rank}</span>
-                  <span
-                    className={
-                      severity === 'HIGH'
-                        ? 'badge badge-high'
-                        : severity === 'MEDIUM'
-                        ? 'badge badge-medium'
-                        : 'badge badge-low'
-                    }
-                  >
-                    {severity} RISK
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className={getReviewStateClass(alert.review_state)}>{alert.review_state}</span>
+                    <span
+                      className={
+                        severity === 'HIGH'
+                          ? 'badge badge-high'
+                          : severity === 'MEDIUM'
+                          ? 'badge badge-medium'
+                          : 'badge badge-low'
+                      }
+                    >
+                      {severity} RISK
+                    </span>
+                  </div>
                 </div>
 
                 <div>
