@@ -15,3 +15,9 @@ apps/web/.next/
 services/api/.venv/
 services/api/tracegraph_reviews.db
 services/ml/artifacts/predictions/
+
+node_modules/
+.next/
+.env
+.env.local
+.env*.local
