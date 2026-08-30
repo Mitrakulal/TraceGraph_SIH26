@@ -7,16 +7,14 @@ import {
   LayoutDashboard,
   Bell,
   Search,
-  Cpu,
   Shield,
   X,
   ChevronLeft,
   ChevronRight,
   ArrowLeftRight,
   Building2,
-  Database,
-  Play,
   Settings,
+  Zap,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -38,16 +36,9 @@ const navSections = [
     label: 'Investigation',
     items: [
       { label: 'Investigation', href: '/investigation', icon: Search },
+      { label: 'Live Ingest & Inspector', href: '/inspector', icon: Zap },
       { label: 'Transactions', href: '/transactions', icon: ArrowLeftRight },
       { label: 'Entities', href: '/entities', icon: Building2 },
-    ],
-  },
-  {
-    label: 'Intelligence',
-    items: [
-      { label: 'Model', href: '/model', icon: Cpu },
-      { label: 'Dataset', href: '/dataset', icon: Database },
-      { label: 'Demo', href: '/demo', icon: Play },
     ],
   },
   {

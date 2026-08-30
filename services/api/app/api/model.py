@@ -1,11 +1,18 @@
-"""Model & Run Evidence router endpoint."""
+"""Model & Run Evidence router endpoints."""
 
 from fastapi import APIRouter
 
 from app.core.config import RUN_ID
 from app.core.errors import APIException
 from app.schemas.common import DataEnvelope
-from app.schemas.model import ModelCurrentPayload, ModelMetrics
+from app.schemas.model import (
+    ModelCurrentPayload,
+    ModelMetrics,
+    SampleEventsPayload,
+    ScorePayload,
+    ScoreRequest,
+)
+from app.services.scoring_service import get_scoring_service
 from app.storage.artifact_store import store
 
 router = APIRouter()
@@ -70,3 +77,50 @@ def get_model_current() -> DataEnvelope[ModelCurrentPayload]:
         limitation=_LIMITATION,
     )
     return DataEnvelope(data=payload)
+
+
+@router.post("/model/score", response_model=DataEnvelope[ScorePayload])
+def score_event(body: ScoreRequest) -> DataEnvelope[ScorePayload]:
+    """Run LIVE model inference on one synthetic event.
+
+    Loads the committed RobustScaler, IsolationForest, and XGBoost artifacts
+    and computes the risk score at request time. This demonstrates that alert
+    scores come from real model inference, not stored or hardcoded values.
+    """
+    service = get_scoring_service()
+    try:
+        result = service.score_event(body.event_id)
+    except KeyError:
+        raise APIException(
+            status_code=404,
+            code="EVENT_NOT_FOUND",
+            message=f"No synthetic event with ID '{body.event_id}' exists in the current run.",
+        )
+    except FileNotFoundError as exc:
+        raise APIException(
+            status_code=503,
+            code="ARTIFACTS_NOT_READY",
+            message=str(exc),
+        )
+    return DataEnvelope(data=ScorePayload(**result))
+
+
+@router.get("/model/sample-events", response_model=DataEnvelope[SampleEventsPayload])
+def get_sample_events() -> DataEnvelope[SampleEventsPayload]:
+    """Return sample event IDs for the live-scoring picker.
+
+    background_events: random IDs from the full 60,000-event dataset
+    (mostly benign — the model should score them low).
+    alert_events: events the model flagged during the committed run.
+    """
+    service = get_scoring_service()
+    try:
+        result = service.sample_events()
+    except FileNotFoundError as exc:
+        raise APIException(
+            status_code=503,
+            code="ARTIFACTS_NOT_READY",
+            message=str(exc),
+        )
+    return DataEnvelope(data=SampleEventsPayload(**result))
+

@@ -23,3 +23,44 @@ class ModelCurrentPayload(BaseModel):
     metrics: ModelMetrics
     artifact_status: str
     limitation: str
+
+
+class ScoreRequest(BaseModel):
+    """Request body for POST /api/v1/model/score."""
+
+    event_id: str
+
+
+class ScorePayload(BaseModel):
+    """Payload for POST /api/v1/model/score — live model inference result."""
+
+    event_id: str
+    model_run_id: str
+    inference_time_ms: float
+    features_used: dict[str, float]
+    feature_count: int
+    ml_probability: float
+    novelty_score: float
+    graph_risk_score: float
+    risk_score: int
+    risk_threshold: int
+    is_alert: bool
+    data_classification: str = "SYNTHETIC_ONLY"
+    limitation: str
+
+
+class AlertEventRef(BaseModel):
+    """An alert-queue event reference for the scoring picker."""
+
+    alert_id: str
+    event_id: str
+
+
+class SampleEventsPayload(BaseModel):
+    """Payload for GET /api/v1/model/sample-events."""
+
+    background_events: list[str]
+    alert_events: list[AlertEventRef]
+    total_events: int
+    data_classification: str = "SYNTHETIC_ONLY"
+

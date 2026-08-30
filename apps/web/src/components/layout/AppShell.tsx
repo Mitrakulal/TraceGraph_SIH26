@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Sidebar } from './Sidebar';
 import { Menu } from 'lucide-react';
+import { StreamProvider } from '@/context/StreamContext';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -13,7 +14,8 @@ export function AppShell({ children }: AppShellProps) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)]">
+    <StreamProvider>
+      <div className="min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)]">
 
       {/* Application Layout */}
       <div className="min-h-screen p-3 md:p-4">
@@ -71,5 +73,6 @@ export function AppShell({ children }: AppShellProps) {
         </div>
       </div>
     </div>
+    </StreamProvider>
   );
 }

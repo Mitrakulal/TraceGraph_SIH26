@@ -48,6 +48,7 @@ export interface DashboardSummary {
   total_alerts: number;
   review_priority_count: number;
   evidence_record_count: number;
+  unique_entities?: number;
   risk_threshold: number;
   scenario_count: number;
   last_generated_at: string;
@@ -160,6 +161,29 @@ export interface ApiGraphPayload {
   synthetic_notice: string;
 }
 
+export interface ScoreEventResponse {
+  event_id: string;
+  model_run_id: string;
+  inference_time_ms: number;
+  features_used: Record<string, number>;
+  feature_count: number;
+  ml_probability: number;
+  novelty_score: number;
+  graph_risk_score: number;
+  risk_score: number;
+  risk_threshold: number;
+  is_alert: boolean;
+  data_classification: string;
+  limitation: string;
+}
+
+export interface SampleEventsResponse {
+  background_events: string[];
+  alert_events: { alert_id: string; event_id: string }[];
+  total_events: number;
+  data_classification: string;
+}
+
 export interface ApiModelCurrentPayload {
   run_id: string;
   dataset_version: string;
@@ -174,6 +198,26 @@ export interface ApiModelCurrentPayload {
   };
   artifact_status: string;
   limitation: string;
+}
+
+export interface StreamEventItem {
+  event_id: string;
+  observed_at: string;
+  source_wallet: string;
+  target_wallet: string;
+  amount_log: number;
+  is_scenario_anomaly: boolean;
+  scenario_hint?: string | null;
+}
+
+export interface StreamPayload {
+  run_id: string;
+  total_events: number;
+  normal_count: number;
+  anomaly_count: number;
+  ratio_description: string;
+  events: StreamEventItem[];
+  data_classification: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -245,4 +289,16 @@ export const api = {
     fetchAPI<ApiGraphPayload>(`/graph/entities/${entityId}?depth=${depth}&limit=${limit}`),
 
   getModelCurrent: () => fetchAPI<ApiModelCurrentPayload>('/model/current'),
+
+  scoreEvent: (eventId: string) =>
+    fetchAPI<ScoreEventResponse>('/model/score', {
+      method: 'POST',
+      body: JSON.stringify({ event_id: eventId }),
+    }),
+
+  getSampleEvents: () => fetchAPI<SampleEventsResponse>('/model/sample-events'),
+
+  getStreamEvents: (limit = 1000) =>
+    fetchAPI<StreamPayload>(`/stream/events?limit=${limit}`),
 };
+
