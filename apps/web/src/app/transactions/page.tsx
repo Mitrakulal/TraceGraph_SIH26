@@ -30,6 +30,10 @@ export default function TransactionsPage() {
   const [anomalyFilter, setAnomalyFilter] = useState('ALL');
   const [selectedEvent, setSelectedEvent] = useState<UITransaction | null>(null);
 
+  const openEvent = (evt: UITransaction) => {
+    setSelectedEvent(evt);
+  };
+
   const mappedEvents = useMemo(() => {
     if (!streamEvents || streamEvents.length === 0) return [];
     
@@ -207,7 +211,7 @@ export default function TransactionsPage() {
               {displayedEvents.map((evt) => (
                 <tr
                   key={evt.id}
-                  onClick={() => setSelectedEvent(evt)}
+                  onClick={() => openEvent(evt)}
                   className="cursor-pointer"
                 >
                   <td className="font-mono text-xs font-bold text-blue-600">

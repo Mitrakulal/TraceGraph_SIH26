@@ -24,6 +24,7 @@ import { MOCK_ALERTS } from '@/data/alerts';
 import { getAlertsEvidence } from '@/data/evidence';
 import { getAlertGraph } from '@/data/graph';
 import { RelationshipGraph } from '@/components/investigation/RelationshipGraph';
+import { InvestigatorChat } from '@/components/investigation/InvestigatorChat';
 import { getSeverity, getReviewStateClass, formatTimestamp, featureDisplayName } from '@/lib/utils';
 import { api, ApiAlertDetailPayload, ApiGraphPayload } from '@/lib/api';
 import { useStream } from '@/context/StreamContext';
@@ -486,6 +487,24 @@ export default function InvestigationDetailPage() {
       {/* RELATIONSHIP GRAPH SECTION */}
       <section>
         <RelationshipGraph graph={displayGraph} />
+      </section>
+
+      {/* AI COPILOT CHAT SECTION */}
+      <section className="pt-4">
+        <InvestigatorChat 
+          contextData={{
+            alertId,
+            sourceWallet: activeSourceWallet,
+            riskScore: activeScore,
+            reviewState: reviewStatus,
+            mlProbability: activeProbability,
+            graphRiskScore: activeGraphRisk,
+            graphSummary: detail?.graph_summary,
+            graphNodes: displayGraph?.nodes,
+            graphEdges: displayGraph?.edges,
+            evidence: detail?.evidence
+          }} 
+        />
       </section>
     </div>
   );
