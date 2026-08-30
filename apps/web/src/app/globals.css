@@ -780,3 +780,25 @@ select.input option:checked {
     font-size: 13px;
   }
 }
+
+/* =========================================================
+   DARK MODE THEME
+   ========================================================= */
+
+html.dark-theme {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: var(--text-primary);
+}
+
+html.dark-theme img,
+html.dark-theme video,
+html.dark-theme .re-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Optional tweaks for dark mode aesthetics */
+html.dark-theme .card,
+html.dark-theme .card-elevated,
+html.dark-theme .bg-white {
+  box-shadow: none !important;
+}

@@ -15,6 +15,11 @@ import {
   Building2,
   Settings,
   Zap,
+  Cpu,
+  Database,
+  PlayCircle,
+  Moon,
+  Sun,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -35,7 +40,6 @@ const navSections = [
   {
     label: 'Investigation',
     items: [
-      { label: 'Investigation', href: '/investigation', icon: Search },
       { label: 'Live Ingest & Inspector', href: '/inspector', icon: Zap },
       { label: 'Transactions', href: '/transactions', icon: ArrowLeftRight },
       { label: 'Entities', href: '/entities', icon: Building2 },
@@ -58,6 +62,30 @@ export function Sidebar({
   const pathname = usePathname();
 
   const [internalCollapsed, setInternalCollapsed] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check saved theme on load
+    const savedTheme = window.localStorage.getItem('tracegraph-theme');
+    if (savedTheme === 'dark') {
+      setIsDark(true);
+      document.documentElement.classList.add('dark-theme');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.add('dark-theme');
+        window.localStorage.setItem('tracegraph-theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark-theme');
+        window.localStorage.setItem('tracegraph-theme', 'light');
+      }
+      return next;
+    });
+  };
 
   const collapsed =
     externalCollapsed !== undefined
@@ -363,16 +391,40 @@ export function Sidebar({
         </nav>
 
         {/* Footer Status */}
-        {!collapsed && (
-          <div className="shrink-0 border-t border-slate-100 p-4">
+        <div className="shrink-0 border-t border-slate-100 p-4 space-y-3">
+          {!collapsed && (
             <div className="flex items-center gap-2 px-3 py-2 rounded-2xl bg-slate-50 border border-slate-100">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
                 Offline · CPU Mode
               </span>
             </div>
-          </div>
-        )}
+          )}
+          
+          <button
+            onClick={toggleTheme}
+            className={[
+              'flex items-center justify-center w-full h-10',
+              'rounded-full text-[13px] font-bold transition-all',
+              isDark 
+                ? 'bg-slate-900 text-white'
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+            ].join(' ')}
+            title={collapsed ? (isDark ? "Light Mode" : "Dark Mode") : undefined}
+          >
+            {isDark ? (
+              <>
+                <Sun className="h-4 w-4 shrink-0" />
+                {!collapsed && <span className="ml-2">Light Mode</span>}
+              </>
+            ) : (
+              <>
+                <Moon className="h-4 w-4 shrink-0" />
+                {!collapsed && <span className="ml-2">Dark Mode</span>}
+              </>
+            )}
+          </button>
+        </div>
       </aside>
     </>
   );
