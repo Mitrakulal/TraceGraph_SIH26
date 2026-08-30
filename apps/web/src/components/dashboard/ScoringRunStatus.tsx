@@ -170,15 +170,15 @@ export function ScoringRunStatus({
 
   return (
     <div
-      className={`card flex flex-col justify-between p-5 border-[var(--border)] bg-[var(--bg-card)] shadow-xl ${className}`}
+      className={`card flex flex-col justify-between p-6 border-slate-200/80 bg-white shadow-card ${className}`}
       aria-label="Model Scoring Lifecycle Inspector"
     >
       {/* PANEL HEADER */}
-      <div className="space-y-3 border-b border-[var(--border)] pb-4">
+      <div className="space-y-3 border-b border-slate-100 pb-4">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Radio className="h-4 w-4 text-[var(--accent-cyan)] animate-pulse" />
-            <h2 className="text-sm font-bold text-white uppercase tracking-wider">
+            <Radio className="h-4 w-4 text-blue-600 animate-pulse" />
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
               Live Scoring Lifecycle
             </h2>
           </div>
@@ -196,25 +196,25 @@ export function ScoringRunStatus({
           )}
           {status === 'success' && (
             <span className="badge badge-low text-[10px] py-0.5 px-2">
-              <Check className="h-3 w-3 text-[var(--accent-green)]" /> COMPLETE
+              <Check className="h-3 w-3 text-emerald-600" /> COMPLETE
             </span>
           )}
           {status === 'error' && (
             <span className="badge badge-high text-[10px] py-0.5 px-2">
-              <AlertCircle className="h-3 w-3 text-[var(--accent-red)]" /> ERROR
+              <AlertCircle className="h-3 w-3 text-red-600" /> ERROR
             </span>
           )}
         </div>
 
         {eventId ? (
-          <div className="flex items-center justify-between text-xs bg-[var(--bg-card-elevated)] border border-[var(--border-subtle)] px-3 py-1.5 rounded-md">
-            <span className="text-[var(--text-muted)]">Target Event:</span>
-            <span className="font-mono text-[var(--accent-cyan)] font-semibold truncate max-w-[200px]">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-xl">
+            <span className="text-slate-500 font-medium shrink-0">Target Event:</span>
+            <span className="font-mono text-blue-600 font-bold truncate max-w-full sm:max-w-[340px]" title={eventId}>
               {eventId}
             </span>
           </div>
         ) : (
-          <p className="text-xs text-[var(--text-muted)]">
+          <p className="text-xs text-slate-500">
             Select any alert or event on the dashboard to execute live model inference.
           </p>
         )}
@@ -224,8 +224,8 @@ export function ScoringRunStatus({
       <div
         className={
           layout === 'vertical'
-            ? 'space-y-2.5 my-4'
-            : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 my-4'
+            ? 'space-y-2 my-4'
+            : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 my-4'
         }
       >
         {LIFECYCLE_STEPS.map((step, index) => {
@@ -235,43 +235,39 @@ export function ScoringRunStatus({
           const isCurrent =
             (status === 'pending' && index === activeIndex) ||
             (status === 'error' && index === activeIndex);
-          const isPending =
-            status === 'idle' ||
-            (status === 'pending' && index > activeIndex) ||
-            (status === 'error' && index > activeIndex);
           const isError = status === 'error' && index === activeIndex;
 
           return (
             <div
               key={step.id}
               className={[
-                'flex items-start gap-3 p-2.5 rounded-lg border transition-all duration-200',
+                'flex items-start gap-3 p-3 rounded-2xl border transition-all duration-200',
                 isCompleted
-                  ? 'bg-[rgba(34,197,94,0.06)] border-[rgba(34,197,94,0.25)] text-white'
+                  ? 'bg-emerald-50/50 border-emerald-200 text-slate-900'
                   : isError
-                  ? 'bg-[rgba(239,68,68,0.12)] border-[var(--accent-red)] text-white'
+                  ? 'bg-red-50 border-red-200 text-red-900'
                   : isCurrent
-                  ? 'bg-[var(--accent-blue-dim)] border-[var(--accent-blue)] text-white shadow-md'
-                  : 'bg-[var(--bg-card-elevated)] border-[var(--border-subtle)] text-[var(--text-muted)] opacity-70',
+                  ? 'bg-blue-50 border-blue-300 text-slate-900 shadow-sm'
+                  : 'bg-slate-50/60 border-slate-100 text-slate-400 opacity-80',
               ].join(' ')}
             >
               {/* STATUS ICON */}
               <div
                 className={[
-                  'flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-xs mt-0.5',
+                  'flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs mt-0.5',
                   isCompleted
-                    ? 'text-[var(--accent-green)] bg-green-950/40'
+                    ? 'text-emerald-600 bg-emerald-100'
                     : isError
-                    ? 'text-[var(--accent-red)] bg-red-950/40'
+                    ? 'text-red-600 bg-red-100'
                     : isCurrent
-                    ? 'text-[var(--accent-blue)] bg-blue-950/40'
-                    : 'text-[var(--text-muted)] bg-[var(--bg-hover)]',
+                    ? 'text-blue-600 bg-blue-100'
+                    : 'text-slate-400 bg-slate-200/60',
                 ].join(' ')}
               >
                 {isCompleted ? (
                   <CheckCircle2 className="h-4 w-4" />
                 ) : isCurrent && status === 'pending' ? (
-                  <RefreshCw className="h-3.5 w-3.5 animate-spin text-[var(--accent-blue)]" />
+                  <RefreshCw className="h-3.5 w-3.5 animate-spin text-blue-600" />
                 ) : (
                   <Icon className="h-3.5 w-3.5" />
                 )}
@@ -280,21 +276,21 @@ export function ScoringRunStatus({
               {/* STEP TEXT */}
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-1">
-                  <span className="text-xs font-semibold leading-tight text-white truncate">
+                  <span className="text-xs font-bold leading-tight text-slate-900 truncate">
                     {step.name}
                   </span>
                   {isCompleted && (
-                    <span className="font-mono text-[9px] text-[var(--accent-green)] font-bold">
+                    <span className="font-mono text-[9px] text-emerald-600 font-bold">
                       DONE
                     </span>
                   )}
                   {isCurrent && status === 'pending' && (
-                    <span className="font-mono text-[9px] text-[var(--accent-blue)] font-bold animate-pulse">
+                    <span className="font-mono text-[9px] text-blue-600 font-bold animate-pulse">
                       RUNNING
                     </span>
                   )}
                 </div>
-                <div className="font-mono text-[10px] text-[var(--text-muted)] mt-0.5 leading-snug break-words">
+                <div className="font-mono text-[10px] text-slate-500 mt-0.5 leading-snug break-words">
                   {step.technicalLabel}
                 </div>
               </div>
@@ -305,9 +301,9 @@ export function ScoringRunStatus({
 
       {/* ERROR STATE */}
       {status === 'error' && (
-        <div className="p-3.5 rounded-lg bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] space-y-2 my-2">
+        <div className="p-3.5 rounded-2xl bg-red-50 border border-red-200 space-y-2 my-2">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--accent-red)]">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-red-600">
               <AlertCircle className="h-4 w-4" />
               <span>Validation / Execution Failed</span>
             </div>
@@ -321,7 +317,7 @@ export function ScoringRunStatus({
               </button>
             )}
           </div>
-          <p className="text-[11px] text-[var(--text-secondary)] font-mono leading-relaxed">
+          <p className="text-[11px] text-slate-600 font-mono leading-relaxed">
             {error || 'Unable to execute model prediction on target synthetic event.'}
           </p>
         </div>
@@ -329,45 +325,45 @@ export function ScoringRunStatus({
 
       {/* SUCCESS RESULT SUMMARY */}
       {status === 'success' && result && (
-        <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-card-elevated)] p-4 space-y-3 my-2">
-          <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2.5">
+        <div className="rounded-2xl border border-slate-200/80 bg-slate-50 p-4 space-y-3 my-2">
+          <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
             <div className="flex items-center gap-3">
               <div
-                className="score-ring h-12 w-12 text-sm"
+                className="score-ring h-12 w-12 text-sm bg-white shadow-sm"
                 style={{
                   borderColor:
                     result.risk_score >= 75
                       ? '#EF4444'
                       : result.risk_score >= 50
                       ? '#F59E0B'
-                      : '#22C55E',
+                      : '#10B981',
                   color:
                     result.risk_score >= 75
                       ? '#EF4444'
                       : result.risk_score >= 50
                       ? '#F59E0B'
-                      : '#22C55E',
+                      : '#10B981',
                 }}
               >
                 {result.risk_score}
               </div>
               <div>
-                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                   Review Score (0–100)
                 </div>
-                <div className="text-xs font-bold text-white">
+                <div className="text-xs font-extrabold text-slate-900 mt-0.5">
                   {result.is_alert ? (
-                    <span className="text-[var(--accent-red)]">🚨 ALERT QUEUED (≥ 65)</span>
+                    <span className="text-red-600">🚨 ALERT QUEUED (≥ 65)</span>
                   ) : (
-                    <span className="text-[var(--accent-green)]">✓ LOW PRIORITY (&lt; 65)</span>
+                    <span className="text-emerald-600">✓ LOW PRIORITY (&lt; 65)</span>
                   )}
                 </div>
               </div>
             </div>
 
             <div className="text-right">
-              <div className="text-[10px] text-[var(--text-muted)]">Inference Latency</div>
-              <div className="font-mono text-xs font-bold text-[var(--accent-cyan)]">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Inference Latency</div>
+              <div className="font-mono text-xs font-extrabold text-slate-900 mt-0.5">
                 {result.inference_time_ms.toFixed(1)} ms (CPU)
               </div>
             </div>
@@ -375,21 +371,21 @@ export function ScoringRunStatus({
 
           {/* MODEL SIGNALS BREAKDOWN */}
           <div className="grid grid-cols-3 gap-2 text-center text-xs">
-            <div className="p-2 rounded bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-              <div className="text-[10px] text-[var(--text-muted)]">P(anomaly)</div>
-              <div className="font-mono font-bold text-[var(--accent-blue)] mt-0.5">
+            <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">P(anomaly)</div>
+              <div className="font-mono font-extrabold text-blue-600 text-sm mt-0.5">
                 {(result.ml_probability * 100).toFixed(1)}%
               </div>
             </div>
-            <div className="p-2 rounded bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-              <div className="text-[10px] text-[var(--text-muted)]">Novelty (IF)</div>
-              <div className="font-mono font-bold text-[var(--accent-purple)] mt-0.5">
+            <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Novelty (IF)</div>
+              <div className="font-mono font-extrabold text-purple-600 text-sm mt-0.5">
                 {(result.novelty_score * 100).toFixed(1)}%
               </div>
             </div>
-            <div className="p-2 rounded bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-              <div className="text-[10px] text-[var(--text-muted)]">Graph Risk</div>
-              <div className="font-mono font-bold text-[var(--accent-cyan)] mt-0.5">
+            <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Graph Risk</div>
+              <div className="font-mono font-extrabold text-slate-900 text-sm mt-0.5">
                 {(result.graph_risk_score * 100).toFixed(1)}%
               </div>
             </div>
@@ -399,7 +395,7 @@ export function ScoringRunStatus({
           {alertId && (
             <Link
               href={`/investigation/${alertId}`}
-              className="btn btn-primary w-full py-1.5 text-xs flex items-center justify-center gap-1.5 shadow-md"
+              className="btn btn-primary w-full py-2 text-xs flex items-center justify-center gap-1.5 shadow-sm font-bold"
             >
               Open Full Alert Investigation <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -408,11 +404,11 @@ export function ScoringRunStatus({
       )}
 
       {/* PERMANENT MANDATORY DISCLAIMER */}
-      <div className="synthetic-notice flex items-center justify-between text-[11px] py-2 px-3 mt-3">
-        <span className="font-semibold text-[var(--accent-purple)]">
+      <div className="flex items-center justify-between text-[11px] py-2 px-3 mt-3 bg-purple-50 border border-purple-100 rounded-xl">
+        <span className="font-bold text-purple-700">
           Synthetic evidence only · Human review required
         </span>
-        <span className="font-mono text-[10px] text-[var(--text-muted)]">
+        <span className="font-mono text-[10px] font-bold text-purple-500">
           CPU-Only
         </span>
       </div>

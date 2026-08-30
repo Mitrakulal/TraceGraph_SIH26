@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react';
 import { syntheticEvents, SyntheticEvent } from '@/data/events';
 import { getSeverity, getRiskBarClass, formatTimestamp } from '@/lib/utils';
 import { Search, RotateCcw, X, ArrowLeftRight, ShieldAlert } from 'lucide-react';
+import { CustomSelect } from '@/components/ui/CustomSelect';
 
 export default function TransactionsPage() {
   const [search, setSearch] = useState('');
@@ -47,55 +48,53 @@ export default function TransactionsPage() {
   return (
     <div className="w-full space-y-6 pb-8">
       {/* HEADER */}
-      <section className="flex flex-col gap-1 border-b border-[var(--border)] pb-5">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-white">Synthetic Event Explorer</h1>
-            <p className="text-sm text-[var(--text-secondary)]">
-              Synthetic Bitcoin-style transaction events with model risk scores
-            </p>
-          </div>
-          <span className="font-mono text-xs text-[var(--accent-purple)] bg-purple-950/40 border border-purple-800/40 px-3 py-1.5 rounded-md">
-            60,000 SYNTHETIC EVENTS
-          </span>
+      <section className="flex flex-col gap-4 border-b border-slate-200/80 pb-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Synthetic Event Explorer</h1>
+          <p className="text-sm text-slate-500 mt-1">
+            Synthetic Bitcoin-style transaction events with model risk scores
+          </p>
         </div>
+        <span className="font-mono text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full">
+          60,000 SYNTHETIC EVENTS
+        </span>
       </section>
 
       {/* CONTROLS */}
-      <section className="card p-4 space-y-3">
+      <section className="card p-5 space-y-3 shadow-sm">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-4">
           <div className="relative md:col-span-2">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--text-muted)]" />
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
               placeholder="Search Event ID, Sender, or Receiver..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="input pl-9 h-9 text-xs"
+              className="input pl-10 h-10 text-xs"
             />
           </div>
 
-          <select
+          <CustomSelect
             value={riskFilter}
-            onChange={(e) => setRiskFilter(e.target.value)}
-            className="input h-9 text-xs"
-          >
-            <option value="ALL">Risk Level: All</option>
-            <option value="HIGH">High (≥75)</option>
-            <option value="MEDIUM">Medium (50–74)</option>
-            <option value="LOW">Low (&lt;50)</option>
-          </select>
+            onChange={(val) => setRiskFilter(val)}
+            options={[
+              { value: 'ALL', label: 'Risk Level: All' },
+              { value: 'HIGH', label: 'High (≥75)' },
+              { value: 'MEDIUM', label: 'Medium (50–74)' },
+              { value: 'LOW', label: 'Low (<50)' },
+            ]}
+          />
 
-          <select
+          <CustomSelect
             value={anomalyFilter}
-            onChange={(e) => setAnomalyFilter(e.target.value)}
-            className="input h-9 text-xs"
-          >
-            <option value="ALL">Anomaly Status: All</option>
-            <option value="Anomaly">Anomaly</option>
-            <option value="Borderline">Borderline</option>
-            <option value="Normal">Normal</option>
-          </select>
+            onChange={(val) => setAnomalyFilter(val)}
+            options={[
+              { value: 'ALL', label: 'Anomaly Status: All' },
+              { value: 'Anomaly', label: 'Anomaly' },
+              { value: 'Borderline', label: 'Borderline' },
+              { value: 'Normal', label: 'Normal' },
+            ]}
+          />
         </div>
 
         {(search || riskFilter !== 'ALL' || anomalyFilter !== 'ALL') && (
@@ -103,7 +102,7 @@ export default function TransactionsPage() {
             <button
               type="button"
               onClick={resetFilters}
-              className="flex items-center gap-1 text-xs text-[var(--text-secondary)] hover:text-white transition-colors"
+              className="flex items-center gap-1 text-xs text-slate-500 hover:text-slate-900 font-bold transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" /> Reset Filters
             </button>
@@ -112,10 +111,10 @@ export default function TransactionsPage() {
       </section>
 
       {/* TABLE */}
-      <section className="card overflow-hidden">
-        <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
-          <h2 className="text-sm font-semibold text-white">Events</h2>
-          <span className="font-mono text-xs text-[var(--text-secondary)]">
+      <section className="card overflow-hidden shadow-sm">
+        <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4">
+          <h2 className="text-sm font-bold text-slate-900">Events</h2>
+          <span className="font-mono text-xs text-slate-500">
             Showing {filteredEvents.length} events
           </span>
         </div>
@@ -140,26 +139,26 @@ export default function TransactionsPage() {
                 <tr
                   key={evt.id}
                   onClick={() => setSelectedEvent(evt)}
-                  className="cursor-pointer hover:bg-[var(--bg-hover)] transition-colors"
+                  className="cursor-pointer"
                 >
-                  <td className="font-mono text-xs font-semibold text-[var(--accent-blue)]">
+                  <td className="font-mono text-xs font-bold text-blue-600">
                     {evt.eventId}
                   </td>
-                  <td className="font-mono text-xs text-[var(--text-muted)]">
+                  <td className="font-mono text-[11px] text-slate-400">
                     {formatTimestamp(evt.timestamp)}
                   </td>
-                  <td className="font-mono text-xs text-[var(--accent-cyan)]">{evt.sender}</td>
-                  <td className="font-mono text-xs text-[var(--text-secondary)]">{evt.receiver}</td>
-                  <td className="font-mono text-xs text-white font-semibold">
+                  <td className="font-mono text-xs text-blue-600 font-medium">{evt.sender}</td>
+                  <td className="font-mono text-xs text-slate-500">{evt.receiver}</td>
+                  <td className="font-mono text-xs text-slate-900 font-bold">
                     {evt.amountBtc.toFixed(2)} BTC
                   </td>
-                  <td className="font-mono text-xs text-[var(--text-muted)]">
+                  <td className="font-mono text-xs text-slate-400">
                     {evt.feeBtc.toFixed(4)}
                   </td>
                   <td>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-white">{evt.riskScore}</span>
-                      <div className="risk-bar-track w-10 opacity-80">
+                      <span className="font-mono text-xs font-bold text-slate-900">{evt.riskScore}</span>
+                      <div className="risk-bar-track w-12">
                         <div
                           className={`h-full ${getRiskBarClass(evt.riskScore)}`}
                           style={{ width: `${evt.riskScore}%` }}
@@ -180,7 +179,7 @@ export default function TransactionsPage() {
                       {evt.anomalyStatus}
                     </span>
                   </td>
-                  <td className="text-xs text-[var(--text-secondary)]">{evt.status}</td>
+                  <td className="text-xs text-slate-500">{evt.status}</td>
                 </tr>
               ))}
             </tbody>
@@ -190,52 +189,52 @@ export default function TransactionsPage() {
 
       {/* EVENT DETAIL DRAWER / MODAL */}
       {selectedEvent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="card-elevated w-full max-w-lg p-6 space-y-4 border border-[var(--accent-blue)] relative animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+          <div className="card w-full max-w-lg p-6 space-y-4 border border-blue-200 relative shadow-elevated">
             <button
               type="button"
               onClick={() => setSelectedEvent(null)}
-              className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-white p-1"
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-900 p-1 transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <div className="flex items-center gap-2 border-b border-[var(--border)] pb-3">
-              <ArrowLeftRight className="h-5 w-5 text-[var(--accent-blue)]" />
+            <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <ArrowLeftRight className="h-5 w-5 text-blue-600" />
               <div>
-                <h3 className="font-mono text-base font-bold text-white">
+                <h3 className="font-mono text-base font-bold text-slate-900">
                   {selectedEvent.eventId}
                 </h3>
-                <p className="text-xs text-[var(--text-muted)]">Synthetic Transaction Event Detail</p>
+                <p className="text-xs text-slate-400">Synthetic Transaction Event Detail</p>
               </div>
             </div>
 
             <div className="space-y-2 text-xs">
-              <div className="flex justify-between border-b border-[var(--border-subtle)] py-1.5">
-                <span className="text-[var(--text-muted)]">Timestamp:</span>
-                <span className="font-mono text-white">{formatTimestamp(selectedEvent.timestamp)}</span>
+              <div className="flex justify-between border-b border-slate-100 py-1.5">
+                <span className="text-slate-400">Timestamp:</span>
+                <span className="font-mono text-slate-900 font-bold">{formatTimestamp(selectedEvent.timestamp)}</span>
               </div>
-              <div className="flex justify-between border-b border-[var(--border-subtle)] py-1.5">
-                <span className="text-[var(--text-muted)]">Sender Wallet:</span>
-                <span className="font-mono text-[var(--accent-cyan)]">{selectedEvent.sender}</span>
+              <div className="flex justify-between border-b border-slate-100 py-1.5">
+                <span className="text-slate-400">Sender Wallet:</span>
+                <span className="font-mono text-blue-600 font-medium">{selectedEvent.sender}</span>
               </div>
-              <div className="flex justify-between border-b border-[var(--border-subtle)] py-1.5">
-                <span className="text-[var(--text-muted)]">Receiver Wallet:</span>
-                <span className="font-mono text-[var(--accent-cyan)]">{selectedEvent.receiver}</span>
+              <div className="flex justify-between border-b border-slate-100 py-1.5">
+                <span className="text-slate-400">Receiver Wallet:</span>
+                <span className="font-mono text-blue-600 font-medium">{selectedEvent.receiver}</span>
               </div>
-              <div className="flex justify-between border-b border-[var(--border-subtle)] py-1.5">
-                <span className="text-[var(--text-muted)]">Amount:</span>
-                <span className="font-mono font-bold text-white">{selectedEvent.amountBtc} BTC</span>
+              <div className="flex justify-between border-b border-slate-100 py-1.5">
+                <span className="text-slate-400">Amount:</span>
+                <span className="font-mono font-bold text-slate-900">{selectedEvent.amountBtc} BTC</span>
               </div>
-              <div className="flex justify-between border-b border-[var(--border-subtle)] py-1.5">
-                <span className="text-[var(--text-muted)]">Inputs / Outputs:</span>
-                <span className="font-mono text-white">
+              <div className="flex justify-between border-b border-slate-100 py-1.5">
+                <span className="text-slate-400">Inputs / Outputs:</span>
+                <span className="font-mono text-slate-900">
                   {selectedEvent.inputCount} in / {selectedEvent.outputCount} out
                 </span>
               </div>
-              <div className="flex justify-between border-b border-[var(--border-subtle)] py-1.5">
-                <span className="text-[var(--text-muted)]">Synthetic Risk Score:</span>
-                <span className="font-mono font-bold text-[var(--accent-red)]">
+              <div className="flex justify-between border-b border-slate-100 py-1.5">
+                <span className="text-slate-400">Synthetic Risk Score:</span>
+                <span className="font-mono font-bold text-red-600">
                   {selectedEvent.riskScore} / 100
                 </span>
               </div>

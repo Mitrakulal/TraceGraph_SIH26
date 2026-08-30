@@ -173,6 +173,8 @@ export interface ScoreEventResponse {
   risk_score: number;
   risk_threshold: number;
   is_alert: boolean;
+  rule_hits?: string[];
+  evidence?: ApiEvidenceItem[];
   data_classification: string;
   limitation: string;
 }

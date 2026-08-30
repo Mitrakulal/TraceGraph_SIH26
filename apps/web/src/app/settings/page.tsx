@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Settings, Save, RotateCcw, Shield, Moon, Bell, Sliders } from 'lucide-react';
+import { CustomSelect } from '@/components/ui/CustomSelect';
 
 export default function SettingsPage() {
   const [compactDensity, setCompactDensity] = useState(false);
@@ -38,39 +39,37 @@ export default function SettingsPage() {
     <div className="w-full space-y-6 pb-12">
       {/* TOAST */}
       {toast && (
-        <div className="fixed bottom-6 right-6 z-50 rounded-lg bg-[var(--bg-card-elevated)] border border-[var(--accent-green)] px-4 py-3 text-xs font-semibold text-[var(--accent-green)] shadow-2xl">
+        <div className="fixed bottom-6 right-6 z-50 rounded-2xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-xs font-bold text-emerald-700 shadow-lg">
           Settings saved to local storage!
         </div>
       )}
 
       {/* HEADER */}
-      <section className="flex flex-col gap-1 border-b border-[var(--border)] pb-5">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-white">System Settings</h1>
-            <p className="text-sm text-[var(--text-secondary)]">
-              Dashboard preferences and local configuration
-            </p>
-          </div>
-          <span className="font-mono text-xs text-[var(--accent-purple)] bg-purple-950/40 border border-purple-800/40 px-3 py-1.5 rounded-md">
-            FRONTEND CONFIG ONLY
-          </span>
+      <section className="flex flex-col gap-4 border-b border-slate-200/80 pb-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">System Settings</h1>
+          <p className="text-sm text-slate-500 mt-1">
+            Dashboard preferences and local configuration
+          </p>
         </div>
+        <span className="font-mono text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full">
+          FRONTEND CONFIG ONLY
+        </span>
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* DASHBOARD PREFERENCES */}
-        <section className="card p-6 space-y-5">
-          <div className="border-b border-[var(--border)] pb-3 flex items-center gap-2">
-            <Sliders className="h-4 w-4 text-[var(--accent-blue)]" />
-            <h2 className="text-base font-semibold text-white">Review Thresholds</h2>
+        <section className="card p-6 space-y-5 shadow-sm">
+          <div className="border-b border-slate-100 pb-3 flex items-center gap-2">
+            <Sliders className="h-4 w-4 text-blue-600" />
+            <h2 className="text-base font-bold text-slate-900">Review Thresholds</h2>
           </div>
 
           <div className="space-y-4 text-xs">
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-[var(--text-secondary)] font-medium">Alert Score Threshold</span>
-                <span className="font-mono font-bold text-white">{alertThreshold}</span>
+                <span className="text-slate-500 font-medium">Alert Score Threshold</span>
+                <span className="font-mono font-bold text-slate-900">{alertThreshold}</span>
               </div>
               <input
                 type="range"
@@ -79,61 +78,61 @@ export default function SettingsPage() {
                 step="5"
                 value={alertThreshold}
                 onChange={(e) => setAlertThreshold(Number(e.target.value))}
-                className="w-full accent-[var(--accent-blue)]"
+                className="w-full accent-slate-900"
               />
-              <p className="text-[11px] text-[var(--text-muted)]">
+              <p className="text-[11px] text-slate-400">
                 Events scoring above this value are automatically placed in the high-priority review queue.
               </p>
             </div>
 
-            <div className="space-y-1.5 pt-2 border-t border-[var(--border-subtle)]">
-              <label className="text-[var(--text-secondary)] font-medium block">Default Risk Level Filter</label>
-              <select
+            <div className="space-y-1.5 pt-2 border-t border-slate-100">
+              <label className="text-slate-500 font-medium block">Default Risk Level Filter</label>
+              <CustomSelect
                 value={defaultRiskLevel}
-                onChange={(e) => setDefaultRiskLevel(e.target.value)}
-                className="input h-9 text-xs"
-              >
-                <option value="ALL">All Risk Levels</option>
-                <option value="HIGH">High Risk Only (≥75)</option>
-                <option value="MEDIUM">Medium Risk & Above (≥50)</option>
-              </select>
+                onChange={(val) => setDefaultRiskLevel(val)}
+                options={[
+                  { value: 'ALL', label: 'All Risk Levels' },
+                  { value: 'HIGH', label: 'High Risk Only (≥75)' },
+                  { value: 'MEDIUM', label: 'Medium Risk & Above (≥50)' },
+                ]}
+              />
             </div>
           </div>
         </section>
 
         {/* INTERFACE & SYSTEM */}
-        <section className="card p-6 space-y-5">
-          <div className="border-b border-[var(--border)] pb-3 flex items-center gap-2">
-            <Moon className="h-4 w-4 text-[var(--accent-cyan)]" />
-            <h2 className="text-base font-semibold text-white">Interface & Display</h2>
+        <section className="card p-6 space-y-5 shadow-sm">
+          <div className="border-b border-slate-100 pb-3 flex items-center gap-2">
+            <Moon className="h-4 w-4 text-blue-600" />
+            <h2 className="text-base font-bold text-slate-900">Interface & Display</h2>
           </div>
 
           <div className="space-y-4 text-xs">
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-medium text-white">Dark Cybersecurity SOC Theme</div>
-                <div className="text-[11px] text-[var(--text-muted)]">Default theme matching SOC standards</div>
+                <div className="font-medium text-slate-900">Studio Light Theme</div>
+                <div className="text-[11px] text-slate-400">Clean fintech-grade interface</div>
               </div>
               <span className="badge badge-blue">ACTIVE</span>
             </div>
 
-            <div className="flex items-center justify-between border-t border-[var(--border-subtle)] pt-3">
+            <div className="flex items-center justify-between border-t border-slate-100 pt-3">
               <div>
-                <div className="font-medium text-white">Compact Table Density</div>
-                <div className="text-[11px] text-[var(--text-muted)]">Reduce table cell padding</div>
+                <div className="font-medium text-slate-900">Compact Table Density</div>
+                <div className="text-[11px] text-slate-400">Reduce table cell padding</div>
               </div>
               <input
                 type="checkbox"
                 checked={compactDensity}
                 onChange={(e) => setCompactDensity(e.target.checked)}
-                className="h-4 w-4 accent-[var(--accent-blue)] rounded cursor-pointer"
+                className="h-4 w-4 accent-slate-900 rounded cursor-pointer"
               />
             </div>
 
-            <div className="flex items-center justify-between border-t border-[var(--border-subtle)] pt-3">
+            <div className="flex items-center justify-between border-t border-slate-100 pt-3">
               <div>
-                <div className="font-medium text-white">Synthetic Dataset Mode</div>
-                <div className="text-[11px] text-[var(--text-muted)]">Offline synthetic simulation</div>
+                <div className="font-medium text-slate-900">Synthetic Dataset Mode</div>
+                <div className="text-[11px] text-slate-400">Offline synthetic simulation</div>
               </div>
               <span className="badge badge-purple font-mono text-[10px]">SYNTHETIC ONLY</span>
             </div>
@@ -142,7 +141,7 @@ export default function SettingsPage() {
       </div>
 
       {/* SAVE / RESET ACTIONS */}
-      <section className="card p-4 flex items-center justify-between">
+      <section className="card p-4 flex items-center justify-between shadow-sm">
         <button
           type="button"
           onClick={handleReset}

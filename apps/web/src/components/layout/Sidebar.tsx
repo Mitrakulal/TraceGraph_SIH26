@@ -125,10 +125,11 @@ export function Sidebar({
       <aside
         className={[
           'flex flex-col',
-          'bg-[var(--bg-sidebar)]',
-          'border border-[var(--border)]',
-          'rounded-lg',
-          'overflow-hidden',
+          'bg-white',
+          'border border-slate-200/80',
+          'rounded-3xl',
+          'shadow-sm',
+          'relative',
 
           /* Desktop layout */
           'md:sticky md:top-4',
@@ -148,12 +149,43 @@ export function Sidebar({
             : '-translate-x-full md:translate-x-0',
         ].join(' ')}
       >
+        {/* Desktop Collapse Button - Vertically Centered on Right Border Line */}
+        <button
+          type="button"
+          onClick={toggleSidebar}
+          aria-label={
+            collapsed
+              ? 'Expand sidebar'
+              : 'Collapse sidebar'
+          }
+          className={[
+            'absolute top-1/2 -translate-y-1/2 -right-3.5 z-30',
+            'hidden md:flex',
+            'h-7 w-7',
+            'items-center justify-center',
+            'rounded-full',
+            'border border-slate-200/90',
+            'text-slate-600',
+            'bg-white shadow-md',
+            'transition-all duration-200',
+            'hover:border-slate-400',
+            'hover:bg-slate-50',
+            'hover:text-slate-900 hover:scale-105',
+            'active:scale-95',
+          ].join(' ')}
+        >
+          {collapsed ? (
+            <ChevronRight className="h-4 w-4 text-slate-700" />
+          ) : (
+            <ChevronLeft className="h-4 w-4 text-slate-700" />
+          )}
+        </button>
 
         {/* Sidebar Header */}
         <div
           className={[
             'relative flex h-[72px] shrink-0 items-center',
-            'border-b border-[var(--border)]',
+            'border-b border-slate-100',
             collapsed
               ? 'justify-center px-3'
               : 'px-5',
@@ -178,10 +210,10 @@ export function Sidebar({
             <div
               className={[
                 'flex h-10 w-10 shrink-0 items-center justify-center',
-                'rounded-lg',
-                'bg-[var(--accent-blue-dim)]',
-                'border border-[rgba(59,130,246,0.3)]',
-                'text-[var(--accent-blue)]',
+                'rounded-2xl',
+                'bg-slate-900',
+                'text-white',
+                'shadow-sm',
               ].join(' ')}
             >
               <Shield className="h-5 w-5" />
@@ -198,58 +230,24 @@ export function Sidebar({
                   : 'max-w-[150px] translate-x-0 opacity-100',
               ].join(' ')}
             >
-              <div className="text-[17px] font-bold leading-none text-[var(--text-primary)]">
+              <div className="text-[17px] font-extrabold leading-none text-slate-900 tracking-tight">
                 TraceGraph{' '}
-                <span className="text-[var(--accent-blue)]">
+                <span className="text-blue-600">
                   AI
                 </span>
               </div>
-              <div className="mt-1 text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
+              <div className="mt-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                 OFFLINE · SYNTHETIC
               </div>
             </div>
           </Link>
-
-          {/* Desktop Collapse Button */}
-          <button
-            type="button"
-            onClick={toggleSidebar}
-            aria-label={
-              collapsed
-                ? 'Expand sidebar'
-                : 'Collapse sidebar'
-            }
-            className={[
-              'absolute top-1/2 -translate-y-1/2',
-              'hidden md:flex',
-              'h-8 w-8',
-              'items-center justify-center',
-              'rounded-md',
-              'border border-transparent',
-              'text-[var(--text-muted)]',
-              'transition-all duration-200',
-              'hover:border-[var(--border)]',
-              'hover:bg-[var(--bg-hover)]',
-              'hover:text-[var(--text-primary)]',
-              'active:scale-95',
-              collapsed
-                ? 'right-2'
-                : 'right-3',
-            ].join(' ')}
-          >
-            {collapsed ? (
-              <ChevronRight className="h-4 w-4" />
-            ) : (
-              <ChevronLeft className="h-4 w-4" />
-            )}
-          </button>
 
           {/* Mobile Close */}
           <button
             type="button"
             onClick={() => setMobileOpen(false)}
             aria-label="Close sidebar"
-            className="ml-auto rounded-md p-2 text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)] md:hidden"
+            className="ml-auto rounded-md p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-900 md:hidden"
           >
             <X className="h-5 w-5" />
           </button>
@@ -269,7 +267,7 @@ export function Sidebar({
               <div key={section.label}>
                 {/* Section Label */}
                 {!collapsed && (
-                  <div className="section-title mb-1">
+                  <div className="px-3 mb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">
                     {section.label}
                   </div>
                 )}
@@ -288,39 +286,19 @@ export function Sidebar({
                         aria-current={active ? 'page' : undefined}
                         className={[
                           'group relative flex h-10 items-center',
-                          'rounded-lg',
-                          'text-[13px] font-medium',
+                          'rounded-full',
+                          'text-[13px]',
                           'transition-all duration-200',
 
                           collapsed
                             ? 'justify-center px-0'
-                            : 'gap-3 px-3',
+                            : 'gap-3 px-3.5',
 
                           active
-                            ? 'bg-[var(--accent-blue-dim)] text-[var(--accent-blue)]'
-                            : [
-                                'text-[var(--text-secondary)]',
-                                'hover:bg-white/[0.035]',
-                                'hover:text-[var(--text-primary)]',
-                              ].join(' '),
+                            ? 'bg-slate-900 text-white font-semibold shadow-sm'
+                            : 'text-slate-600 font-medium hover:bg-slate-100 hover:text-slate-900',
                         ].join(' ')}
                       >
-
-                        {/* Active Indicator */}
-                        <span
-                          className={[
-                            'absolute left-0 top-1/2',
-                            '-translate-y-1/2',
-                            'w-[3px]',
-                            'rounded-r-full',
-                            'bg-[var(--accent-blue)]',
-                            'transition-all duration-200',
-
-                            active
-                              ? 'h-5 opacity-100'
-                              : 'h-0 opacity-0',
-                          ].join(' ')}
-                        />
 
                         {/* Icon */}
                         <Icon
@@ -329,8 +307,8 @@ export function Sidebar({
                             'transition-colors duration-200',
 
                             active
-                              ? 'text-[var(--accent-blue)]'
-                              : 'text-[var(--text-muted)] group-hover:text-[var(--text-secondary)]',
+                              ? 'text-white'
+                              : 'text-slate-400 group-hover:text-slate-700',
                           ].join(' ')}
                         />
 
@@ -359,12 +337,12 @@ export function Sidebar({
                               '-translate-y-1/2',
                               'z-[100]',
                               'whitespace-nowrap',
-                              'rounded-md',
-                              'border border-[var(--border)]',
-                              'bg-[var(--bg-card)]',
-                              'px-3 py-2',
-                              'text-xs text-[var(--text-primary)]',
-                              'shadow-xl',
+                              'rounded-xl',
+                              'border border-slate-200',
+                              'bg-white',
+                              'px-3 py-1.5',
+                              'text-xs font-semibold text-slate-800',
+                              'shadow-lg',
                               'opacity-0 translate-x-[-4px]',
                               'transition-all duration-150',
                               'group-hover:opacity-100',
@@ -386,11 +364,11 @@ export function Sidebar({
 
         {/* Footer Status */}
         {!collapsed && (
-          <div className="shrink-0 border-t border-[var(--border)] px-4 py-3">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[var(--accent-purple)]" />
-              <span className="text-[11px] font-medium text-[var(--accent-purple)] uppercase tracking-wider">
-                Offline · Synthetic Data
+          <div className="shrink-0 border-t border-slate-100 p-4">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-2xl bg-slate-50 border border-slate-100">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                Offline · CPU Mode
               </span>
             </div>
           </div>

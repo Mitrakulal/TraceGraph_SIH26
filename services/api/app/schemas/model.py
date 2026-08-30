@@ -1,5 +1,6 @@
 """Schemas for the Model & Run Evidence endpoint."""
 
+from typing import Any
 from pydantic import BaseModel
 
 
@@ -45,6 +46,8 @@ class ScorePayload(BaseModel):
     risk_score: int
     risk_threshold: int
     is_alert: bool
+    rule_hits: list[str] = []
+    evidence: list[dict[str, Any]] = []
     data_classification: str = "SYNTHETIC_ONLY"
     limitation: str
 

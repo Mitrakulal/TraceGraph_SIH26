@@ -20,7 +20,7 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
-from xgboost import XGBClassifier
+from xgboost import XGBClassifier, DMatrix
 
 from app.core.config import RUN_ID, RUN_DIR
 
@@ -136,6 +136,48 @@ class ScoringService:
             for i, col in enumerate(self.feature_columns)
         }
 
+        # Compute Rule Hits
+        rule_hits = []
+        fan_out_ratio = float(x[0][self.feature_columns.index("fan_out_ratio")])
+        wallet_out_count = float(x[0][self.feature_columns.index("wallet_out_count")])
+        ip_rotation_rate = float(x[0][self.feature_columns.index("ip_rotation_rate")])
+        wallet_unique_ips = float(x[0][self.feature_columns.index("wallet_unique_ips")])
+        inter_event_seconds = float(x[0][self.feature_columns.index("inter_event_seconds")])
+        
+        if fan_out_ratio >= 0.75 and wallet_out_count >= 12:
+            rule_hits.append("BR-02")
+        if ip_rotation_rate >= 0.50 and wallet_unique_ips >= 8:
+            rule_hits.append("BR-04")
+        if inter_event_seconds <= 180 and graph_raw >= 8:
+            rule_hits.append("BR-05")
+
+        # Compute TreeSHAP Evidence
+        feature_df = pd.DataFrame([x[0]], columns=self.feature_columns)
+        shap_values = self.classifier.get_booster().predict(
+            DMatrix(feature_df, feature_names=list(self.feature_columns)),
+            pred_contribs=True,
+        )[:, :-1]
+
+        values = np.asarray(shap_values[0])
+        top_indices = np.argsort(np.abs(values))[::-1][:5]
+        
+        evidence = []
+        for idx in top_indices:
+            feature = self.feature_columns[int(idx)]
+            contribution = float(values[int(idx)])
+            evidence.append({
+                "evidence_id": f"ev_live_{event_id}_{feature}",
+                "alert_id": f"alt_live_{event_id}",
+                "feature": feature,
+                "feature_value": round(float(x[0][int(idx)]), 6),
+                "shap_value": round(contribution, 6),
+                "direction": "INCREASED_RISK" if contribution >= 0 else "DECREASED_RISK",
+                "message": (
+                    f"Synthetic feature {feature} "
+                    f"{'increased' if contribution >= 0 else 'decreased'} the model risk score."
+                ),
+            })
+
         return {
             "event_id": event_id,
             "model_run_id": RUN_ID,
@@ -148,6 +190,8 @@ class ScoringService:
             "risk_score": risk_score,
             "risk_threshold": 65,
             "is_alert": risk_score >= 65,
+            "rule_hits": rule_hits,
+            "evidence": evidence,
             "data_classification": "SYNTHETIC_ONLY",
             "limitation": (
                 "Live model inference on synthetic data only. Scores are synthetic review "

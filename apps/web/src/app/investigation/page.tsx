@@ -37,18 +37,16 @@ export default function InvestigationQueuePage() {
   return (
     <div className="w-full space-y-6 pb-8">
       {/* HEADER */}
-      <section className="flex flex-col gap-1 border-b border-[var(--border)] pb-5">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-white">Investigation Queue</h1>
-            <p className="text-sm text-[var(--text-secondary)]">
-              Active synthetic cases requiring analyst review and decision making
-            </p>
-          </div>
-          <span className="font-mono text-xs text-[var(--accent-purple)] bg-purple-950/40 border border-purple-800/40 px-3 py-1.5 rounded-md">
-            {isBackendConnected ? 'LIVE BACKEND QUEUE' : 'HUMAN IN THE LOOP'}
-          </span>
+      <section className="flex flex-col gap-4 border-b border-slate-200/80 pb-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Investigation Queue</h1>
+          <p className="text-sm text-slate-500 mt-1">
+            Active synthetic cases requiring analyst review and decision making
+          </p>
         </div>
+        <span className="font-mono text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full">
+          {isBackendConnected ? 'LIVE BACKEND QUEUE' : 'HUMAN IN THE LOOP'}
+        </span>
       </section>
 
       {/* CASES CARDS GRID */}
@@ -58,11 +56,11 @@ export default function InvestigationQueuePage() {
           return (
             <div
               key={alert.alert_id}
-              className="card p-5 flex flex-col justify-between space-y-4 hover:border-[var(--accent-blue)] transition-colors"
+              className="card p-5 flex flex-col justify-between space-y-4 hover:border-blue-300 transition-colors shadow-sm"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[var(--text-muted)]">#{alert.queue_rank}</span>
+                  <span className="font-mono text-xs text-slate-400 font-bold">#{alert.queue_rank}</span>
                   <div className="flex items-center gap-1.5">
                     <span className={getReviewStateClass(alert.review_state)}>{alert.review_state}</span>
                     <span
@@ -80,29 +78,29 @@ export default function InvestigationQueuePage() {
                 </div>
 
                 <div>
-                  <h3 className="font-mono text-sm font-bold text-white tracking-tight">
+                  <h3 className="font-mono text-sm font-bold text-blue-600 tracking-tight">
                     {alert.source_wallet}
                   </h3>
-                  <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2">
+                  <p className="text-xs text-slate-500 mt-1 line-clamp-2">
                     {alert.description}
                   </p>
                 </div>
 
-                <div className="rounded border border-[var(--border-subtle)] bg-[var(--bg-card-elevated)] p-2.5 text-xs space-y-1">
-                  <div className="text-[11px] text-[var(--text-muted)]">Model Signal:</div>
-                  <div className="font-mono text-white text-[11px]">{alert.model_signal}</div>
+                <div className="rounded-2xl border border-slate-100 bg-slate-50 p-2.5 text-xs space-y-1">
+                  <div className="text-[11px] text-slate-400 font-bold">Model Signal:</div>
+                  <div className="font-mono text-slate-900 text-[11px] font-medium">{alert.model_signal}</div>
                 </div>
               </div>
 
-              <div className="border-t border-[var(--border)] pt-3 flex items-center justify-between">
+              <div className="border-t border-slate-100 pt-3 flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] text-[var(--text-muted)]">Risk Score</div>
-                  <div className="font-mono text-lg font-bold text-white">{alert.risk_score}</div>
+                  <div className="text-[10px] text-slate-400 font-bold uppercase">Risk Score</div>
+                  <div className="font-mono text-lg font-extrabold text-slate-900">{alert.risk_score}</div>
                 </div>
 
                 <Link
                   href={`/investigation/${alert.alert_id}`}
-                  className="btn btn-primary text-xs py-1.5 px-3"
+                  className="btn btn-primary text-xs py-1.5 px-3 font-bold"
                 >
                   Investigate Case <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
