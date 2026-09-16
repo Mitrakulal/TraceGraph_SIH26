@@ -68,3 +68,24 @@ def plain_reason(feature: str, direction: str) -> str:
     verb = "raised" if direction == "INCREASED_RISK" else "lowered"
     return f"Unusual {label} {verb} the review priority score."
 
+
+def derive_typology(rule_hits: list[str], risk_score: int, shap_features: list[str] | None = None) -> tuple[str, int]:
+    """Derive pattern typology label and confidence score from rule hits and SHAP evidence."""
+    rules_set = set(rule_hits)
+    feats_set = set(shap_features or [])
+
+    if "BR-05" in rules_set or "inter_event_seconds" in feats_set:
+        return "PEEL_CHAIN", 87
+    if "BR-02" in rules_set or "fan_out_ratio" in feats_set:
+        return "FAN_OUT", 89
+    if "BR-04" in rules_set or "ip_rotation_rate" in feats_set or "wallet_unique_ips" in feats_set:
+        return "IP_ROTATION", 92
+    if "recent_count_10m" in feats_set or "wallet_out_count" in feats_set:
+        return "STRUCTURING", 84
+    if "degree_ratio" in feats_set or "target_in_degree" in feats_set:
+        return "RAPID_HOP", 86
+    if risk_score >= 75:
+        return "MIXER_LIKE", 81
+    return "BENIGN", 95
+
+

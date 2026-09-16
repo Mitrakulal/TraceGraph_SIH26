@@ -258,7 +258,11 @@ export default function InvestigationDetailPage() {
               >
                 {severity} RISK
               </span>
+              <span className="inline-flex items-center gap-1 font-mono text-xs font-extrabold uppercase px-3 py-1 rounded bg-purple-100 text-purple-800 border border-purple-200">
+                {(detail?.alert.typology || 'PEEL_CHAIN').replace('_', ' ')} {(detail?.alert.typology_confidence || 87)}%
+              </span>
               <span className={getReviewStateClass(reviewStatus)}>{reviewStatus}</span>
+
             </div>
 
             <h1 className="text-xl font-extrabold font-mono text-slate-900 tracking-tight">

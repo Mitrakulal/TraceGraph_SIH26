@@ -85,6 +85,8 @@ export interface ApiAlertListItem {
   priority_band: 'REVIEW_PRIORITY' | 'LOW_PRIORITY';
   review_state: 'UNREVIEWED' | 'REVIEWED' | 'DISMISSED' | 'ESCALATED';
   top_reason: string;
+  typology?: string;
+  typology_confidence?: number;
   synthetic_notice: string;
 }
 
@@ -125,6 +127,8 @@ export interface ApiAlertDetailPayload {
     baseline_score: number;
     priority_band: 'REVIEW_PRIORITY' | 'LOW_PRIORITY';
     review_state: 'UNREVIEWED' | 'REVIEWED' | 'DISMISSED' | 'ESCALATED';
+    typology?: string;
+    typology_confidence?: number;
     synthetic_notice: string;
   };
   rule_hits: string[];
@@ -132,6 +136,46 @@ export interface ApiAlertDetailPayload {
   linked_entity_ids: string[];
   review_history: ReviewRecord[];
 }
+
+export interface IngestUploadResponse {
+  rows_ingested: number;
+  links_built: number;
+  entities_clustered: number;
+  priority_cases: number;
+  data_classification: string;
+  elapsed_sec: number;
+  message: string;
+}
+
+export interface ApiEntityClusterItem {
+  entity_id: string;
+  root_wallet: string;
+  wallet_count: number;
+  transaction_count: number;
+  risk_score: number;
+  status: 'Flagged' | 'Monitored' | 'Normal';
+  wallets: string[];
+}
+
+export interface ApiEntityListPayload {
+  items: ApiEntityClusterItem[];
+  page: number;
+  page_size: number;
+  total: number;
+}
+
+export interface ApiEntityDetailPayload {
+  entity_id: string;
+  root_wallet: string;
+  wallet_count: number;
+  transaction_count: number;
+  risk_score: number;
+  status: 'Flagged' | 'Monitored' | 'Normal';
+  wallets: string[];
+  counterparties: number;
+  synthetic_notice: string;
+}
+
 
 export interface ApiGraphNode {
   id: string;
@@ -302,5 +346,35 @@ export const api = {
 
   getStreamEvents: (limit = 1000) =>
     fetchAPI<StreamPayload>(`/stream/events?limit=${limit}`),
+
+  getEntities: (params?: { page?: number; page_size?: number; min_risk?: number; search?: string }) => {
+    const searchParams = new URLSearchParams();
+    if (params?.page) searchParams.set('page', String(params.page));
+    if (params?.page_size) searchParams.set('page_size', String(params.page_size));
+    if (params?.min_risk !== undefined) searchParams.set('min_risk', String(params.min_risk));
+    if (params?.search) searchParams.set('search', params.search);
+    const query = searchParams.toString();
+    return fetchAPI<ApiEntityListPayload>(`/entities${query ? `?${query}` : ''}`);
+  },
+
+  getEntityDetail: (entityId: string) => fetchAPI<ApiEntityDetailPayload>(`/entities/${entityId}`),
+
+  uploadDataset: async (file: File): Promise<IngestUploadResponse | null> => {
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      const res = await fetch(`${API_BASE}/ingest/upload`, {
+        method: 'POST',
+        body: formData,
+      });
+      if (!res.ok) return null;
+      const json = await res.json();
+      return (json.data ?? json) as IngestUploadResponse;
+    } catch (err) {
+      console.warn('[API] File upload failed:', err);
+      return null;
+    }
+  },
 };
+
 

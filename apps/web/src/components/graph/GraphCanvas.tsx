@@ -28,7 +28,9 @@ import {
   Radio,
   Maximize,
   Minimize,
+  Building2,
 } from 'lucide-react';
+
 
 import {
   SuspiciousNodeCard,
@@ -292,7 +294,9 @@ function FlowCanvas({ graph }: GraphCanvasProps) {
   const { fitView, zoomIn, zoomOut, getZoom } = useReactFlow();
 
   const [layoutMode, setLayoutMode] = useState<'dagre' | 'radial'>('dagre');
+  const [viewMode, setViewMode] = useState<'wallets' | 'entities'>('wallets');
   const [zoomPercent, setZoomPercent] = useState(100);
+
   const [selection, setSelection] = useState<InspectorSelection>(null);
   const [highlightedIds, setHighlightedIds] = useState<string[]>([]);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -439,6 +443,20 @@ function FlowCanvas({ graph }: GraphCanvasProps) {
         <div className="flex items-center gap-1.5 rounded-2xl border border-slate-200/90 bg-white p-1.5 shadow-sm shrink-0">
           <button
             type="button"
+            onClick={() => setViewMode((prev) => (prev === 'wallets' ? 'entities' : 'wallets'))}
+            className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-colors ${
+              viewMode === 'entities'
+                ? 'bg-purple-900 text-white shadow-sm'
+                : 'bg-purple-50 text-purple-700 hover:bg-purple-100'
+            }`}
+            title="Toggle Raw Wallets vs Clustered Entity Supernodes"
+          >
+            <Building2 className="h-3.5 w-3.5" />
+            <span>{viewMode === 'entities' ? 'Entity Supernodes' : 'Raw Wallets'}</span>
+          </button>
+
+          <button
+            type="button"
             onClick={toggleLayout}
             className="flex items-center gap-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 px-3 py-1.5 text-xs font-bold text-slate-800 transition-colors"
             title="Toggle Dagre Tree vs Radial Layout"
@@ -448,6 +466,7 @@ function FlowCanvas({ graph }: GraphCanvasProps) {
           </button>
 
           <div className="h-4 w-px bg-slate-200 mx-1" />
+
 
           <button
             type="button"

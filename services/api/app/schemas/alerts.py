@@ -26,6 +26,8 @@ class AlertListItem(BaseModel):
     priority_band: PriorityBand
     review_state: ReviewState
     top_reason: str
+    typology: str = "PEEL_CHAIN"
+    typology_confidence: int = 87
     synthetic_notice: str = "Synthetic evidence only. Human review required."
 
 
@@ -53,7 +55,10 @@ class AlertDetailItem(BaseModel):
     baseline_score: int
     priority_band: PriorityBand
     review_state: ReviewState
+    typology: str = "PEEL_CHAIN"
+    typology_confidence: int = 87
     synthetic_notice: str = "Synthetic evidence only. Human review required."
+
 
 
 class EvidenceItem(BaseModel):

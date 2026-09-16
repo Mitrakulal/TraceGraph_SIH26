@@ -21,6 +21,9 @@ class ArtifactStore:
         self.event_wallet_map: dict[str, tuple[str, str]] = {}  # event_id -> (input_wallet, output_wallet)
         self.wallet_adjacency: dict[str, list[dict[str, Any]]] = defaultdict(list)
         self.wallet_risk_map: dict[str, int] = {}
+        self.wallet_to_entity_map: dict[str, str] = {}
+        self.entities_by_id: dict[str, dict[str, Any]] = {}
+        self.entities_list: list[dict[str, Any]] = []
         self.model_card: dict[str, Any] = {}
         self.metrics_test: dict[str, Any] = {}
 
@@ -39,6 +42,9 @@ class ArtifactStore:
         self.event_wallet_map.clear()
         self.wallet_adjacency.clear()
         self.wallet_risk_map.clear()
+        self.wallet_to_entity_map.clear()
+        self.entities_by_id.clear()
+        self.entities_list.clear()
         self.model_card.clear()
         self.metrics_test.clear()
 
@@ -108,7 +114,40 @@ class ArtifactStore:
             if entity_id:
                 self.wallet_risk_map[entity_id] = max(self.wallet_risk_map.get(entity_id, 0), risk)
 
+        # Perform entity address clustering using Union-Find engine
+        cluster_events = [
+            {"event_id": eid, "input_wallet": src, "output_wallet": tgt}
+            for eid, (src, tgt) in self.event_wallet_map.items()
+        ]
+        try:
+            from tracegraph.cluster import EntityClusterer
+            clusterer = EntityClusterer()
+            raw_clusters = clusterer.fit_events(cluster_events)
+
+            self.wallet_to_entity_map = clusterer.wallet_to_entity
+            self.entities_by_id = raw_clusters
+
+            for ent_id, ent_info in raw_clusters.items():
+                wallets = ent_info["wallets"]
+                max_risk = max((self.wallet_risk_map.get(w, 0) for w in wallets), default=0)
+                tx_count = sum(len(self.wallet_adjacency.get(w, [])) for w in wallets) // 2
+                ent_record = {
+                    "entity_id": ent_id,
+                    "root_wallet": ent_info["root_wallet"],
+                    "wallet_count": len(wallets),
+                    "wallets": wallets,
+                    "risk_score": max_risk,
+                    "transaction_count": max(1, tx_count),
+                    "status": "Flagged" if max_risk >= 75 else "Monitored" if max_risk >= 50 else "Normal",
+                }
+                self.entities_list.append(ent_record)
+
+            self.entities_list.sort(key=lambda e: (e["risk_score"], e["wallet_count"]), reverse=True)
+        except Exception as err:
+            print(f"[ArtifactStore] Entity clustering skipped/warning: {err}")
+
         self.is_loaded = True
+
 
 
 # Global artifact store singleton

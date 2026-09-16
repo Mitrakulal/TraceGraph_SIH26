@@ -20,6 +20,7 @@ import {
   PlayCircle,
   Moon,
   Sun,
+  Upload,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -40,11 +41,13 @@ const navSections = [
   {
     label: 'Investigation',
     items: [
+      { label: 'Bulk Ingestion', href: '/upload', icon: Upload },
       { label: 'Live Ingest & Inspector', href: '/inspector', icon: Zap },
       { label: 'Transactions', href: '/transactions', icon: ArrowLeftRight },
       { label: 'Entities', href: '/entities', icon: Building2 },
     ],
   },
+
   {
     label: 'System',
     items: [

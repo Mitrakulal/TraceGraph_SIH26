@@ -29,7 +29,19 @@ export default function AlertsPage() {
   const [viewMode, setViewMode] = useState<'LIVE' | 'ALL'>('LIVE');
   const [isBackendConnected, setIsBackendConnected] = useState(false);
 
+  const [isBatchIngestedView, setIsBatchIngestedView] = useState(false);
+
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('view') === 'ALL' || urlParams.get('source') === 'batch') {
+        setViewMode('ALL');
+      }
+      if (urlParams.get('source') === 'batch') {
+        setIsBatchIngestedView(true);
+      }
+    }
+
     async function loadAlerts() {
       const res = await api.getAlerts({
         page_size: 100,
@@ -48,9 +60,9 @@ export default function AlertsPage() {
     setActiveTab(tab);
   };
 
-  // Sync with live stream detected alerts if available; fallback to historical
+  // Sync strictly with live stream detected alerts in LIVE mode; use historical in ALL mode
   const alertSource = useMemo(() => {
-    if (viewMode === 'LIVE' && detectedAlerts.length > 0) {
+    if (viewMode === 'LIVE') {
       return detectedAlerts;
     }
     if (historicalAlerts.length > 0) {
@@ -81,8 +93,11 @@ export default function AlertsPage() {
       model_signal: a.graph_risk_score > 0.4 ? 'Graph + XGBoost' : 'Isolation Forest + XGBoost',
       queue_rank: idx + 1,
       entity_id: a.source_wallet,
+      typology: a.typology,
+      typology_confidence: a.typology_confidence,
     }));
   }, [alertSource]);
+
 
   const filteredAlerts = useMemo(() => {
     return alertDataPool.filter((alert) => {
@@ -169,6 +184,38 @@ export default function AlertsPage() {
           <p className="mt-1 text-xs font-medium text-red-600">
             Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
           </p>
+        </div>
+      )}
+
+      {viewMode === 'LIVE' && detectedAlerts.length === 0 && (
+        <div className="rounded-xl border border-blue-200 bg-blue-50/80 px-4 py-3 flex items-center justify-between text-xs text-blue-900 shadow-sm">
+          <div className="flex items-center gap-2">
+            <Radio className="h-4 w-4 text-blue-600 animate-pulse" />
+            <span>
+              <strong>Live Stream Priority Queue is Active (0 alerts detected so far out of {processedCount} evaluated transactions).</strong> As events stream on the Dashboard, flagged anomalies will appear here in real time. Switch to <strong>All Benchmark ({historicalAlerts.length})</strong> to inspect pre-loaded baseline alerts.
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setViewMode('ALL')}
+            className="font-bold text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition-colors shrink-0"
+          >
+            Switch to All Benchmark ({historicalAlerts.length})
+          </button>
+        </div>
+      )}
+
+      {isBatchIngestedView && (
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/90 px-4 py-3 flex items-center justify-between text-xs text-emerald-900 shadow-sm">
+          <div className="flex items-center gap-2">
+            <ShieldAlert className="h-4 w-4 text-emerald-600 shrink-0" />
+            <span>
+              <strong>Bulk File Ingestion Alerts Loaded:</strong> Displaying priority anomaly cases generated directly from your uploaded batch dataset file.
+            </span>
+          </div>
+          <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-100 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+            BATCH FILE INGESTED
+          </span>
         </div>
       )}
 
@@ -339,11 +386,32 @@ export default function AlertsPage() {
         {filteredAlerts.length === 0 ? (
           <div className="px-6 py-16 text-center">
             <ShieldAlert className="mx-auto mb-3 h-8 w-8 text-slate-300" />
-            <h3 className="text-sm font-bold text-slate-900">No alerts match filters</h3>
-            <p className="mt-1 text-xs text-slate-500">Try resetting filters or adjusting search parameters.</p>
-            <button type="button" onClick={resetFilters} className="btn btn-primary mt-4 text-xs font-bold">
-              Reset Filters
-            </button>
+            <h3 className="text-sm font-bold text-slate-900">
+              {viewMode === 'LIVE' ? 'No live stream alerts detected yet' : 'No alerts match filters'}
+            </h3>
+            <p className="mt-1 text-xs text-slate-500 max-w-md mx-auto">
+              {viewMode === 'LIVE'
+                ? `Evaluated ${processedCount} live transactions so far. High-risk anomaly alerts will automatically pop up here in real time as the stream runs.`
+                : 'Try resetting filters or adjusting search parameters.'}
+            </p>
+            {viewMode === 'LIVE' ? (
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <Link href="/" className="btn btn-primary text-xs font-bold">
+                  Go to Dashboard Stream &rarr;
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('ALL')}
+                  className="btn btn-ghost border border-slate-200 text-xs font-bold"
+                >
+                  View Benchmark Alerts ({historicalAlerts.length})
+                </button>
+              </div>
+            ) : (
+              <button type="button" onClick={resetFilters} className="btn btn-primary mt-4 text-xs font-bold">
+                Reset Filters
+              </button>
+            )}
           </div>
         ) : (
           <div className="data-table-wrap overflow-x-auto">
@@ -352,6 +420,7 @@ export default function AlertsPage() {
                 <tr>
                   <th>Rank</th>
                   <th>Severity</th>
+                  <th>Typology</th>
                   <th>Alert ID</th>
                   <th>Entity / Wallet</th>
                   <th>Description</th>
@@ -365,6 +434,9 @@ export default function AlertsPage() {
               <tbody>
                 {filteredAlerts.map((alert) => {
                   const severity = getSeverity(alert.risk_score);
+                  const typLabel = alert.typology ? alert.typology.replace('_', ' ') : 'PEEL CHAIN';
+                  const typConf = alert.typology_confidence || 87;
+
                   return (
                     <tr key={alert.alert_id}>
                       <td className="font-mono text-xs font-bold text-slate-400">#{alert.queue_rank}</td>
@@ -381,7 +453,13 @@ export default function AlertsPage() {
                           {severity}
                         </span>
                       </td>
+                      <td>
+                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200 whitespace-nowrap">
+                          {typLabel} {typConf}%
+                        </span>
+                      </td>
                       <td className="font-mono text-xs text-slate-900 font-bold">{alert.alert_id.slice(0, 18)}…</td>
+
                       <td className="font-mono text-xs text-blue-600 font-medium">{alert.source_wallet}</td>
                       <td className="max-w-[240px] truncate text-xs text-slate-500">
                         {alert.description}

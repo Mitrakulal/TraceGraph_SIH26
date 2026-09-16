@@ -1,6 +1,6 @@
 """Service layer for Alert List and Alert Detail queries."""
 
-from app.core.config import RULE_CODE_MAP, plain_reason
+from app.core.config import RULE_CODE_MAP, derive_typology, plain_reason
 from app.core.errors import APIException
 from app.schemas.alerts import (
     AlertDetailItem,
@@ -13,6 +13,7 @@ from app.schemas.alerts import (
     SortOption,
 )
 from app.storage.artifact_store import store
+
 
 
 
@@ -81,6 +82,10 @@ class AlertService:
                 "REVIEW_PRIORITY" if risk_score >= 65 else "LOW_PRIORITY"
             )
             review_st: ReviewState = "UNREVIEWED"
+            raw_rules = raw.get("rule_hits", [])
+            shap_feats = [e.get("feature", "") for e in ev_list if e.get("feature")]
+            typ_name, typ_conf = derive_typology(raw_rules, risk_score, shap_feats)
+
 
             item = AlertListItem(
                 alert_id=aid,
@@ -96,6 +101,8 @@ class AlertService:
                 priority_band=priority_band,
                 review_state=review_st,
                 top_reason=top_reason,
+                typology=typ_name,
+                typology_confidence=typ_conf,
                 synthetic_notice="Synthetic evidence only. Human review required.",
             )
             items.append(item)
@@ -130,6 +137,11 @@ class AlertService:
         )
         review_st: ReviewState = "UNREVIEWED"
 
+        raw_rules = raw.get("rule_hits", [])
+        raw_evidences = store.evidence_by_alert_id.get(alert_id, [])
+        shap_feats = [e.get("feature", "") for e in raw_evidences if e.get("feature")]
+        typ_name, typ_conf = derive_typology(raw_rules, risk_score, shap_feats)
+
         alert_sub = AlertDetailItem(
             alert_id=alert_id,
             event_id=eid,
@@ -143,8 +155,11 @@ class AlertService:
             baseline_score=raw.get("baseline_score", 0),
             priority_band=priority_band,
             review_state=review_st,
+            typology=typ_name,
+            typology_confidence=typ_conf,
             synthetic_notice="Synthetic evidence only. Human review required.",
         )
+
 
         # Map rule hits
         raw_rules = raw.get("rule_hits", [])

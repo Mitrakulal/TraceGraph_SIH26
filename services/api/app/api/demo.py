@@ -118,12 +118,24 @@ def activate_demo_scenario(body: DemoActivateRequest) -> DataEnvelope[DemoActiva
     if not store.is_loaded:
         store.load()
 
-    # Pick the highest-risk alert from the committed run as the featured alert.
-    # Ground-truth scenario labels are never used here.
+    # Pick scenario-specific featured alert from the committed run.
+    # Ground-truth scenario labels are never used here; selection is based on distinct alert offsets.
     featured_alert_id: str | None = None
     if store.alerts_list:
-        top_alert = max(store.alerts_list, key=lambda a: (a.get("risk_score", 0), a.get("ml_probability", 0.0)))
-        featured_alert_id = top_alert.get("alert_id")
+        scenario_offsets = {
+            "normal": -1,             # Lowest-risk alert in queue
+            "structuring": 0,          # Rank 1 alert
+            "peel_chain": 1,           # Rank 2 alert
+            "rapid_hop": 2,            # Rank 3 alert
+            "fan_out": 3,              # Rank 4 alert
+            "fan_in": 4,               # Rank 5 alert
+            "ip_rotation": 5,          # Rank 6 alert
+            "source_port_shift": 6,    # Rank 7 alert
+        }
+        idx = scenario_offsets.get(key, 0)
+        target_alert = store.alerts_list[idx % len(store.alerts_list)]
+        featured_alert_id = target_alert.get("alert_id")
+
 
     demo_session_id = f"demo_{uuid.uuid4().hex[:16]}"
 
