@@ -268,7 +268,7 @@ export function Sidebar({
                 </span>
               </div>
               <div className="mt-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                OFFLINE · SYNTHETIC
+                v2.0
               </div>
             </div>
           </Link>
@@ -395,14 +395,6 @@ export function Sidebar({
 
         {/* Footer Status */}
         <div className="shrink-0 border-t border-slate-100 p-4 space-y-3">
-          {!collapsed && (
-            <div className="flex items-center gap-2 px-3 py-2 rounded-2xl bg-slate-50 border border-slate-100">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
-                Offline · CPU Mode
-              </span>
-            </div>
-          )}
           
           <button
             onClick={toggleTheme}

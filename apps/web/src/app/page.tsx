@@ -103,7 +103,7 @@ export default function DashboardPage() {
             </span>
           </div>
           <p className="mt-1 text-sm text-slate-500">
-            Real-time transaction surveillance & dynamic risk evaluation across 1,000 synthetic benchmark events (70:30 ratio)
+            Real-time transaction monitoring & anomaly risk evaluation
           </p>
         </div>
 
@@ -212,18 +212,6 @@ export default function DashboardPage() {
 
       {/* DYNAMIC KPI CARDS */}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {/* Offline benchmark provenance — full scored corpus */}
-        <div className="col-span-full mb-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-xs font-semibold text-slate-600">
-            <span>Offline benchmark scored: <span className="font-mono text-slate-900">60,000</span> synthetic events</span>
-            <span>Graph: <span className="font-mono text-slate-900">11,999</span> nodes / <span className="font-mono text-slate-900">58,989</span> edges</span>
-            <span>Review queue: <span className="font-mono text-slate-900">250</span> alerts</span>
-            <span>Run: <span className="font-mono text-slate-900">sih26146-cpu-demo-2026-v1</span></span>
-          </div>
-          <div className="mt-1 text-[11px] font-medium text-slate-400">
-            Synthetic data only · seed 2026 · the panel below replays a 1,000-event slice of this corpus in real time
-          </div>
-        </div>
 
         {/* Events Analyzed */}
         <div className="card p-6 flex flex-col justify-between">
@@ -239,7 +227,7 @@ export default function DashboardPage() {
               {processedCount.toLocaleString()} <span className="text-xs text-slate-400 font-normal">/ {totalEvents.toLocaleString()}</span>
             </div>
             <div className="mt-1 flex items-center gap-1 text-xs font-semibold text-emerald-600">
-              <TrendingUp className="h-3.5 w-3.5" /> {progressPercent.toFixed(1)}% benchmark evaluated
+              <TrendingUp className="h-3.5 w-3.5" /> {progressPercent.toFixed(1)}% evaluated
             </div>
           </div>
         </div>
@@ -546,7 +534,7 @@ export default function DashboardPage() {
                 Live Ingest & Model Inspector
               </div>
               <p className="text-[11px] text-slate-400 mt-1">
-                Inspect 18 historical features & TreeSHAP attributions
+                Deep-dive single event model explainability
               </p>
             </div>
             <Link

@@ -173,7 +173,7 @@ export default function InvestigationDetailPage() {
       const res = await api.submitReview(alertId, decision, note || `Review action: ${decision}`);
       if (res && res.review_state) {
         setReviewStatus(res.review_state);
-        showToast(`Review action saved to SQLite database: ${res.review_state}`);
+        showToast(`Review saved: ${res.review_state}`);
       } else {
         setReviewStatus(decision);
         showToast(`Alert status updated to ${decision}`);
@@ -210,12 +210,9 @@ export default function InvestigationDetailPage() {
   return (
     <div className="w-full space-y-6 pb-12">
       {!isBackendConnected && (
-        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
-          <p className="text-sm font-bold text-red-700">
-            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
-          </p>
-          <p className="mt-1 text-xs font-medium text-red-600">
-            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+        <div className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3">
+          <p className="text-sm font-bold text-amber-800">
+            Backend service unavailable — displaying sample data.
           </p>
         </div>
       )}

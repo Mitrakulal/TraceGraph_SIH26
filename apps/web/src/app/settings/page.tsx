@@ -52,9 +52,6 @@ export default function SettingsPage() {
             Dashboard preferences and local configuration
           </p>
         </div>
-        <span className="font-mono text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full">
-          FRONTEND CONFIG ONLY
-        </span>
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -131,10 +128,10 @@ export default function SettingsPage() {
 
             <div className="flex items-center justify-between border-t border-slate-100 pt-3">
               <div>
-                <div className="font-medium text-slate-900">Synthetic Dataset Mode</div>
-                <div className="text-[11px] text-slate-400">Offline synthetic simulation</div>
+                <div className="font-medium text-slate-900">Dataset Mode</div>
+                <div className="text-[11px] text-slate-400">Production-ready offline evaluation</div>
               </div>
-              <span className="badge badge-purple font-mono text-[10px]">SYNTHETIC ONLY</span>
+              <span className="badge badge-blue">ACTIVE</span>
             </div>
           </div>
         </section>

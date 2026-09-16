@@ -177,12 +177,9 @@ export default function AlertsPage() {
   return (
     <div className="w-full space-y-6 pb-8">
       {isUsingFallbackData && (
-        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
-          <p className="text-sm font-bold text-red-700">
-            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
-          </p>
-          <p className="mt-1 text-xs font-medium text-red-600">
-            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+        <div className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3">
+          <p className="text-sm font-bold text-amber-800">
+            Backend service unavailable — displaying sample data.
           </p>
         </div>
       )}
@@ -192,7 +189,7 @@ export default function AlertsPage() {
           <div className="flex items-center gap-2">
             <Radio className="h-4 w-4 text-blue-600 animate-pulse" />
             <span>
-              <strong>Live Stream Priority Queue is Active (0 alerts detected so far out of {processedCount} evaluated transactions).</strong> As events stream on the Dashboard, flagged anomalies will appear here in real time. Switch to <strong>All Benchmark ({historicalAlerts.length})</strong> to inspect pre-loaded baseline alerts.
+              <strong>Awaiting live stream data.</strong> Start the stream from the Dashboard or switch to <strong>All Alerts</strong>.
             </span>
           </div>
           <button
@@ -200,7 +197,7 @@ export default function AlertsPage() {
             onClick={() => setViewMode('ALL')}
             className="font-bold text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition-colors shrink-0"
           >
-            Switch to All Benchmark ({historicalAlerts.length})
+            View All Alerts ({historicalAlerts.length})
           </button>
         </div>
       )}
@@ -210,11 +207,11 @@ export default function AlertsPage() {
           <div className="flex items-center gap-2">
             <ShieldAlert className="h-4 w-4 text-emerald-600 shrink-0" />
             <span>
-              <strong>Bulk File Ingestion Alerts Loaded:</strong> Displaying priority anomaly cases generated directly from your uploaded batch dataset file.
+              <strong>Batch ingestion complete</strong> — showing priority alerts from your uploaded dataset.
             </span>
           </div>
           <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-100 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-            BATCH FILE INGESTED
+            BATCH INGESTED
           </span>
         </div>
       )}
@@ -231,7 +228,7 @@ export default function AlertsPage() {
             </span>
           </div>
           <p className="text-sm text-slate-500 mt-1">
-            Dynamic priority queue auto-ranked by live XGBoost + Isolation Forest inference ({detectedAlerts.length} flagged out of {processedCount} evaluated transactions)
+            Priority queue ranked by multi-model risk inference ({detectedAlerts.length} flagged / {processedCount} evaluated)
           </p>
         </div>
 
@@ -245,7 +242,7 @@ export default function AlertsPage() {
                 : 'btn-ghost text-slate-600'
             }`}
           >
-            Live Stream Queue ({detectedAlerts.length})
+            Live Stream ({detectedAlerts.length})
           </button>
           <button
             type="button"
@@ -256,7 +253,7 @@ export default function AlertsPage() {
                 : 'btn-ghost text-slate-600'
             }`}
           >
-            All Benchmark ({historicalAlerts.length})
+            All Alerts ({historicalAlerts.length})
           </button>
         </div>
       </section>

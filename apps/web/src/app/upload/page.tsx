@@ -66,11 +66,11 @@ export default function BulkUploadPage() {
               Bulk Dataset Ingestion
             </h1>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200">
-              <ShieldCheck className="h-3.5 w-3.5" /> 100% AIR-GAPPED EVALUATION
+              <ShieldCheck className="h-3.5 w-3.5" /> AIR-GAPPED
             </span>
           </div>
           <p className="mt-1 text-sm text-slate-500">
-            Ingest batch transaction data (CSV, JSON, XML) → extract features → score anomalies → cluster entities in bulk.
+            Upload transaction datasets (CSV, JSON, XML) for batch anomaly scoring and entity clustering.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function BulkUploadPage() {
           className="btn btn-ghost text-xs flex items-center gap-1.5 border border-slate-200"
         >
           <Database className="h-3.5 w-3.5 text-purple-600" />
-          Evaluate 60,000 Event Benchmark
+          Load Sample Dataset
         </button>
       </section>
 
@@ -93,10 +93,10 @@ export default function BulkUploadPage() {
 
         <div className="space-y-1">
           <h3 className="text-base font-bold text-slate-900">
-            Upload Transaction Batch Dataset
+            Upload Transaction Batch
           </h3>
           <p className="text-xs text-slate-500 max-w-md mx-auto">
-            Drag & drop your synthetic transaction file or browse from local disk. Formats supported: <code className="font-mono text-slate-700 bg-slate-200/60 px-1 py-0.5 rounded">.csv</code>, <code className="font-mono text-slate-700 bg-slate-200/60 px-1 py-0.5 rounded">.json</code>, <code className="font-mono text-slate-700 bg-slate-200/60 px-1 py-0.5 rounded">.xml</code>
+            Drag & drop your transaction file or browse from local disk. Supported formats: <code className="font-mono text-slate-700 bg-slate-200/60 px-1 py-0.5 rounded">.csv</code>, <code className="font-mono text-slate-700 bg-slate-200/60 px-1 py-0.5 rounded">.json</code>, <code className="font-mono text-slate-700 bg-slate-200/60 px-1 py-0.5 rounded">.xml</code>
           </p>
         </div>
 

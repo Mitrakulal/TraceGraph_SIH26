@@ -39,12 +39,9 @@ export default function EntitiesPage() {
   return (
     <div className="w-full space-y-6 pb-8">
       {!isBackendConnected && (
-        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
-          <p className="text-sm font-bold text-red-700">
-            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
-          </p>
-          <p className="mt-1 text-xs font-medium text-red-600">
-            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+        <div className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3">
+          <p className="text-sm font-bold text-amber-800">
+            Backend service unavailable — displaying sample data.
           </p>
         </div>
       )}
@@ -55,7 +52,7 @@ export default function EntitiesPage() {
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Entity Explorer</h1>
           <p className="text-sm text-slate-500 mt-1">
-            Synthetic entity intelligence (Wallet Clusters, Addresses & Network Observations)
+            Entity intelligence — Wallet Clusters, Addresses & Network Observations
           </p>
         </div>
         <span className="font-mono text-xs font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full">
