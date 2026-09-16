@@ -1,95 +1,95 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Offline Investigator Explanation Endpoint.
+ *
+ * This route performs NO outbound network calls. It composes a deterministic,
+ * template-based natural-language explanation from SHAP evidence and alert
+ * context supplied by the caller. This preserves the system's offline,
+ * air-gapped guarantee.
+ */
+
+const FEATURE_LABELS: Record<string, string> = {
+  amount_log: 'transaction amount',
+  fee_rate: 'fee rate',
+  latency_log: 'network latency',
+  peer_count_hint: 'peer count',
+  src_port_norm: 'source port pattern',
+  inter_event_seconds: 'time gap between transactions',
+  recent_count_10m: 'transaction burst rate (10 min window)',
+  wallet_out_count: 'outgoing transaction count',
+  wallet_unique_destinations: 'number of distinct destination wallets',
+  wallet_unique_ips: 'number of distinct IP addresses used',
+  ip_rotation_rate: 'IP rotation rate',
+  fan_out_ratio: 'fan-out ratio',
+  target_unique_senders: 'number of distinct senders to target',
+  source_out_degree: 'source wallet out-degree',
+  target_in_degree: 'target wallet in-degree',
+  degree_ratio: 'in/out degree ratio',
+  graph_reach_proxy: 'graph reach',
+  script_type_code: 'script type',
+};
+
+const RULE_LABELS: Record<string, string> = {
+  'BR-02': 'fan-out ratio above expected range',
+  'BR-04': 'high IP rotation',
+  'BR-05': 'rapid successive relationship activity',
+};
+
+function describeFeature(key: string): string {
+  return FEATURE_LABELS[key] ?? key;
+}
+
 export async function POST(req: Request) {
   try {
-    const { messages, context } = await req.json();
-    
-    // Construct the LLM system prompt with the context
-    const systemPrompt = `You are an expert Anti-Money Laundering (AML) Compliance AI Investigator Copilot. 
-Your job is to chat with an analyst and help them investigate a specific cryptocurrency alert.
+    const { context } = await req.json();
 
-CRITICAL INSTRUCTIONS FOR YOUR OUTPUT:
-1. Keep answers EXTREMELY short, punchy, and impactful.
-2. DO NOT write long introductory sentences (e.g., "Excellent question..."). Get straight to the point.
-3. Use bullet points heavily for readability.
-4. Keep paragraphs to 1-2 sentences max.
-5. Use markdown bolding to highlight key risk factors or anomalies.
+    const alertId = context?.alertId ?? 'unknown';
+    const wallet = context?.sourceWallet ?? 'unknown';
+    const riskScore = context?.riskScore ?? 'unknown';
+    const evidence = Array.isArray(context?.evidence) ? context.evidence.slice(0, 5) : [];
+    const ruleHits: string[] = Array.isArray(context?.ruleHits) ? context.ruleHits : [];
+    const nodeCount = context?.graphSummary?.nodeCount ?? context?.graphNodes?.length ?? 0;
+    const edgeCount = context?.graphSummary?.edgeCount ?? context?.graphEdges?.length ?? 0;
 
-Here is the live data context for the alert the analyst is currently looking at:
+    const lines: string[] = [];
 
-[ALERT CONTEXT]
-- Alert ID: ${context?.alertId || 'Unknown'}
-- Primary Wallet: ${context?.sourceWallet || 'Unknown'}
-- ML Risk Score: ${context?.riskScore || 'Unknown'}/100
-- Review State: ${context?.reviewState || 'Unknown'}
-- XGBoost Probability: ${context?.mlProbability || 'Unknown'}
-- Graph Reach Proxy: ${context?.graphRiskScore || 'Unknown'}
+    lines.push(`**Alert ${alertId}** — review priority score **${riskScore}/100**.`);
+    lines.push('');
+    lines.push(`**Entity under review:** \`${wallet}\``);
+    lines.push('');
 
-[GRAPH TOPOLOGY CONTEXT]
-The user is viewing a graph with ${context?.graphSummary?.nodeCount || context?.graphNodes?.length || 0} nodes and ${context?.graphSummary?.edgeCount || context?.graphEdges?.length || 0} edges.
-Key Nodes: ${context?.graphNodes ? JSON.stringify(context.graphNodes) : 'None provided'}
-Edges (Relationships): ${context?.graphEdges ? JSON.stringify(context.graphEdges) : 'None provided'}
-
-[SHAP FEATURE EVIDENCE]
-Top Features contributing to the ML Risk Score:
-${context?.evidence ? JSON.stringify(context.evidence.slice(0, 5)) : 'None provided'}
-
-Answer the analyst's questions based ONLY on this context. If they ask to explain the graph, describe the topology (e.g. fragmentation, consolidation, hubs). If they ask why it was flagged, explain the ML Risk score and the top SHAP features.`;
-
-    const apiMessages = [
-      { role: "system", content: systemPrompt },
-      ...(messages || [])
-    ];
-
-    const models = [
-      "mimo-v2.5-free",
-      "ling-3.0-flash-fin-free",
-      "nemotron-3-ultra-free",
-      "nemotron-3.5-lightning-free",
-      "muse-spark-1.2-contributor-free"
-    ];
-
-    let reply = null;
-    let lastError = null;
-
-    for (const model of models) {
-      try {
-        const response = await fetch('https://opencode.ai/zen/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.OPENCODE_API_KEY}`
-          },
-          body: JSON.stringify({
-            model: model,
-            messages: apiMessages
-          })
-        });
-
-        const data = await response.json();
-        
-        if (!response.ok || data.error) {
-          throw new Error(data.error?.message || `API Error: Status ${response.status}`);
-        }
-
-        reply = data.choices?.[0]?.message?.content;
-        if (reply) {
-          console.log(`Successfully generated XAI response using model: ${model}`);
-          break; // Stop trying if successful
-        }
-      } catch (err: any) {
-        console.warn(`Model ${model} failed: ${err.message}. Trying next fallback...`);
-        lastError = err;
-      }
+    if (evidence.length > 0) {
+      lines.push('**Why this was prioritised (top contributing factors):**');
+      evidence.forEach((item: { feature?: string; feature_value?: number; direction?: string }) => {
+        const label = describeFeature(item?.feature ?? '');
+        const direction = item?.direction === 'INCREASED_RISK' ? 'raised' : 'lowered';
+        const value = typeof item?.feature_value === 'number' ? ` (observed value: ${item.feature_value})` : '';
+        lines.push(`- ${label}${value} — ${direction} the priority score`);
+      });
+      lines.push('');
     }
 
-    if (!reply) {
-      throw new Error(`All fallback models failed due to rate limits or errors. Last error: ${lastError?.message || 'Unknown'}`);
+    if (ruleHits.length > 0) {
+      lines.push('**Rule checks triggered:**');
+      ruleHits.forEach((code) => {
+        lines.push(`- \`${code}\` — ${RULE_LABELS[code] ?? 'rule threshold exceeded'}`);
+      });
+      lines.push('');
     }
 
-    return NextResponse.json({ reply });
-  } catch (error: any) {
-    console.error("XAI API Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    if (nodeCount > 0 || edgeCount > 0) {
+      lines.push(`**Graph context:** ${nodeCount} nodes and ${edgeCount} edges in the current view.`);
+      lines.push('');
+    }
+
+    lines.push('---');
+    lines.push('');
+    lines.push('*Synthetic data only. This score indicates review priority, not wrongdoing. Human review is required.*');
+
+    return NextResponse.json({ reply: lines.join('\n') });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

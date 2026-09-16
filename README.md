@@ -16,8 +16,9 @@ TraceGraph AI is an **offline, CPU-only, synthetic-data-only** investigation pro
 ## Canonical Structure
 
 ```text
-apps/web/          # Next.js frontend — planned, not yet scaffolded
-services/api/       # FastAPI backend — planned, not yet implemented
+apps/web/          # Next.js frontend — implemented
+services/api/       # FastAPI backend — implemented
+
 services/ml/        # Existing trained Python model, data, scripts, tests, and artifacts
 packages/contracts/ # Future versioned API schemas
 packages/fixtures/  # Future frontend-safe synthetic mock JSON

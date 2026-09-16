@@ -1,6 +1,6 @@
 """Service layer for Alert List and Alert Detail queries."""
 
-from app.core.config import RULE_CODE_MAP
+from app.core.config import RULE_CODE_MAP, plain_reason
 from app.core.errors import APIException
 from app.schemas.alerts import (
     AlertDetailItem,
@@ -13,6 +13,7 @@ from app.schemas.alerts import (
     SortOption,
 )
 from app.storage.artifact_store import store
+
 
 
 class AlertService:
@@ -154,15 +155,19 @@ class AlertService:
         evidence_items: list[EvidenceItem] = []
         for idx, ev in enumerate(raw_evidences, start=1):
             feature_name = ev.get("feature", "unknown_feature")
+            direction_val = "INCREASED_RISK" if ev.get("direction") == "INCREASED_RISK" or ev.get("shap_value", 0) >= 0 else "DECREASED_RISK"
+            pr = plain_reason(feature_name, direction_val)
             ev_item = EvidenceItem(
                 evidence_id=f"evd_{alert_id}_{feature_name}",
                 feature=feature_name,
                 feature_value=float(ev.get("feature_value", 0.0)),
                 shap_value=float(ev.get("shap_value", 0.0)),
-                direction="INCREASED_RISK" if ev.get("direction") == "INCREASED_RISK" or ev.get("shap_value", 0) >= 0 else "DECREASED_RISK",
+                direction=direction_val,
                 message=ev.get("message", f"Synthetic feature {feature_name} affected risk score."),
+                plain_reason=pr,
             )
             evidence_items.append(ev_item)
+
 
         # Linked entity IDs (unique source wallet, target wallet, entity_id)
         linked_set = {wallets[0], wallets[1]}

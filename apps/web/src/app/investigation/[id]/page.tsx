@@ -87,29 +87,50 @@ export default function InvestigationDetailPage() {
             const scoreRes = await api.scoreEvent(dynamicAlert.event_id);
             res = {
               alert: {
-                ...dynamicAlert,
-                rule_hits: scoreRes.rule_hits || [],
-                reviewer_comment: null,
-                reviewer_id: null,
-                reviewed_at: null
+                alert_id: dynamicAlert.alert_id,
+                event_id: dynamicAlert.event_id,
+                observed_at: dynamicAlert.observed_at,
+                source_wallet: dynamicAlert.source_wallet,
+                target_wallet: dynamicAlert.target_wallet,
+                risk_score: dynamicAlert.risk_score,
+                ml_probability: dynamicAlert.ml_probability,
+                novelty_score: dynamicAlert.novelty_score,
+                graph_risk_score: dynamicAlert.graph_risk_score,
+                baseline_score: 0,
+                priority_band: dynamicAlert.priority_band,
+                review_state: dynamicAlert.review_state,
+                synthetic_notice: dynamicAlert.synthetic_notice || 'Synthetic evidence only.',
               },
-              evidence: scoreRes.evidence || [],
-              graph_summary: { node_count: 5, edge_count: 4, truncated: false }
+              rule_hits: scoreRes?.rule_hits || [],
+              evidence: scoreRes?.evidence || [],
+              linked_entity_ids: [dynamicAlert.source_wallet, dynamicAlert.target_wallet],
+              review_history: [],
             };
           } catch (err) {
             console.warn('Failed to score event live', err);
             res = {
               alert: {
-                ...dynamicAlert,
-                rule_hits: [],
-                reviewer_comment: null,
-                reviewer_id: null,
-                reviewed_at: null
+                alert_id: dynamicAlert.alert_id,
+                event_id: dynamicAlert.event_id,
+                observed_at: dynamicAlert.observed_at,
+                source_wallet: dynamicAlert.source_wallet,
+                target_wallet: dynamicAlert.target_wallet,
+                risk_score: dynamicAlert.risk_score,
+                ml_probability: dynamicAlert.ml_probability,
+                novelty_score: dynamicAlert.novelty_score,
+                graph_risk_score: dynamicAlert.graph_risk_score,
+                baseline_score: 0,
+                priority_band: dynamicAlert.priority_band,
+                review_state: dynamicAlert.review_state,
+                synthetic_notice: dynamicAlert.synthetic_notice || 'Synthetic evidence only.',
               },
+              rule_hits: [],
               evidence: [],
-              graph_summary: { node_count: 5, edge_count: 4, truncated: false }
+              linked_entity_ids: [dynamicAlert.source_wallet, dynamicAlert.target_wallet],
+              review_history: [],
             };
           }
+
         } else {
           // Absolute fallback: fetch top alert from API if totally unknown
           const listRes = await api.getAlerts({ page_size: 1 });
@@ -188,7 +209,19 @@ export default function InvestigationDetailPage() {
 
   return (
     <div className="w-full space-y-6 pb-12">
+      {!isBackendConnected && (
+        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
+          <p className="text-sm font-bold text-red-700">
+            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
+          </p>
+          <p className="mt-1 text-xs font-medium text-red-600">
+            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+          </p>
+        </div>
+      )}
+
       {/* TOAST NOTIFICATION */}
+
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-2xl bg-slate-900 border border-slate-700 px-4 py-3 text-xs font-bold text-white shadow-2xl animate-bounce">
           <Check className="h-4 w-4 text-emerald-400" />
@@ -499,11 +532,13 @@ export default function InvestigationDetailPage() {
             reviewState: reviewStatus,
             mlProbability: activeProbability,
             graphRiskScore: activeGraphRisk,
-            graphSummary: detail?.graph_summary,
+            graphSummary: dynamicGraph?.summary,
             graphNodes: displayGraph?.nodes,
             graphEdges: displayGraph?.edges,
-            evidence: detail?.evidence
+            evidence: detail?.evidence,
+            ruleHits: detail?.rule_hits || [],
           }} 
+
         />
       </section>
     </div>

@@ -1,15 +1,27 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { entities } from '@/data/entities';
 import { getSeverity, getRiskBarClass } from '@/lib/utils';
 import { Search, Building2, ArrowUpRight } from 'lucide-react';
 import { CustomSelect } from '@/components/ui/CustomSelect';
+import { api } from '@/lib/api';
 
 export default function EntitiesPage() {
   const [search, setSearch] = useState('');
   const [typeFilter, setTypeFilter] = useState('ALL');
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  useEffect(() => {
+    async function checkBackend() {
+      const status = await api.getStatus();
+      if (status && status.model_ready) {
+        setIsBackendConnected(true);
+      }
+    }
+    checkBackend();
+  }, []);
 
   const filteredEntities = useMemo(() => {
     return entities.filter((ent) => {
@@ -26,7 +38,19 @@ export default function EntitiesPage() {
 
   return (
     <div className="w-full space-y-6 pb-8">
+      {!isBackendConnected && (
+        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
+          <p className="text-sm font-bold text-red-700">
+            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
+          </p>
+          <p className="mt-1 text-xs font-medium text-red-600">
+            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+          </p>
+        </div>
+      )}
+
       {/* HEADER */}
+
       <section className="flex flex-col gap-4 border-b border-slate-200/80 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Entity Explorer</h1>

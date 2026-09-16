@@ -212,10 +212,24 @@ export default function DashboardPage() {
 
       {/* DYNAMIC KPI CARDS */}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Offline benchmark provenance — full scored corpus */}
+        <div className="col-span-full mb-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-xs font-semibold text-slate-600">
+            <span>Offline benchmark scored: <span className="font-mono text-slate-900">60,000</span> synthetic events</span>
+            <span>Graph: <span className="font-mono text-slate-900">11,999</span> nodes / <span className="font-mono text-slate-900">58,989</span> edges</span>
+            <span>Review queue: <span className="font-mono text-slate-900">250</span> alerts</span>
+            <span>Run: <span className="font-mono text-slate-900">sih26146-cpu-demo-2026-v1</span></span>
+          </div>
+          <div className="mt-1 text-[11px] font-medium text-slate-400">
+            Synthetic data only · seed 2026 · the panel below replays a 1,000-event slice of this corpus in real time
+          </div>
+        </div>
+
         {/* Events Analyzed */}
         <div className="card p-6 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Events Analyzed</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Live Stream Progress</span>
+
             <div className="h-8 w-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
               <Activity className="h-4 w-4" />
             </div>

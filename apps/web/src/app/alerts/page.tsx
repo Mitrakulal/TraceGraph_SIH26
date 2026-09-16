@@ -59,7 +59,11 @@ export default function AlertsPage() {
     return (MOCK_ALERTS as unknown as ApiAlertListItem[]);
   }, [viewMode, detectedAlerts, historicalAlerts]);
 
+  const isUsingFallbackData =
+    !isBackendConnected && detectedAlerts.length === 0 && historicalAlerts.length === 0;
+
   const alertDataPool = useMemo(() => {
+
     return alertSource.map((a, idx) => ({
       alert_id: a.alert_id,
       event_id: a.event_id,
@@ -157,7 +161,19 @@ export default function AlertsPage() {
 
   return (
     <div className="w-full space-y-6 pb-8">
+      {isUsingFallbackData && (
+        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
+          <p className="text-sm font-bold text-red-700">
+            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
+          </p>
+          <p className="mt-1 text-xs font-medium text-red-600">
+            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+          </p>
+        </div>
+      )}
+
       {/* HEADER */}
+
       <section className="flex flex-col gap-4 border-b border-slate-200/80 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="flex items-center gap-2.5">

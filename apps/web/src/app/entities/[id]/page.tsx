@@ -37,7 +37,19 @@ export default function EntityDetailPage() {
 
   return (
     <div className="w-full space-y-6 pb-12">
+      {!isBackendConnected && (
+        <div className="mb-4 rounded-lg border-2 border-red-500 bg-red-50 px-4 py-3">
+          <p className="text-sm font-bold text-red-700">
+            BACKEND NOT CONNECTED — showing placeholder data, not live model output.
+          </p>
+          <p className="mt-1 text-xs font-medium text-red-600">
+            Start the API at http://127.0.0.1:8000 before recording or evaluating. Do not screenshot this state.
+          </p>
+        </div>
+      )}
+
       <div className="flex items-center justify-between">
+
         <Link
           href="/entities"
           className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors"

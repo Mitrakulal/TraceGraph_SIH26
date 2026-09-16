@@ -65,6 +65,8 @@ class EvidenceItem(BaseModel):
     shap_value: float
     direction: DirectionType
     message: str
+    plain_reason: str | None = None
+
 
 
 class ReviewRecord(BaseModel):
